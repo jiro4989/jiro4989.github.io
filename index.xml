@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>次ログ</title>
+    <link>https://jiro4989.github.io/</link>
+    <description>Recent content on 次ログ</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <lastBuildDate>Mon, 16 Apr 2018 23:30:04 +0900</lastBuildDate>
+    
+	<atom:link href="https://jiro4989.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Test01</title>
+      <link>https://jiro4989.github.io/2018/04/16/test01/</link>
+      <pubDate>Mon, 16 Apr 2018 23:30:04 +0900</pubDate>
+      
+      <guid>https://jiro4989.github.io/2018/04/16/test01/</guid>
+      <description>test code is here.</description>
+    </item>
+    
+    <item>
+      <title>Test02</title>
+      <link>https://jiro4989.github.io/2018/04/16/test02/</link>
+      <pubDate>Mon, 16 Apr 2018 23:30:04 +0900</pubDate>
+      
+      <guid>https://jiro4989.github.io/2018/04/16/test02/</guid>
+      <description>test code is here.
+foobar
+foobar</description>
+    </item>
+    
+  </channel>
+</rss>
