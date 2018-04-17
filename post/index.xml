@@ -6,10 +6,28 @@
     <description>Recent content in Posts on 次ログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Mon, 16 Apr 2018 23:30:04 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 18 Apr 2018 05:43:14 +0900</lastBuildDate>
     
 	<atom:link href="https://jiro4989.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Tetete</title>
+      <link>https://jiro4989.github.io/2018/04/18/tetete/</link>
+      <pubDate>Wed, 18 Apr 2018 05:43:14 +0900</pubDate>
+      
+      <guid>https://jiro4989.github.io/2018/04/18/tetete/</guid>
+      <description>testete</description>
+    </item>
+    
+    <item>
+      <title>Test03</title>
+      <link>https://jiro4989.github.io/2018/04/17/test03/</link>
+      <pubDate>Tue, 17 Apr 2018 22:42:30 +0900</pubDate>
+      
+      <guid>https://jiro4989.github.io/2018/04/17/test03/</guid>
+      <description>sample 適当な文言をここに</description>
+    </item>
     
     <item>
       <title>Test01</title>
