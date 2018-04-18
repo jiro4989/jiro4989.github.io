@@ -21,7 +21,7 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
     <meta property="og:title" content="Dockerの開発環境コンテナ" />
-<meta property="og:description" content="はじめに Dockerで開発環境構築しようとした所感を書いています。まだ環境構築自体は完了してい ません。 目的 会社で初めてMacで開発をすること" />
+<meta property="og:description" content="はじめに Dockerで開発環境構築しようとした所感を書いています。まだ環境構築自体は完了してい ません。 作成しているリポジトリはこちら。 目的 会" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jiro4989.github.io/2018/04/19/docker%E3%81%AE%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83%E3%82%B3%E3%83%B3%E3%83%86%E3%83%8A/" />
 
@@ -44,12 +44,12 @@
     
     
 <meta itemprop="name" content="Dockerの開発環境コンテナ">
-<meta itemprop="description" content="はじめに Dockerで開発環境構築しようとした所感を書いています。まだ環境構築自体は完了してい ません。 目的 会社で初めてMacで開発をすること">
+<meta itemprop="description" content="はじめに Dockerで開発環境構築しようとした所感を書いています。まだ環境構築自体は完了してい ません。 作成しているリポジトリはこちら。 目的 会">
 
 
 <meta itemprop="datePublished" content="2018-04-19T05:21:01&#43;09:00" />
 <meta itemprop="dateModified" content="2018-04-19T05:21:01&#43;09:00" />
-<meta itemprop="wordCount" content="1200">
+<meta itemprop="wordCount" content="1286">
 
 
 
@@ -57,7 +57,7 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Dockerの開発環境コンテナ"/>
-<meta name="twitter:description" content="はじめに Dockerで開発環境構築しようとした所感を書いています。まだ環境構築自体は完了してい ません。 目的 会社で初めてMacで開発をすること"/>
+<meta name="twitter:description" content="はじめに Dockerで開発環境構築しようとした所感を書いています。まだ環境構築自体は完了してい ません。 作成しているリポジトリはこちら。 目的 会"/>
 <meta name="twitter:site" content="@jiro_saburomaru"/>
 
     
@@ -279,7 +279,7 @@
             <i class="fa fa-calendar"></i>
             <time datetime="2018-04-19 05:21:01 &#43;0900 JST" itemprop="datePublished">2018-04-19</time>
             &middot;
-            1200
+            1286
             words
             &middot;
             3
@@ -335,6 +335,8 @@
 
 <p>Dockerで開発環境構築しようとした所感を書いています。まだ環境構築自体は完了してい
 ません。</p>
+
+<p>作成しているリポジトリは<a href="https://github.com/jiro4989/docker-workspace">こちら</a>。</p>
 
 <h2 id="目的">目的</h2>
 
@@ -403,6 +405,11 @@ up</code>だとコンテナに入るのも同時に行います。依存関係�
 <p>vim-goの<code>:GoInstallBinaries</code>を実行したときに上記のエラーがでています。.bashrcに
 は$HOME/goと書くようにしているのですが、なぜなのかはまだ調査中です。これを解消す
 ればほぼほぼ構築が完了すると考えています。</p>
+
+<h3 id="追記">追記</h3>
+
+<p>メタキャラクタ云々はdocker-compose.ymlのenvironmentにGOPATHをセットしていたのが
+原因でした&hellip;。無事解決、まだ途中ですが。</p>
 
         </div>
         <footer class="article-footer">
