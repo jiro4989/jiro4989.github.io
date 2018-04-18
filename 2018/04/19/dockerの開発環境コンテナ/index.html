@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja-jp">
 <head>
-    <title>次ログ</title>
+    <title>Dockerの開発環境コンテナ &middot; 次ログ</title>
     <meta name="generator" content="Hugo 0.39-DEV" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -10,10 +10,7 @@
       <meta name="description" content="">
     
     
-      <link href="https://jiro4989.github.io/index.xml" rel="alternate" type="application/rss+xml" title="次ログ" />
-      <link href="https://jiro4989.github.io/index.xml" rel="feed" type="application/rss+xml" title="次ログ" />
-    
-    <link rel="canonical" href="https://jiro4989.github.io/"/>
+    <link rel="canonical" href="https://jiro4989.github.io/2018/04/19/docker%E3%81%AE%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83%E3%82%B3%E3%83%B3%E3%83%86%E3%83%8A/"/>
     <link rel="icon" href="https://jiro4989.github.io/favicon.ico">
     <link rel="apple-touch-icon" href="https://jiro4989.github.io/apple-touch-icon.png"/>
     <link rel="stylesheet" href="https://jiro4989.github.io/css/style.css">
@@ -23,14 +20,17 @@
     
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
-    <meta property="og:title" content="次ログ" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://jiro4989.github.io/" />
+    <meta property="og:title" content="Dockerの開発環境コンテナ" />
+<meta property="og:description" content="はじめに Dockerで開発環境構築しようとした所感を書いています。まだ環境構築自体は完了してい ません。 目的 会社で初めてMacで開発をすること" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jiro4989.github.io/2018/04/19/docker%E3%81%AE%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83%E3%82%B3%E3%83%B3%E3%83%86%E3%83%8A/" />
 
 
 
-<meta property="og:updated_time" content="2018-04-19T05:21:01&#43;09:00"/>
+<meta property="article:published_time" content="2018-04-19T05:21:01&#43;09:00"/>
+
+<meta property="article:modified_time" content="2018-04-19T05:21:01&#43;09:00"/>
+
 
 
 
@@ -43,13 +43,21 @@
 
     
     
-<meta itemprop="name" content="次ログ">
-<meta itemprop="description" content="">
+<meta itemprop="name" content="Dockerの開発環境コンテナ">
+<meta itemprop="description" content="はじめに Dockerで開発環境構築しようとした所感を書いています。まだ環境構築自体は完了してい ません。 目的 会社で初めてMacで開発をすること">
 
+
+<meta itemprop="datePublished" content="2018-04-19T05:21:01&#43;09:00" />
+<meta itemprop="dateModified" content="2018-04-19T05:21:01&#43;09:00" />
+<meta itemprop="wordCount" content="1200">
+
+
+
+<meta itemprop="keywords" content="docker,docker-compose,vim,golang," />
 
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="次ログ"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="Dockerの開発環境コンテナ"/>
+<meta name="twitter:description" content="はじめに Dockerで開発環境構築しようとした所感を書いています。まだ環境構築自体は完了してい ません。 目的 会社で初めてMacで開発をすること"/>
 <meta name="twitter:site" content="@jiro_saburomaru"/>
 
     
@@ -254,12 +262,9 @@
 
     <section id="main">
     
-    
-
-<article class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="page-undefined" class="article article-type-page" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
-        </a>
 
         <header class="article-header">
     <a href="https://jiro4989.github.io/2018/04/19/docker%E3%81%AE%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83%E3%82%B3%E3%83%B3%E3%83%86%E3%83%8A/">
@@ -324,14 +329,81 @@
 </header>
 
         <div class="article-entry" itemprop="articleBody">
-            <p>
-                はじめに Dockerで開発環境構築しようとした所感を書いています。まだ環境構築自体は完了してい ません。 目的 会社で初めてMacで開発をすること
-            </p>
-            <p class="article-more-link">
-                <a href="https://jiro4989.github.io/2018/04/19/docker%E3%81%AE%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83%E3%82%B3%E3%83%B3%E3%83%86%E3%83%8A/">
-                    Read more
-                </a>
-            </p>
+            
+
+<h2 id="はじめに">はじめに</h2>
+
+<p>Dockerで開発環境構築しようとした所感を書いています。まだ環境構築自体は完了してい
+ません。</p>
+
+<h2 id="目的">目的</h2>
+
+<p>会社で初めてMacで開発をすることがありました。それまではWindowsしかまともに触った
+こともなく、自宅のPCもLinuxMintとLinux系。初めてのMacのあのポータビリティとBash
+との親和性の高さ、brewには感動しました。</p>
+
+<p>が、同時に苦戦することもありました。vimの環境移植が不完全だったんです。</p>
+
+<p>WindowsとLinux両用のdotfilesを用意していて、今までは基本的にそれをcloneしてきて
+環境構築スクリプトを叩くだけで完結していたのですが、今回はそれでもうまく行かず。
+やはり周辺ツール周りやvimのバージョン違いなどがまた問題になっていたみたいでした
+。</p>
+
+<p>いろいろ調べたところ、+luaオプション付きのVimがどうしても入れられず。無理なら無
+理でatomなりvisual-studio-codeなり代替手段はいくらでもあるのですが、この環境構築
+にこれから一生付き合っていくのか、と考えると悩ましいもの。</p>
+
+<p>この環境差異を吸収して、いつでも確実に自分のVim環境を整えられるようにしたいと考
+えました。</p>
+
+<h2 id="dockerでvim環境構築">DockerでVim環境構築</h2>
+
+<p>ということで、最近勉強し始めたDockerが使えるのでは、と考えました。</p>
+
+<p>自分のdotfilesをcloneしてきて周辺ツールをインストールするようにしておけば、ほか
+の環境に移行してもそれをcloneしてくるだけで環境が整う。しかもローカル環境を汚さ
+ないので他の人のPCを借りたときにやるのも問題ない。</p>
+
+<p>cloneしてくるリポジトリ内にMakefileも同封して、コンテナの起動はすべてMakefileか
+ら行うようにしました。</p>
+
+<h2 id="makefileでコマンド簡略化">Makefileでコマンド簡略化</h2>
+
+<p>最近個人的に気に入って使ってるやり方の一つにdocker-composeのコマンドをMakefileに
+書いて実行するやりかたも使っています。下記のようなMakefileです。</p>
+
+<pre><code class="language-Makefile">up:
+	docker-compose up -d
+
+stop:
+	docker-compose stop
+
+clean: stop
+	docker-compose rm -f
+
+build: clean
+	docker-compose build
+
+login:
+	docker exec -it workspace zsh --login
+</code></pre>
+
+<p>これで<code>make build up</code>とかやればそれだけでDockerコンテナ構築終了です。<code>make build
+up</code>だとコンテナに入るのも同時に行います。依存関係を管理できるのがほんとに重宝し
+てます。</p>
+
+<p>ちなみにこのブログの記事作成、デプロイもMakefileで行っています。Makefile内のコマ
+ンドで<code>hugo new</code>や<code>git push</code>をいくつか書いています。お手軽です。</p>
+
+<h2 id="goinstallbinariesでエラー">GoInstallBinariesでエラー</h2>
+
+<p>ですが、現状構築に失敗しています。具体的にはGOPATH変数にメタキャラクタの~が入っ
+ている、というエラーです。</p>
+
+<p>vim-goの<code>:GoInstallBinaries</code>を実行したときに上記のエラーがでています。.bashrcに
+は$HOME/goと書くようにしているのですが、なぜなのかはまだ調査中です。これを解消す
+ればほぼほぼ構築が完了すると考えています。</p>
+
         </div>
         <footer class="article-footer">
     <a data-url="https://jiro4989.github.io/2018/04/19/docker%E3%81%AE%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83%E3%82%B3%E3%83%B3%E3%83%86%E3%83%8A/" data-id="9f1cfd6238250234be5155103306229b" class="article-share-link">
@@ -411,133 +483,49 @@
 </footer>
 
     </div>
+
+    
+<nav id="article-nav">
+    
+    <a href="https://jiro4989.github.io/2018/04/18/%E3%81%AF%E3%81%A6%E3%81%AA%E3%83%96%E3%83%AD%E3%82%B0%E3%81%8B%E3%82%89githubpages%E3%81%AB%E7%A7%BB%E8%A1%8C%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">
+          Older
+      </strong>
+      <div class="article-nav-title">はてなブログからGitHubPagesに移行しました</div>
+    </a>
+    
+
+    
+</nav>
+
+
 </article>
 
-<article class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        </a>
 
-        <header class="article-header">
-    <a href="https://jiro4989.github.io/2018/04/18/%E3%81%AF%E3%81%A6%E3%81%AA%E3%83%96%E3%83%AD%E3%82%B0%E3%81%8B%E3%82%89githubpages%E3%81%AB%E7%A7%BB%E8%A1%8C%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/">
-    <h1 class="article-title" itemprop="name">
-        はてなブログからGitHubPagesに移行しました
-    </h1>
-    </a>
-    <div class="article-meta">
-
-        
-        <div class="article-date">
-            <i class="fa fa-calendar"></i>
-            <time datetime="2018-04-18 05:56:24 &#43;0900 JST" itemprop="datePublished">2018-04-18</time>
-            &middot;
-            779
-            words
-            &middot;
-            2
-            minute read
-        </div>
-        
-        
-
-        
-    </div>
-</header>
-
-        <div class="article-entry" itemprop="articleBody">
-            <p>
-                はじめに 以前までプログラムの配布や告知を載せていたはてなブログ からあこがれのGitHubPagesに移行しまし た。後ほどはてなに掲載していた
-            </p>
-            <p class="article-more-link">
-                <a href="https://jiro4989.github.io/2018/04/18/%E3%81%AF%E3%81%A6%E3%81%AA%E3%83%96%E3%83%AD%E3%82%B0%E3%81%8B%E3%82%89githubpages%E3%81%AB%E7%A7%BB%E8%A1%8C%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/">
-                    Read more
-                </a>
-            </p>
-        </div>
-        <footer class="article-footer">
-    <a data-url="https://jiro4989.github.io/2018/04/18/%E3%81%AF%E3%81%A6%E3%81%AA%E3%83%96%E3%83%AD%E3%82%B0%E3%81%8B%E3%82%89githubpages%E3%81%AB%E7%A7%BB%E8%A1%8C%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/" data-id="28b16ec359d1ad00e9344396f05f53ed" class="article-share-link">
-        <i class="fa fa-share"></i>
-        Share
-    </a>
+<section id="comments">
+    <div id="disqus_thread">
+        <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
     
-    <a href="https://jiro4989.github.io/2018/04/18/%E3%81%AF%E3%81%A6%E3%81%AA%E3%83%96%E3%83%AD%E3%82%B0%E3%81%8B%E3%82%89githubpages%E3%81%AB%E7%A7%BB%E8%A1%8C%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/#disqus_thread" class="article-comment-link">
-        Comments
-    </a>
     
-
-    <script>
-    (function ($) {
-        
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
             return;
         }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-    </script>
-</footer>
-
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "https-jiro4989-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
     </div>
-</article>
-
-
-<nav id="page-nav">
-
-</nav>
+</section>
 
 
     </section>

@@ -6,10 +6,19 @@
     <description>Recent content on 次ログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Wed, 18 Apr 2018 05:56:24 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 19 Apr 2018 05:21:01 +0900</lastBuildDate>
     
 	<atom:link href="https://jiro4989.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Dockerの開発環境コンテナ</title>
+      <link>https://jiro4989.github.io/2018/04/19/docker%E3%81%AE%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83%E3%82%B3%E3%83%B3%E3%83%86%E3%83%8A/</link>
+      <pubDate>Thu, 19 Apr 2018 05:21:01 +0900</pubDate>
+      
+      <guid>https://jiro4989.github.io/2018/04/19/docker%E3%81%AE%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83%E3%82%B3%E3%83%B3%E3%83%86%E3%83%8A/</guid>
+      <description>はじめに Dockerで開発環境構築しようとした所感を書いています。まだ環境構築自体は完了してい ません。 目的 会社で初めてMacで開発をすること</description>
+    </item>
     
     <item>
       <title>はてなブログからGitHubPagesに移行しました</title>
