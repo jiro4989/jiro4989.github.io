@@ -6,10 +6,19 @@
     <description>Recent content in Posts on 次ログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Thu, 19 Apr 2018 05:21:01 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 20 Apr 2018 20:44:38 +0900</lastBuildDate>
     
 	<atom:link href="https://jiro4989.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ブックマークレットを他人に配布するコツ</title>
+      <link>https://jiro4989.github.io/2018/04/20/%E3%83%96%E3%83%83%E3%82%AF%E3%83%9E%E3%83%BC%E3%82%AF%E3%83%AC%E3%83%83%E3%83%88%E3%82%92%E4%BB%96%E4%BA%BA%E3%81%AB%E9%85%8D%E5%B8%83%E3%81%99%E3%82%8B%E3%82%B3%E3%83%84/</link>
+      <pubDate>Fri, 20 Apr 2018 20:44:38 +0900</pubDate>
+      
+      <guid>https://jiro4989.github.io/2018/04/20/%E3%83%96%E3%83%83%E3%82%AF%E3%83%9E%E3%83%BC%E3%82%AF%E3%83%AC%E3%83%83%E3%83%88%E3%82%92%E4%BB%96%E4%BA%BA%E3%81%AB%E9%85%8D%E5%B8%83%E3%81%99%E3%82%8B%E3%82%B3%E3%83%84/</guid>
+      <description>はじめに ブックマークレットを他人に配布するときのコツを記載しています。 ブックマークレットとは ブラウザ上のブックマークを実行することで即座にJ</description>
+    </item>
     
     <item>
       <title>Dockerの開発環境コンテナ</title>
