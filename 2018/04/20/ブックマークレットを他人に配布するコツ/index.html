@@ -49,7 +49,7 @@
 
 <meta itemprop="datePublished" content="2018-04-20T20:44:38&#43;09:00" />
 <meta itemprop="dateModified" content="2018-04-20T20:44:38&#43;09:00" />
-<meta itemprop="wordCount" content="2185">
+<meta itemprop="wordCount" content="2196">
 
 
 
@@ -279,7 +279,7 @@
             <i class="fa fa-calendar"></i>
             <time datetime="2018-04-20 20:44:38 &#43;0900 JST" itemprop="datePublished">2018-04-20</time>
             &middot;
-            2185
+            2196
             words
             &middot;
             5
@@ -302,21 +302,21 @@
 <h2 id="ブックマークレットとは">ブックマークレットとは</h2>
 
 <p>ブラウザ上のブックマークを実行することで即座にJavaScriptのコードを実行する方法。
-仕組みは実に単純で、例えばブラウザに下記のコードを入力してEnterします。</p>
+仕組みは実に単純です。例えばブラウザに下記のコードを入力してEnterします。</p>
 
 <pre><code class="language-javascript">javascript:console.log(&quot;foobar&quot;);
 </code></pre>
 
 <p>実行後にF12でコンソールを開くと、foobarとログ出力されていると思います。
-これがブックマークレットの仕組みの基本です。つまり、下記のコメントの箇所に処理を
-書きます。</p>
+これがブックマークレットの基本です。つまり、下記のコメントの箇所に処理を書くだけ
+で出来上がりです。</p>
 
 <pre><code class="language-javascript">javascript:/*ここに処理を書く*/
 </code></pre>
 
-<p>ですが、このまま普通に処理を記述すると変数名が既存のシステムを汚してしまうことで
-、JavaScriptのお作法の無名の即時関数で変数が既存のシステムを汚さないようにします
-。</p>
+<p>ですが、このまま普通に処理を記述すると変数名が既存のシステムを汚してしまいます。
+JavaScriptの無名関数の即時実行を使用することで既存のシステムの値と衝突しないよう
+にしましょう。</p>
 
 <p>上記のコードを下記のように改善します。</p>
 
