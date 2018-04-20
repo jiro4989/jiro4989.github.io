@@ -6,10 +6,19 @@
     <description>Recent content in Tags on 次ログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Thu, 19 Apr 2018 05:21:01 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 20 Apr 2018 20:44:38 +0900</lastBuildDate>
     
 	<atom:link href="https://jiro4989.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Bookmarklet</title>
+      <link>https://jiro4989.github.io/tags/bookmarklet/</link>
+      <pubDate>Fri, 20 Apr 2018 20:44:38 +0900</pubDate>
+      
+      <guid>https://jiro4989.github.io/tags/bookmarklet/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Docker</title>
@@ -35,6 +44,33 @@
       <pubDate>Thu, 19 Apr 2018 05:21:01 +0900</pubDate>
       
       <guid>https://jiro4989.github.io/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Html</title>
+      <link>https://jiro4989.github.io/tags/html/</link>
+      <pubDate>Fri, 20 Apr 2018 20:44:38 +0900</pubDate>
+      
+      <guid>https://jiro4989.github.io/tags/html/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Javascript</title>
+      <link>https://jiro4989.github.io/tags/javascript/</link>
+      <pubDate>Fri, 20 Apr 2018 20:44:38 +0900</pubDate>
+      
+      <guid>https://jiro4989.github.io/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tips</title>
+      <link>https://jiro4989.github.io/tags/tips/</link>
+      <pubDate>Fri, 20 Apr 2018 20:44:38 +0900</pubDate>
+      
+      <guid>https://jiro4989.github.io/tags/tips/</guid>
       <description></description>
     </item>
     

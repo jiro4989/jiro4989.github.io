@@ -18,6 +18,12 @@
   </url>
   
   <url>
+    <loc>https://jiro4989.github.io/tags/bookmarklet/</loc>
+    <lastmod>2018-04-20T20:44:38+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://jiro4989.github.io/categories/</loc>
     <priority>0</priority>
   </url>
@@ -41,6 +47,18 @@
   </url>
   
   <url>
+    <loc>https://jiro4989.github.io/tags/html/</loc>
+    <lastmod>2018-04-20T20:44:38+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jiro4989.github.io/tags/javascript/</loc>
+    <lastmod>2018-04-20T20:44:38+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://jiro4989.github.io/post/</loc>
     <lastmod>2018-04-20T20:44:38+09:00</lastmod>
     <priority>0</priority>
@@ -48,7 +66,13 @@
   
   <url>
     <loc>https://jiro4989.github.io/tags/</loc>
-    <lastmod>2018-04-19T05:21:01+09:00</lastmod>
+    <lastmod>2018-04-20T20:44:38+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jiro4989.github.io/tags/tips/</loc>
+    <lastmod>2018-04-20T20:44:38+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -60,7 +84,7 @@
   
   <url>
     <loc>https://jiro4989.github.io/categories/%E6%8A%80%E8%A1%93/</loc>
-    <lastmod>2018-04-19T05:21:01+09:00</lastmod>
+    <lastmod>2018-04-20T20:44:38+09:00</lastmod>
     <priority>0</priority>
   </url>
   
