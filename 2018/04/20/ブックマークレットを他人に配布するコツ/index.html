@@ -49,7 +49,7 @@
 
 <meta itemprop="datePublished" content="2018-04-20T20:44:38&#43;09:00" />
 <meta itemprop="dateModified" content="2018-04-20T20:44:38&#43;09:00" />
-<meta itemprop="wordCount" content="2232">
+<meta itemprop="wordCount" content="2210">
 
 
 
@@ -279,7 +279,7 @@
             <i class="fa fa-calendar"></i>
             <time datetime="2018-04-20 20:44:38 &#43;0900 JST" itemprop="datePublished">2018-04-20</time>
             &middot;
-            2232
+            2210
             words
             &middot;
             5
@@ -323,16 +323,8 @@ JavaScriptの無名関数の即時実行を使用することで既存のシス�
 <pre><code class="language-javascript">javascript:(function(){/*ここに処理を書く*/})();
 </code></pre>
 
-<p>で、上記のコードをencodeURIConponentしてブックマークのURLに保存すればブックマー
-クレットの完成です。つまり、下記のようにコードを書きます。</p>
-
-<pre><code class="language-javascript">const script = /* ここに任意のコードを書く */ ;
-const bookmarklet = `javascript:(function(){${script}})();`
-const aTag = document.createElement(&quot;a&quot;);
-aTag.href = bookmarklet;
-aTag.innerHTML = &quot;Bookmarklet&quot;;
-document.getElementById(&quot;foobar&quot;).appendChild(aTag);
-</code></pre>
+<p>で、上記のコードを何でもいいのでブックマークを作成してURLの入力欄にコピペしたら
+完成です。</p>
 
 <h2 id="ブックマークレットのコツ">ブックマークレットのコツ</h2>
 
@@ -346,7 +338,7 @@ document.getElementById(&quot;foobar&quot;).appendChild(aTag);
 <h3 id="スクリプトの文字数制限">スクリプトの文字数制限</h3>
 
 <p>スクリプト、というよりブラウザのURLの文字数制限です。Chrome, Firefoxはともに約
-30,000文字以上は使えるようです。IEは2000文字程度だとか。IEは毛頭サポートする気が
+30,000文字程度は使えるようです。IEは2000文字程度だとか。IEは毛頭サポートする気が
 ないので30,000文字が上限と考えます。文字数制限を少しでもケチるためにコメント文は
 書きません。</p>
 
@@ -399,6 +391,8 @@ let e4 = $(&quot;#fuga&quot;);
 
 <p>これらの仕様を満たしたコードを下記に示します。</p>
 
+<p>普通の書き方</p>
+
 <pre><code class="language-javascript">var nameInput = document.getElementById(&quot;nameInput&quot;);
 var workerInput = document.getElementById(&quot;workerInput&quot;);
 var timeInput = document.getElementById(&quot;timeInput&quot;);
@@ -409,12 +403,35 @@ workerInput.value = name;
 timeInput.value = new Date();
 </code></pre>
 
+<p>最適化した書き方</p>
+
 <pre><code class="language-javascript">let $=(s)=&gt;document.querySelector(s);
 let v=$(&quot;#nameInput&quot;).value;
 console.log(v);
 $(&quot;#workerInput&quot;).value=v;
 $(&quot;#timeInput&quot;).value=new Date();
 </code></pre>
+
+<table>
+<thead>
+<tr>
+<th align="left">書き方</th>
+<th align="left">文字数</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">普通の書き方</td>
+<td align="left">262文字</td>
+</tr>
+
+<tr>
+<td align="left">最適化した書き方</td>
+<td align="left">139文字</td>
+</tr>
+</tbody>
+</table>
 
 <p>だいぶコンパクトになりました。あとは改行文字を消してブックマークのURLに書き込ん
 でやれば完成です。</p>
