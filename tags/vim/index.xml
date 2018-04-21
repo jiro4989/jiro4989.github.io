@@ -13,10 +13,10 @@
     
     <item>
       <title>Dockerの開発環境コンテナ</title>
-      <link>https://jiro4989.github.io/2018/04/19/docker%E3%81%AE%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83%E3%82%B3%E3%83%B3%E3%83%86%E3%83%8A/</link>
+      <link>https://jiro4989.github.io/2018/04/19/develop-environment-with-docker/</link>
       <pubDate>Thu, 19 Apr 2018 05:21:01 +0900</pubDate>
       
-      <guid>https://jiro4989.github.io/2018/04/19/docker%E3%81%AE%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83%E3%82%B3%E3%83%B3%E3%83%86%E3%83%8A/</guid>
+      <guid>https://jiro4989.github.io/2018/04/19/develop-environment-with-docker/</guid>
       <description>はじめに Dockerで開発環境構築しようとした所感を書いています。まだ環境構築自体は完了してい ません。 作成しているリポジトリはこちら。 目的 会</description>
     </item>
     

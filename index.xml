@@ -6,35 +6,44 @@
     <description>Recent content on 次ログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Fri, 20 Apr 2018 20:44:38 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 21 Apr 2018 18:20:16 +0900</lastBuildDate>
     
 	<atom:link href="https://jiro4989.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>立ち絵差分画像をツクールMV・VXACE用の顔画像ファイルに一括トリミングするツール</title>
+      <link>https://jiro4989.github.io/2018/04/21/util-tkfm/</link>
+      <pubDate>Sat, 21 Apr 2018 18:20:16 +0900</pubDate>
+      
+      <guid>https://jiro4989.github.io/2018/04/21/util-tkfm/</guid>
+      <description>はじめに この記事では移行前のブログで紹介していた自作のツールを再紹介しています。 紹介するツールは「TKoolFacetileMaker」とい</description>
+    </item>
+    
+    <item>
       <title>ブックマークレットを他人に配布するコツ</title>
-      <link>https://jiro4989.github.io/2018/04/20/%E3%83%96%E3%83%83%E3%82%AF%E3%83%9E%E3%83%BC%E3%82%AF%E3%83%AC%E3%83%83%E3%83%88%E3%82%92%E4%BB%96%E4%BA%BA%E3%81%AB%E9%85%8D%E5%B8%83%E3%81%99%E3%82%8B%E3%82%B3%E3%83%84/</link>
+      <link>https://jiro4989.github.io/2018/04/20/bookmarklet-tips/</link>
       <pubDate>Fri, 20 Apr 2018 20:44:38 +0900</pubDate>
       
-      <guid>https://jiro4989.github.io/2018/04/20/%E3%83%96%E3%83%83%E3%82%AF%E3%83%9E%E3%83%BC%E3%82%AF%E3%83%AC%E3%83%83%E3%83%88%E3%82%92%E4%BB%96%E4%BA%BA%E3%81%AB%E9%85%8D%E5%B8%83%E3%81%99%E3%82%8B%E3%82%B3%E3%83%84/</guid>
+      <guid>https://jiro4989.github.io/2018/04/20/bookmarklet-tips/</guid>
       <description>はじめに ブックマークレットを他人に配布するときのコツを記載しています。 ブックマークレットとは ブラウザ上のブックマークを実行することで即座にJ</description>
     </item>
     
     <item>
       <title>Dockerの開発環境コンテナ</title>
-      <link>https://jiro4989.github.io/2018/04/19/docker%E3%81%AE%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83%E3%82%B3%E3%83%B3%E3%83%86%E3%83%8A/</link>
+      <link>https://jiro4989.github.io/2018/04/19/develop-environment-with-docker/</link>
       <pubDate>Thu, 19 Apr 2018 05:21:01 +0900</pubDate>
       
-      <guid>https://jiro4989.github.io/2018/04/19/docker%E3%81%AE%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83%E3%82%B3%E3%83%B3%E3%83%86%E3%83%8A/</guid>
+      <guid>https://jiro4989.github.io/2018/04/19/develop-environment-with-docker/</guid>
       <description>はじめに Dockerで開発環境構築しようとした所感を書いています。まだ環境構築自体は完了してい ません。 作成しているリポジトリはこちら。 目的 会</description>
     </item>
     
     <item>
       <title>はてなブログからGitHubPagesに移行しました</title>
-      <link>https://jiro4989.github.io/2018/04/18/%E3%81%AF%E3%81%A6%E3%81%AA%E3%83%96%E3%83%AD%E3%82%B0%E3%81%8B%E3%82%89githubpages%E3%81%AB%E7%A7%BB%E8%A1%8C%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/</link>
+      <link>https://jiro4989.github.io/2018/04/18/move-blog/</link>
       <pubDate>Wed, 18 Apr 2018 05:56:24 +0900</pubDate>
       
-      <guid>https://jiro4989.github.io/2018/04/18/%E3%81%AF%E3%81%A6%E3%81%AA%E3%83%96%E3%83%AD%E3%82%B0%E3%81%8B%E3%82%89githubpages%E3%81%AB%E7%A7%BB%E8%A1%8C%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/</guid>
+      <guid>https://jiro4989.github.io/2018/04/18/move-blog/</guid>
       <description>はじめに 以前までプログラムの配布や告知を載せていたはてなブログ からあこがれのGitHubPagesに移行しまし た。後ほどはてなに掲載していた</description>
     </item>
     
