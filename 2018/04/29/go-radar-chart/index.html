@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja-jp">
 <head>
-    <title>技術 &middot; 次ログ</title>
+    <title>Go言語でレーダーチャートを書こうとしてみた &middot; 次ログ</title>
     <meta name="generator" content="Hugo 0.40-DEV" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -10,10 +10,7 @@
       <meta name="description" content="">
     
     
-      <link href="https://jiro4989.github.io/categories/%E6%8A%80%E8%A1%93/index.xml" rel="alternate" type="application/rss+xml" title="次ログ" />
-      <link href="https://jiro4989.github.io/categories/%E6%8A%80%E8%A1%93/index.xml" rel="feed" type="application/rss+xml" title="次ログ" />
-    
-    <link rel="canonical" href="https://jiro4989.github.io/categories/%E6%8A%80%E8%A1%93/"/>
+    <link rel="canonical" href="https://jiro4989.github.io/2018/04/29/go-radar-chart/"/>
     <link rel="icon" href="https://jiro4989.github.io/favicon.ico">
     <link rel="apple-touch-icon" href="https://jiro4989.github.io/apple-touch-icon.png"/>
     <link rel="stylesheet" href="https://jiro4989.github.io/css/style.css">
@@ -23,14 +20,17 @@
     
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
-    <meta property="og:title" content="技術" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://jiro4989.github.io/categories/%E6%8A%80%E8%A1%93/" />
+    <meta property="og:title" content="Go言語でレーダーチャートを書こうとしてみた" />
+<meta property="og:description" content="はじめに この記事ではGo言語でレーダーチャートを書こうとした意図と途中経過を書いています。 レーダーチャートの実装はまだ途中です。画像に枠線を" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jiro4989.github.io/2018/04/29/go-radar-chart/" />
 
 
 
-<meta property="og:updated_time" content="2018-04-29T11:21:20&#43;09:00"/>
+<meta property="article:published_time" content="2018-04-29T11:21:20&#43;09:00"/>
+
+<meta property="article:modified_time" content="2018-04-29T11:21:20&#43;09:00"/>
+
 
 
 
@@ -43,13 +43,21 @@
 
     
     
-<meta itemprop="name" content="技術">
-<meta itemprop="description" content="">
+<meta itemprop="name" content="Go言語でレーダーチャートを書こうとしてみた">
+<meta itemprop="description" content="はじめに この記事ではGo言語でレーダーチャートを書こうとした意図と途中経過を書いています。 レーダーチャートの実装はまだ途中です。画像に枠線を">
 
+
+<meta itemprop="datePublished" content="2018-04-29T11:21:20&#43;09:00" />
+<meta itemprop="dateModified" content="2018-04-29T11:21:20&#43;09:00" />
+<meta itemprop="wordCount" content="758">
+
+
+
+<meta itemprop="keywords" content="チャート,グラフ,集計,golang," />
 
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="技術"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="Go言語でレーダーチャートを書こうとしてみた"/>
+<meta name="twitter:description" content="はじめに この記事ではGo言語でレーダーチャートを書こうとした意図と途中経過を書いています。 レーダーチャートの実装はまだ途中です。画像に枠線を"/>
 <meta name="twitter:site" content="@jiro_saburomaru"/>
 
     
@@ -266,155 +274,292 @@
 
     <section id="main">
     
-    
-    
-    
-    <section class="archives-wrap">
-        <div class="archive-category-wrap">
-            <span class="archive-category">技術</span>
-        </div>
-        <div class="archives">
-            
-            
-                <article class="archive-article archive-type-post">
-    <div class="archive-article-inner">
-        <div class="archive-article-thumbnail">
-            
-            <a href="https://jiro4989.github.io/2018/04/29/go-radar-chart/" class="thumbnail">
-                <span class="thumbnail-image thumbnail-none"></span>
-            </a>
-            
-        </div>
-        <header class="archive-article-header">
-            <h1 itemprop="name">
-            <a class="archive-article-title" href="https://jiro4989.github.io/2018/04/29/go-radar-chart/">Go言語でレーダーチャートを書こうとしてみた</a>
-            </h1>
-            <div class="archive-article-date">
-                <i class="fa fa-calendar"></i>
-                <time datetime="2018-04-29 11:21:20 &#43;0900 JST" itemprop="datePublished">2018-04-29</time>
-            </div>
-        </header>
-    </div>
-</article>
- 
-            
-                <article class="archive-article archive-type-post">
-    <div class="archive-article-inner">
-        <div class="archive-article-thumbnail">
-            
-            <a href="https://jiro4989.github.io/2018/04/22/util-tkcas/" class="thumbnail">
-                <span class="thumbnail-image thumbnail-none"></span>
-            </a>
-            
-        </div>
-        <header class="archive-article-header">
-            <h1 itemprop="name">
-            <a class="archive-article-title" href="https://jiro4989.github.io/2018/04/22/util-tkcas/">ツクールのキャラチップアニメーションの確認用ツール</a>
-            </h1>
-            <div class="archive-article-date">
-                <i class="fa fa-calendar"></i>
-                <time datetime="2018-04-22 11:19:42 &#43;0900 JST" itemprop="datePublished">2018-04-22</time>
-            </div>
-        </header>
-    </div>
-</article>
- 
-            
-                <article class="archive-article archive-type-post">
-    <div class="archive-article-inner">
-        <div class="archive-article-thumbnail">
-            
-            <a href="https://jiro4989.github.io/2018/04/22/util-tkite/" class="thumbnail">
-                <span class="thumbnail-image thumbnail-none"></span>
-            </a>
-            
-        </div>
-        <header class="archive-article-header">
-            <h1 itemprop="name">
-            <a class="archive-article-title" href="https://jiro4989.github.io/2018/04/22/util-tkite/">ツクールMV・VXACE用の顔、アイコンセット画像ファイルの並べ替え、削除、左右反転ツール</a>
-            </h1>
-            <div class="archive-article-date">
-                <i class="fa fa-calendar"></i>
-                <time datetime="2018-04-22 11:04:46 &#43;0900 JST" itemprop="datePublished">2018-04-22</time>
-            </div>
-        </header>
-    </div>
-</article>
- 
-            
-                <article class="archive-article archive-type-post">
-    <div class="archive-article-inner">
-        <div class="archive-article-thumbnail">
-            
-            <a href="https://jiro4989.github.io/2018/04/21/util-tkfm/" class="thumbnail">
-                <span class="thumbnail-image thumbnail-none"></span>
-            </a>
-            
-        </div>
-        <header class="archive-article-header">
-            <h1 itemprop="name">
-            <a class="archive-article-title" href="https://jiro4989.github.io/2018/04/21/util-tkfm/">立ち絵差分画像をツクールMV・VXACE用の顔画像ファイルに一括トリミングするツール</a>
-            </h1>
-            <div class="archive-article-date">
-                <i class="fa fa-calendar"></i>
-                <time datetime="2018-04-21 18:20:16 &#43;0900 JST" itemprop="datePublished">2018-04-21</time>
-            </div>
-        </header>
-    </div>
-</article>
- 
-            
-                <article class="archive-article archive-type-post">
-    <div class="archive-article-inner">
-        <div class="archive-article-thumbnail">
-            
-            <a href="https://jiro4989.github.io/2018/04/20/bookmarklet-tips/" class="thumbnail">
-                <span class="thumbnail-image thumbnail-none"></span>
-            </a>
-            
-        </div>
-        <header class="archive-article-header">
-            <h1 itemprop="name">
-            <a class="archive-article-title" href="https://jiro4989.github.io/2018/04/20/bookmarklet-tips/">ブックマークレットを他人に配布するコツ</a>
-            </h1>
-            <div class="archive-article-date">
-                <i class="fa fa-calendar"></i>
-                <time datetime="2018-04-20 20:44:38 &#43;0900 JST" itemprop="datePublished">2018-04-20</time>
-            </div>
-        </header>
-    </div>
-</article>
- 
-            
-                <article class="archive-article archive-type-post">
-    <div class="archive-article-inner">
-        <div class="archive-article-thumbnail">
-            
-            <a href="https://jiro4989.github.io/2018/04/19/develop-environment-with-docker/" class="thumbnail">
-                <span class="thumbnail-image thumbnail-none"></span>
-            </a>
-            
-        </div>
-        <header class="archive-article-header">
-            <h1 itemprop="name">
-            <a class="archive-article-title" href="https://jiro4989.github.io/2018/04/19/develop-environment-with-docker/">Dockerの開発環境コンテナ</a>
-            </h1>
-            <div class="archive-article-date">
-                <i class="fa fa-calendar"></i>
-                <time datetime="2018-04-19 05:21:01 &#43;0900 JST" itemprop="datePublished">2018-04-19</time>
-            </div>
-        </header>
-    </div>
-</article>
- 
-            
-        </div>
-    </section>
-    <nav id="page-nav">
+    <article id="page-undefined" class="article article-type-page" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
 
+        <header class="article-header">
+    <a href="https://jiro4989.github.io/2018/04/29/go-radar-chart/">
+    <h1 class="article-title" itemprop="name">
+        Go言語でレーダーチャートを書こうとしてみた
+    </h1>
+    </a>
+    <div class="article-meta">
+
+        
+        <div class="article-date">
+            <i class="fa fa-calendar"></i>
+            <time datetime="2018-04-29 11:21:20 &#43;0900 JST" itemprop="datePublished">2018-04-29</time>
+            &middot;
+            758
+            words
+            &middot;
+            2
+            minute read
+        </div>
+        
+        
+            
+            
+            <div class="article-category">
+                <i class="fa fa-folder"></i>
+                
+                
+                <a class="article-category-link" href="https://jiro4989.github.io/categories/%E6%8A%80%E8%A1%93">技術</a>
+                
+                
+            </div>
+            
+        
+
+        
+            
+            
+            <div class="article-category">
+                <i class="fa fa-tags"></i>
+                
+                
+                <a class="article-category-link" href="https://jiro4989.github.io/tags/%E3%83%81%E3%83%A3%E3%83%BC%E3%83%88">チャート</a>
+                &middot;
+                
+                
+                <a class="article-category-link" href="https://jiro4989.github.io/tags/%E3%82%B0%E3%83%A9%E3%83%95">グラフ</a>
+                &middot;
+                
+                
+                <a class="article-category-link" href="https://jiro4989.github.io/tags/%E9%9B%86%E8%A8%88">集計</a>
+                &middot;
+                
+                
+                <a class="article-category-link" href="https://jiro4989.github.io/tags/golang">golang</a>
+                
+                
+            </div>
+            
+        
+    </div>
+</header>
+
+        <div class="article-entry" itemprop="articleBody">
+            
+
+<h2 id="はじめに">はじめに</h2>
+
+<p>この記事ではGo言語でレーダーチャートを書こうとした意図と途中経過を書いています。
+レーダーチャートの実装はまだ途中です。画像に枠線を書く程度の実装しかできていませ
+ん。簡単なコードは載せています。</p>
+
+<h2 id="目的">目的</h2>
+
+<p>RPGツクールってキャラクターのパラメータとかを可視化して確認する機能がない。
+Excelで別でテーブルを用意してもいいけれど、一番楽なのはゲームのデータを抽出して
+そこからグラフ画像を生成すること。</p>
+
+<p>せっかくなのでGoで書いてCLIツールにしてしまおうと考えた。
+そのためには、まずレーダーチャートを描画する機能を実装する必要がある。</p>
+
+<h2 id="必要な機能">必要な機能</h2>
+
+<p>作りたいものは２つ。</p>
+
+<ul>
+<li>汎用的なライブラリ</li>
+<li>ツクール用のCLIツール</li>
+</ul>
+
+<h3 id="ライブラリ">ライブラリ</h3>
+
+<ol>
+<li>生成する画像の横幅を変更できること</li>
+<li>レーダーチャートの色を自由に変更できること</li>
+<li>レーダーには文字も描画されること</li>
+<li>ダサくないこと(原色NG)</li>
+<li>CLIツールとしても利用できること</li>
+</ol>
+
+<h3 id="ツクール用">ツクール用</h3>
+
+<h4 id="アクター系">アクター系</h4>
+
+<ol>
+<li>いきなりダブルクリックで画像を生成できること(デフォルト設定必須)</li>
+<li>アクター名のパラメータファイルを生成できること</li>
+<li>各アクターごとにグラフを生成できること</li>
+<li>全アクターの画像を重ねて出力できること</li>
+<li>Lv1時のグラフを出力できること</li>
+<li>Lv99時のグラフを出力できること</li>
+<li>CSV出力できること</li>
+</ol>
+
+<h4 id="エネミー系">エネミー系</h4>
+
+<ol>
+<li>ATK別、DEF別で棒グラフで一覧できること</li>
+<li>CSV出力できること</li>
+</ol>
+
+<h2 id="サンプルコード">サンプルコード</h2>
+
+<p><a href="https://github.com/jiro4989/go-radar-chart">作成中のリポジトリ</a></p>
+
+<p><img src="/img/2018/04/29/go-radar-chart/chart01.png" alt="チャート" /></p>
+
+<script src="https://gist.github.com/jiro4989/b8d7fc43745f019c28064bf0d2077eca.js"></script>
+
+<h2 id="実装状況">実装状況</h2>
+
+<h3 id="できたこと">できたこと</h3>
+
+<ul>
+<li>枠線の描画</li>
+<li>背景色の描画</li>
+<li>ラベル描画</li>
+</ul>
+
+<h3 id="課題">課題</h3>
+
+<ul>
+<li>アンチエイリアス</li>
+<li>ラベルがグラフにかぶる</li>
+<li>ライブラリ化</li>
+</ul>
+
+<h2 id="所感">所感</h2>
+
+<p>大学のときにMatlabとかでやった数値計算系やグラフプロットが役に立つ日が来るとはなぁ&hellip;。
+当時のぼくは考えもしませんでした。
+もっと真面目に数学の勉強しとけばよかったって、ホント思います。</p>
+
+<h2 id="参考リンク">参考リンク</h2>
+
+<ul>
+<li><a href="https://sci-pursuit.com/math/radian.html">ラジアンの意味</a></li>
+<li><a href="https://stackoverflow.com/questions/38299930/how-to-add-a-simple-text-label-to-an-image-in-go">テキストを画像ファイルに描画</a></li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
+    <a data-url="https://jiro4989.github.io/2018/04/29/go-radar-chart/" data-id="a23da4e88ded234d0fc1d988c03ac21c" class="article-share-link">
+        <i class="fa fa-share"></i>
+        Share
+    </a>
+    
+    <a href="https://jiro4989.github.io/2018/04/29/go-radar-chart/#disqus_thread" class="article-comment-link">
+        Comments
+    </a>
+    
+
+    <script>
+    (function ($) {
+        
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+    </script>
+</footer>
+
+    </div>
+
+    
+<nav id="article-nav">
+    
+    <a href="https://jiro4989.github.io/2018/04/22/util-tkcas/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">
+          Older
+      </strong>
+      <div class="article-nav-title">ツクールのキャラチップアニメーションの確認用ツール</div>
+    </a>
+    
+
+    
 </nav>
 
+
+</article>
+
+
+<section id="comments">
+    <div id="disqus_thread">
+        <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
     
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "https-jiro4989-github-io" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+</section>
+
 
     </section>
 

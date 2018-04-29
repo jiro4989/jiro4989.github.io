@@ -6,10 +6,19 @@
     <description>Recent content in Posts on 次ログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Sun, 22 Apr 2018 11:19:42 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 29 Apr 2018 11:21:20 +0900</lastBuildDate>
     
 	<atom:link href="https://jiro4989.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Go言語でレーダーチャートを書こうとしてみた</title>
+      <link>https://jiro4989.github.io/2018/04/29/go-radar-chart/</link>
+      <pubDate>Sun, 29 Apr 2018 11:21:20 +0900</pubDate>
+      
+      <guid>https://jiro4989.github.io/2018/04/29/go-radar-chart/</guid>
+      <description>はじめに この記事ではGo言語でレーダーチャートを書こうとした意図と途中経過を書いています。 レーダーチャートの実装はまだ途中です。画像に枠線を</description>
+    </item>
     
     <item>
       <title>ツクールのキャラチップアニメーションの確認用ツール</title>

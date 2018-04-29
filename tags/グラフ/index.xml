@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Golang on 次ログ</title>
-    <link>https://jiro4989.github.io/tags/golang/</link>
-    <description>Recent content in Golang on 次ログ</description>
+    <title>グラフ on 次ログ</title>
+    <link>https://jiro4989.github.io/tags/%E3%82%B0%E3%83%A9%E3%83%95/</link>
+    <description>Recent content in グラフ on 次ログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <lastBuildDate>Sun, 29 Apr 2018 11:21:20 +0900</lastBuildDate>
     
-	<atom:link href="https://jiro4989.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://jiro4989.github.io/tags/%E3%82%B0%E3%83%A9%E3%83%95/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,15 +18,6 @@
       
       <guid>https://jiro4989.github.io/2018/04/29/go-radar-chart/</guid>
       <description>はじめに この記事ではGo言語でレーダーチャートを書こうとした意図と途中経過を書いています。 レーダーチャートの実装はまだ途中です。画像に枠線を</description>
-    </item>
-    
-    <item>
-      <title>Dockerの開発環境コンテナ</title>
-      <link>https://jiro4989.github.io/2018/04/19/develop-environment-with-docker/</link>
-      <pubDate>Thu, 19 Apr 2018 05:21:01 +0900</pubDate>
-      
-      <guid>https://jiro4989.github.io/2018/04/19/develop-environment-with-docker/</guid>
-      <description>はじめに Dockerで開発環境構築しようとした所感を書いています。まだ環境構築自体は完了してい ません。 作成しているリポジトリはこちら。 目的 会</description>
     </item>
     
   </channel>
