@@ -13,10 +13,10 @@
     
     <item>
       <title>vimrcをファイル分割でガッツリ整理した</title>
-      <link>https://jiro4989.github.io/2018/04/30/manage-vimrc/</link>
+      <link>https://jiro4989.github.io/post/2018/04/30/manage-vimrc/</link>
       <pubDate>Mon, 30 Apr 2018 19:32:35 +0900</pubDate>
       
-      <guid>https://jiro4989.github.io/2018/04/30/manage-vimrc/</guid>
+      <guid>https://jiro4989.github.io/post/2018/04/30/manage-vimrc/</guid>
       <description>はじめに この記事ではvimの設定ファイルの整理前、整理後について記載しています。 目的 僕のvimrcは本体が286行で、プラグインを含めると1</description>
     </item>
     
