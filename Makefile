@@ -8,6 +8,6 @@ deploy:
 
 .PHONY: clean
 clean:
-	-rm -rf 2018
+	-rm -rf post
 	-rm -rf img
 
