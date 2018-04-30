@@ -6,10 +6,19 @@
     <description>Recent content in 技術 on 次ログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Mon, 30 Apr 2018 09:44:49 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 30 Apr 2018 12:48:30 +0900</lastBuildDate>
     
 	<atom:link href="https://jiro4989.github.io/categories/%E6%8A%80%E8%A1%93/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ツクールMVの文章編集・テキスト変換ツール</title>
+      <link>https://jiro4989.github.io/2018/04/30/util-mv-text-editor/</link>
+      <pubDate>Mon, 30 Apr 2018 12:48:30 +0900</pubDate>
+      
+      <guid>https://jiro4989.github.io/2018/04/30/util-mv-text-editor/</guid>
+      <description>はじめに この記事では移行前のブログで紹介していた自作のツールを再紹介しています。 紹介するツールは「MVTextEditor」というツクールM</description>
+    </item>
     
     <item>
       <title>ツクールMVのスキルデータベースを表形式で編集するツール</title>
