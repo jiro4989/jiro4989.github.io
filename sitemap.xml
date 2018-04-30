@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://jiro4989.github.io/2018/04/30/util-mv-search-vars/</loc>
+    <lastmod>2018-04-30T09:18:41+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jiro4989.github.io/2018/04/29/go-radar-chart/</loc>
     <lastmod>2018-04-29T11:21:20+09:00</lastmod>
   </url>
@@ -74,7 +79,7 @@
   
   <url>
     <loc>https://jiro4989.github.io/tags/gui/</loc>
-    <lastmod>2018-04-22T11:19:42+09:00</lastmod>
+    <lastmod>2018-04-30T09:18:41+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -92,13 +97,13 @@
   
   <url>
     <loc>https://jiro4989.github.io/tags/java/</loc>
-    <lastmod>2018-04-22T11:19:42+09:00</lastmod>
+    <lastmod>2018-04-30T09:18:41+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://jiro4989.github.io/tags/javafx/</loc>
-    <lastmod>2018-04-22T11:19:42+09:00</lastmod>
+    <lastmod>2018-04-30T09:18:41+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -110,13 +115,13 @@
   
   <url>
     <loc>https://jiro4989.github.io/post/</loc>
-    <lastmod>2018-04-29T11:21:20+09:00</lastmod>
+    <lastmod>2018-04-30T09:18:41+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://jiro4989.github.io/tags/rpg%E3%83%84%E3%82%AF%E3%83%BC%E3%83%AB/</loc>
-    <lastmod>2018-04-22T11:19:42+09:00</lastmod>
+    <lastmod>2018-04-30T09:18:41+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -129,6 +134,12 @@
   <url>
     <loc>https://jiro4989.github.io/tags/tips/</loc>
     <lastmod>2018-04-20T20:44:38+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jiro4989.github.io/tags/vbs/</loc>
+    <lastmod>2018-04-30T09:18:41+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -170,7 +181,7 @@
   
   <url>
     <loc>https://jiro4989.github.io/tags/%E3%83%84%E3%83%BC%E3%83%AB/</loc>
-    <lastmod>2018-04-22T11:19:42+09:00</lastmod>
+    <lastmod>2018-04-30T09:18:41+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -182,13 +193,19 @@
   
   <url>
     <loc>https://jiro4989.github.io/categories/%E6%8A%80%E8%A1%93/</loc>
-    <lastmod>2018-04-29T11:21:20+09:00</lastmod>
+    <lastmod>2018-04-30T09:18:41+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jiro4989.github.io/tags/%E6%A4%9C%E7%B4%A2/</loc>
+    <lastmod>2018-04-30T09:18:41+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://jiro4989.github.io/</loc>
-    <lastmod>2018-04-29T11:21:20+09:00</lastmod>
+    <lastmod>2018-04-30T09:18:41+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -200,7 +217,7 @@
   
   <url>
     <loc>https://jiro4989.github.io/tags/%E9%85%8D%E5%B8%83/</loc>
-    <lastmod>2018-04-22T11:19:42+09:00</lastmod>
+    <lastmod>2018-04-30T09:18:41+09:00</lastmod>
     <priority>0</priority>
   </url>
   
