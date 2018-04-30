@@ -6,10 +6,19 @@
     <description>Recent content in ツール on 次ログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Mon, 30 Apr 2018 12:48:30 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 30 Apr 2018 16:08:10 +0900</lastBuildDate>
     
 	<atom:link href="https://jiro4989.github.io/tags/%E3%83%84%E3%83%BC%E3%83%AB/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ghrでGitHubReleaseにリリースしてみる</title>
+      <link>https://jiro4989.github.io/2018/04/30/usage-ghr/</link>
+      <pubDate>Mon, 30 Apr 2018 16:08:10 +0900</pubDate>
+      
+      <guid>https://jiro4989.github.io/2018/04/30/usage-ghr/</guid>
+      <description>はじめに この記事ではghrというGitHubReleaseへのリリース用のツールの使い方を記載してい ます。 目的 趣味でアプリを作成して公開した</description>
+    </item>
     
     <item>
       <title>ツクールMVの文章編集・テキスト変換ツール</title>

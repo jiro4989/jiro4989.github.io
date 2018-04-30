@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://jiro4989.github.io/2018/04/30/usage-ghr/</loc>
+    <lastmod>2018-04-30T16:08:10+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jiro4989.github.io/2018/04/30/util-mv-text-editor/</loc>
     <lastmod>2018-04-30T12:48:30+09:00</lastmod>
   </url>
@@ -64,6 +69,12 @@
   </url>
   
   <url>
+    <loc>https://jiro4989.github.io/tags/cui/</loc>
+    <lastmod>2018-04-30T16:08:10+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://jiro4989.github.io/tags/docker/</loc>
     <lastmod>2018-04-19T05:21:01+09:00</lastmod>
     <priority>0</priority>
@@ -76,6 +87,18 @@
   </url>
   
   <url>
+    <loc>https://jiro4989.github.io/tags/ghr/</loc>
+    <lastmod>2018-04-30T16:08:10+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jiro4989.github.io/tags/github/</loc>
+    <lastmod>2018-04-30T16:08:10+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://jiro4989.github.io/tags/github-pages/</loc>
     <lastmod>2018-04-18T05:56:24+09:00</lastmod>
     <priority>0</priority>
@@ -83,7 +106,7 @@
   
   <url>
     <loc>https://jiro4989.github.io/tags/golang/</loc>
-    <lastmod>2018-04-29T11:21:20+09:00</lastmod>
+    <lastmod>2018-04-30T16:08:10+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -124,8 +147,20 @@
   </url>
   
   <url>
+    <loc>https://jiro4989.github.io/tags/makefile/</loc>
+    <lastmod>2018-04-30T16:08:10+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://jiro4989.github.io/post/</loc>
-    <lastmod>2018-04-30T12:48:30+09:00</lastmod>
+    <lastmod>2018-04-30T16:08:10+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://jiro4989.github.io/tags/release/</loc>
+    <lastmod>2018-04-30T16:08:10+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -197,7 +232,7 @@
   
   <url>
     <loc>https://jiro4989.github.io/tags/%E3%83%84%E3%83%BC%E3%83%AB/</loc>
-    <lastmod>2018-04-30T12:48:30+09:00</lastmod>
+    <lastmod>2018-04-30T16:08:10+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -214,8 +249,14 @@
   </url>
   
   <url>
+    <loc>https://jiro4989.github.io/tags/%E6%89%8B%E9%A0%86/</loc>
+    <lastmod>2018-04-30T16:08:10+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://jiro4989.github.io/categories/%E6%8A%80%E8%A1%93/</loc>
-    <lastmod>2018-04-30T12:48:30+09:00</lastmod>
+    <lastmod>2018-04-30T16:08:10+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -233,7 +274,7 @@
   
   <url>
     <loc>https://jiro4989.github.io/</loc>
-    <lastmod>2018-04-30T12:48:30+09:00</lastmod>
+    <lastmod>2018-04-30T16:08:10+09:00</lastmod>
     <priority>0</priority>
   </url>
   

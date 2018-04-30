@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Github on 次ログ</title>
+    <link>https://jiro4989.github.io/tags/github/</link>
+    <description>Recent content in Github on 次ログ</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <lastBuildDate>Mon, 30 Apr 2018 16:08:10 +0900</lastBuildDate>
+    
+	<atom:link href="https://jiro4989.github.io/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ghrでGitHubReleaseにリリースしてみる</title>
+      <link>https://jiro4989.github.io/2018/04/30/usage-ghr/</link>
+      <pubDate>Mon, 30 Apr 2018 16:08:10 +0900</pubDate>
+      
+      <guid>https://jiro4989.github.io/2018/04/30/usage-ghr/</guid>
+      <description>はじめに この記事ではghrというGitHubReleaseへのリリース用のツールの使い方を記載してい ます。 目的 趣味でアプリを作成して公開した</description>
+    </item>
+    
+  </channel>
+</rss>
