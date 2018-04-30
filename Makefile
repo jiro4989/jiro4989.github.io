@@ -9,4 +9,5 @@ deploy:
 .PHONY: clean
 clean:
 	-rm -rf 2018
+	-rm -rf img
 
