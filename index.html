@@ -30,7 +30,7 @@
 
 
 
-<meta property="og:updated_time" content="2018-04-30T19:32:35&#43;09:00"/>
+<meta property="og:updated_time" content="2018-05-05T11:05:27&#43;09:00"/>
 
 
 
@@ -184,12 +184,12 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        12
+        13
         <span>Posts</span>
       </div>
       <div class="article-info-block">
         
-          36
+          40
         
         <span>
             Tags
@@ -267,6 +267,163 @@
     <section id="main">
     
     
+
+<article class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+        </a>
+
+        <header class="article-header">
+    <a href="https://jiro4989.github.io/post/content/2018/05/05/bash-variables-scope/">
+    <h1 class="article-title" itemprop="name">
+        Bashの変数のスコープとサブシェル
+    </h1>
+    </a>
+    <div class="article-meta">
+
+        
+        <div class="article-date">
+            <i class="fa fa-calendar"></i>
+            <time datetime="2018-05-05 11:05:27 &#43;0900 JST" itemprop="datePublished">2018-05-05</time>
+            &middot;
+            1422
+            words
+            &middot;
+            3
+            minute read
+        </div>
+        
+        
+            
+            
+            <div class="article-category">
+                <i class="fa fa-folder"></i>
+                
+                
+                <a class="article-category-link" href="https://jiro4989.github.io/categories/%E6%8A%80%E8%A1%93">技術</a>
+                
+                
+            </div>
+            
+        
+
+        
+            
+            
+            <div class="article-category">
+                <i class="fa fa-tags"></i>
+                
+                
+                <a class="article-category-link" href="https://jiro4989.github.io/tags/bash">bash</a>
+                &middot;
+                
+                
+                <a class="article-category-link" href="https://jiro4989.github.io/tags/%E5%A4%89%E6%95%B0">変数</a>
+                &middot;
+                
+                
+                <a class="article-category-link" href="https://jiro4989.github.io/tags/%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%97">スコープ</a>
+                &middot;
+                
+                
+                <a class="article-category-link" href="https://jiro4989.github.io/tags/%E3%82%B5%E3%83%96%E3%82%B7%E3%82%A7%E3%83%AB">サブシェル</a>
+                
+                
+            </div>
+            
+        
+    </div>
+</header>
+
+        <div class="article-entry" itemprop="articleBody">
+            <p>
+                はじめに bashの変数のスコープについて調べました。 目的 適切な変数のスコープを理解し、扱えるようになること。 ある程度の規模のシェルスクリプト
+            </p>
+            <p class="article-more-link">
+                <a href="https://jiro4989.github.io/post/content/2018/05/05/bash-variables-scope/">
+                    Read more
+                </a>
+            </p>
+        </div>
+        <footer class="article-footer">
+    <a data-url="https://jiro4989.github.io/post/content/2018/05/05/bash-variables-scope/" data-id="540b7c1dff3dea99db0437f0155715b0" class="article-share-link">
+        <i class="fa fa-share"></i>
+        Share
+    </a>
+    
+    <a href="https://jiro4989.github.io/post/content/2018/05/05/bash-variables-scope/#disqus_thread" class="article-comment-link">
+        Comments
+    </a>
+    
+
+    <script>
+    (function ($) {
+        
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+    </script>
+</footer>
+
+    </div>
+</article>
 
 <article class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
@@ -1780,163 +1937,6 @@
     </div>
 </article>
 
-<article class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-        </a>
-
-        <header class="article-header">
-    <a href="https://jiro4989.github.io/post/content/2018/04/20/bookmarklet-tips/">
-    <h1 class="article-title" itemprop="name">
-        ブックマークレットを他人に配布するコツ
-    </h1>
-    </a>
-    <div class="article-meta">
-
-        
-        <div class="article-date">
-            <i class="fa fa-calendar"></i>
-            <time datetime="2018-04-20 20:44:38 &#43;0900 JST" itemprop="datePublished">2018-04-20</time>
-            &middot;
-            2292
-            words
-            &middot;
-            5
-            minute read
-        </div>
-        
-        
-            
-            
-            <div class="article-category">
-                <i class="fa fa-folder"></i>
-                
-                
-                <a class="article-category-link" href="https://jiro4989.github.io/categories/%E6%8A%80%E8%A1%93">技術</a>
-                
-                
-            </div>
-            
-        
-
-        
-            
-            
-            <div class="article-category">
-                <i class="fa fa-tags"></i>
-                
-                
-                <a class="article-category-link" href="https://jiro4989.github.io/tags/html">html</a>
-                &middot;
-                
-                
-                <a class="article-category-link" href="https://jiro4989.github.io/tags/javascript">javascript</a>
-                &middot;
-                
-                
-                <a class="article-category-link" href="https://jiro4989.github.io/tags/bookmarklet">bookmarklet</a>
-                &middot;
-                
-                
-                <a class="article-category-link" href="https://jiro4989.github.io/tags/tips">tips</a>
-                
-                
-            </div>
-            
-        
-    </div>
-</header>
-
-        <div class="article-entry" itemprop="articleBody">
-            <p>
-                はじめに ブックマークレットを他人に配布するときのコツを記載しています。 ブックマークレットとは ブラウザ上のブックマークを実行することで即座にJ
-            </p>
-            <p class="article-more-link">
-                <a href="https://jiro4989.github.io/post/content/2018/04/20/bookmarklet-tips/">
-                    Read more
-                </a>
-            </p>
-        </div>
-        <footer class="article-footer">
-    <a data-url="https://jiro4989.github.io/post/content/2018/04/20/bookmarklet-tips/" data-id="64089229976449cadc34d17d79c27d50" class="article-share-link">
-        <i class="fa fa-share"></i>
-        Share
-    </a>
-    
-    <a href="https://jiro4989.github.io/post/content/2018/04/20/bookmarklet-tips/#disqus_thread" class="article-comment-link">
-        Comments
-    </a>
-    
-
-    <script>
-    (function ($) {
-        
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-    </script>
-</footer>
-
-    </div>
-</article>
-
 
 <nav id="page-nav">
 
@@ -1961,6 +1961,32 @@
     </h3>
     <div class="widget">
         <ul id="recent-post">
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="https://jiro4989.github.io/post/content/2018/05/05/bash-variables-scope/" class="thumbnail">
+                    
+                        <span class="thumbnail-image thumbnail-none"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    <p class="item-category">
+                        
+                        <a class="article-category-link" href="https://jiro4989.github.io/categories/%E6%8A%80%E8%A1%93">
+                        技術
+                        </a>
+                    </p>
+                    
+                    
+                    <p class="item-title"><a href="https://jiro4989.github.io/post/content/2018/05/05/bash-variables-scope/" class="title">Bashの変数のスコープとサブシェル</a></p>
+                    <p class="item-date">
+                        <time datetime="2018-05-05 11:05:27 &#43;0900 JST" itemprop="datePublished">2018-05-05</time>
+                    </p>
+                </div>
+            </li>
             
             <li>
                 <div class="item-thumbnail">
@@ -2066,32 +2092,6 @@
                 </div>
             </li>
             
-            <li>
-                <div class="item-thumbnail">
-                    <a href="https://jiro4989.github.io/post/content/2018/04/30/util-mv-search-vars/" class="thumbnail">
-                    
-                        <span class="thumbnail-image thumbnail-none"></span>
-                    
-                    </a>
-                </div>
-                <div class="item-inner">
-                    
-                    
-                    <p class="item-category">
-                        
-                        <a class="article-category-link" href="https://jiro4989.github.io/categories/%E6%8A%80%E8%A1%93">
-                        技術
-                        </a>
-                    </p>
-                    
-                    
-                    <p class="item-title"><a href="https://jiro4989.github.io/post/content/2018/04/30/util-mv-search-vars/" class="title">変数・スイッチの選択をテキスト検索から行うツール</a></p>
-                    <p class="item-date">
-                        <time datetime="2018-04-30 09:18:41 &#43;0900 JST" itemprop="datePublished">2018-04-30</time>
-                    </p>
-                </div>
-            </li>
-            
         </ul>
     </div>
 </div>
@@ -2118,7 +2118,7 @@
                 <a class="category-list-link" href="https://jiro4989.github.io/categories/%E6%8A%80%E8%A1%93">
                     技術
                 </a>
-                <span class="category-list-count">11</span>
+                <span class="category-list-count">12</span>
             </li>
             
         </ul>
@@ -2137,6 +2137,14 @@
     </h3>
     <div class="widget">
         <ul class="category-list">
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://jiro4989.github.io/tags/bash">
+                    bash
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
             
             <li class="category-list-item">
                 
@@ -2340,6 +2348,22 @@
             
             <li class="category-list-item">
                 
+                <a class="category-list-link" href="https://jiro4989.github.io/tags/%E3%82%B5%E3%83%96%E3%82%B7%E3%82%A7%E3%83%AB">
+                    サブシェル
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://jiro4989.github.io/tags/%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%97">
+                    スコープ
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
                 <a class="category-list-link" href="https://jiro4989.github.io/tags/%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AA%E3%83%BC">
                     ストーリー
                 </a>
@@ -2374,6 +2398,14 @@
                 
                 <a class="category-list-link" href="https://jiro4989.github.io/tags/%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9">
                     データベース
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                
+                <a class="category-list-link" href="https://jiro4989.github.io/tags/%E5%A4%89%E6%95%B0">
+                    変数
                 </a>
                 <span class="category-list-count">1</span>
             </li>
@@ -2441,6 +2473,9 @@
         Tag cloud
     </h3>
     <div class="widget tagcloud">
+        
+        
+        <a href="https://jiro4989.github.io/tags/bash" style="font-size: 12px;">bash</a>
         
         
         <a href="https://jiro4989.github.io/tags/bookmarklet" style="font-size: 12px;">bookmarklet</a>
@@ -2518,6 +2553,12 @@
         <a href="https://jiro4989.github.io/tags/%E3%82%B0%E3%83%A9%E3%83%95" style="font-size: 12px;">グラフ</a>
         
         
+        <a href="https://jiro4989.github.io/tags/%E3%82%B5%E3%83%96%E3%82%B7%E3%82%A7%E3%83%AB" style="font-size: 12px;">サブシェル</a>
+        
+        
+        <a href="https://jiro4989.github.io/tags/%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%97" style="font-size: 12px;">スコープ</a>
+        
+        
         <a href="https://jiro4989.github.io/tags/%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AA%E3%83%BC" style="font-size: 12px;">ストーリー</a>
         
         
@@ -2531,6 +2572,9 @@
         
         
         <a href="https://jiro4989.github.io/tags/%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9" style="font-size: 12px;">データベース</a>
+        
+        
+        <a href="https://jiro4989.github.io/tags/%E5%A4%89%E6%95%B0" style="font-size: 12px;">変数</a>
         
         
         <a href="https://jiro4989.github.io/tags/%E6%89%8B%E9%A0%86" style="font-size: 12px;">手順</a>
