@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>キーボード on 次ログ</title>
+    <link>https://jiro4989.github.io/tags/%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89/</link>
+    <description>Recent content in キーボード on 次ログ</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <lastBuildDate>Wed, 13 Jun 2018 20:35:00 +0900</lastBuildDate>
+    
+	<atom:link href="https://jiro4989.github.io/tags/%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>MistelBaroccoの設定(Windows向け)</title>
+      <link>https://jiro4989.github.io/post/content/2018/06/13/mistel-barocco-custom-for-win/</link>
+      <pubDate>Wed, 13 Jun 2018 20:35:00 +0900</pubDate>
+      
+      <guid>https://jiro4989.github.io/post/content/2018/06/13/mistel-barocco-custom-for-win/</guid>
+      <description>はじめに MiSTEL BAROCCO MD600の日本語版でWindowsユーザ向けのキー設定を紹介しています。 目的 日本語版Baroccoユーザでアローキーを使ってバ</description>
+    </item>
+    
+  </channel>
+</rss>
