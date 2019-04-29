@@ -22,4 +22,5 @@ for dir in page/blog/*; do
 done
 
 # リリース用のディレクトリに移動
-find page/blog/2019/*.html -type f -exec mv {} docs/blog/2019/ \;
+find page/blog/2019/*.html -type f -exec mv -f {} docs/blog/2019/ \;
+sudo chown -R $USER. docs
