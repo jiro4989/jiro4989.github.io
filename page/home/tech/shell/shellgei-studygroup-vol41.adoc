@@ -1,17 +1,5 @@
 = 第41回 シェル芸勉強会振り返り
-// 作者情報
-:author: 次郎 (jiro)
-:revnumber: 1.0
-:revdate: {docdate}
-:homepage: https://jiro4989.github.io
-// ドキュメント情報
-:lang: ja
-:toc: left
-:toc-title: 目次
-:sectnums:
-:table-caption: 表
-// カラースキン
-:source-highlighter: highlightjs
+include::../../../metadata.txt[]
 // 記事のタグ
 // 独自記法のためコメントで表現
 // :tag: [bash, シェル芸, 勉強会]
