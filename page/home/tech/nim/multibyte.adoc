@@ -1,0 +1,108 @@
+= Nimでマルチバイト文字を扱う
+// 作者情報
+:author: 次郎 (jiro)
+:revnumber: 1.0
+:revdate: {docdate}
+:homepage: https://jiro4989.github.io
+// ドキュメント情報
+:lang: ja
+:toc: left
+:toc-title: 目次
+:sectnums:
+:table-caption: 表
+// カラースキン
+:source-highlighter: highlightjs
+// 記事のタグ
+// 独自記法のためコメントで表現
+// :tag: [nim, マルチバイト文字]
+
+== 単純に配列としてアクセスすることの問題
+
+Nimで文字列に配列インデックスでアクセスすると1バイト配列としてアクセスすることに
+なる。これだと日本語などのマルチバイト文字では文字が化けてしまう。
+
+[source,nim]
+echo "abcde"
+echo "abcde"[0]
+echo "あいうえお"
+echo "あいうえお"[0]
+
+[quote]
+____
+abcde +
+a +
+あいうえお +
+�
+____
+
+よって、このままマルチバイト文字を含む文字列でループを書くと文字化けしてしまう。
+
+[source,nim]
+for c in "あいうえお":
+  echo c
+
+[quote]
+____
+� +
+� +
+� +
+� +
+� +
+� +
+� +
+� +
+� +
+� +
+� +
+� +
+� +
+� +
+�
+____
+
+== マルチバイト文字としてアクセスする方法
+
+https://nim-lang.org/docs/unicode.html[unicode]モジュールのプロシージャを使用す
+ることでこの問題を解消できる。この例だと `toRunes` というプロシージャが使える。
+前述の文字化けが発生する問題は以下のように書き直すことで解決できる。
+
+[source,nim]
+----
+import unicode
+
+echo "abcde".toRunes
+echo "abcde".toRunes[0]
+echo "あいうえお".toRunes
+echo "あいうえお".toRunes[0]
+# "あいうえお".toRunes[0] と同じ結果にするのに runeAt を使用してもよい
+echo "あいうえお".runeAt(0)
+----
+
+[quote]
+____
+abcde +
+a +
+あいうえお +
+あ +
+あ
+____
+
+前述のループ処理も `toRunes` を使用することで文字化けを防げる。
+以下のように修正する。
+
+[source,nim]
+----
+import unicode
+
+for c in "あいうえお".toRunes:
+  echo c
+----
+
+[quote]
+____
+あ +
+い +
+う +
+え +
+お
+____
