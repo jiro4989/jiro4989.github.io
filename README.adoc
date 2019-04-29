@@ -8,3 +8,9 @@ Asciidocで記述。
 
 Asciidocで生成されるHTMLのスキンを変更したいときは
 https://github.com/darshandsoni/asciidoctor-skins から探す。
+
+== HTMLの生成
+
+[source,bash]
+nim c mngctl.nim
+./mngctl
