@@ -14,16 +14,19 @@ proc buildIndexAdoc(dir: string, depth: int) =
       var links: string
       for k2, f2 in walkDir(f):
         if k2 == pcDir:
-          links.add &"* link:./{tailDir(f2)}.html[]\n"
+          let f2fp = splitPath(f2)
+          let nf = f2fp[1] / "index.html"
+          links.add &"* link:./{nf}[]\n"
       for k2, f2 in walkDir(f):
-        if k2 == pcFile:
-          links.add &"* link:./{tailDir(f2)}.html[]\n"
-      let outFile = &"{f}.adoc"
+        if k2 == pcFile and f2.splitFile.name != "index":
+          let nf = f2.changeFileExt(".html").splitPath[1]
+          links.add &"* link:./{nf}[]\n"
+      let outFile = f / "index.adoc"
       echo outFile
 
       var tmpl = indexAdocTemplate
       tmpl = tmpl.replace("{title}", f)
-      tmpl = tmpl.replace("{metadataPath}", "..".repeat(depth).join("/") & "/metadata.txt")
+      tmpl = tmpl.replace("{metadataPath}", "..".repeat(depth).join("/") & "/metadata.txt[]")
       tmpl = tmpl.replace("{links}", links)
       writeFile(outFile, tmpl)
       buildIndexAdoc(f, depth + 1)
