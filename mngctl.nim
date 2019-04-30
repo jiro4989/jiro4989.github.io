@@ -7,32 +7,56 @@ import posix ## Unix依存 Windowsだと問題おきそう
 
 let indexAdocTemplate = readFile("page/index.adoc.tmpl")
 
+proc info(f: string) =
+  styledEcho fgGreen, bgDefault, &"[OK] Generated {f}", resetStyle
+
+proc err(f: string, prefix = "[NG] Failed generating from ") =
+  styledEcho fgRed, bgDefault, prefix & f & ".", resetStyle
+
 proc buildIndexAdoc(dir: string, depth: int) =
   ## index.htmlの元になるindex.adocを生成する。
+  if depth == 0:
+    echo """
+=====================================================================
+  Build index adoc
+=====================================================================
+  """
   for k, f in walkDir(dir):
     if k == pcDir:
-      var links: string
-      for k2, f2 in walkDir(f):
-        if k2 == pcDir:
-          let f2fp = splitPath(f2)
-          let nf = f2fp[1] / "index.html"
-          links.add &"* link:./{nf}[]\n"
-      for k2, f2 in walkDir(f):
-        if k2 == pcFile and f2.splitFile.name != "index":
-          let nf = f2.changeFileExt(".html").splitPath[1]
-          links.add &"* link:./{nf}[]\n"
-      let outFile = f / "index.adoc"
-      echo outFile
-
-      var tmpl = indexAdocTemplate
-      tmpl = tmpl.replace("{title}", f)
-      tmpl = tmpl.replace("{metadataPath}", "..".repeat(depth).join("/") & "/metadata.txt[]")
-      tmpl = tmpl.replace("{links}", links)
-      writeFile(outFile, tmpl)
+      try:
+        var links: string
+        # 先にディレクトリの一覧をセット
+        for k2, f2 in walkDir(f):
+          if k2 == pcDir:
+            # 相対パス指定にするため最後のディレクトリ名だけ取得
+            let f2fp = splitPath(f2)
+            let nf = f2fp[1] / "index.html"
+            links.add &"* link:./{nf}[]\n"
+        # ファイル一覧をセット
+        for k2, f2 in walkDir(f):
+          if k2 == pcFile and f2.splitFile.name != "index":
+            # 相対パス指定にするため最後のディレクトリ名だけ取得
+            let nf = f2.changeFileExt(".html").splitPath[1]
+            links.add &"* link:./{nf}[]\n"
+        let outFile = f / "index.adoc"
+        var tmpl = indexAdocTemplate
+        tmpl = tmpl.replace("{title}", f.split(AltSep)[1..^1].join($AltSep))
+        tmpl = tmpl.replace("{metadataPath}", "../" & "..".repeat(depth).join("/") & "/metadata.txt[]")
+        tmpl = tmpl.replace("{links}", links)
+        writeFile(outFile, tmpl)
+        info outFile
+      except:
+        err f
+        err getCurrentExceptionMsg()
       buildIndexAdoc(f, depth + 1)
 
 proc buildHTML(fromDir, toDir: string) =
   ## AsciidocからHTMLを生成する。
+  echo """
+=====================================================================
+  Build HTML
+=====================================================================
+  """
   for f in walkDirRec(fromDir):
     try:
       # asciidoc以外は無視
@@ -56,12 +80,11 @@ proc buildHTML(fromDir, toDir: string) =
       let movedFile = genedDir / genedFp.name & genedFp.ext
       moveFile(genedFile, movedFile)
       
-      styledEcho fgGreen, bgDefault, &"[OK] Generated {movedFile}", resetStyle
+      info movedFile
     except:
-      styledEcho fgRed, bgDefault, &"[NG] Failed generating from {f}", resetStyle
-      styledEcho fgRed, bgDefault, getCurrentExceptionMsg(), resetStyle
+      err f
+      err getCurrentExceptionMsg()
 
-when false:
-  buildHTML("page", "docs")
-else:
+when isMainModule:
   buildIndexAdoc("page", 0)
+  buildHTML("page", "docs")
