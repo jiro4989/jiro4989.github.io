@@ -22,7 +22,10 @@ Nimで別モジュールからプロシージャをインポートするとき�
 
 以下にJSからアクセス可能なNimソースを用意した。
 
+[source,nim]
+----
 include::./js/exportc.nim[]
+----
 
 何の変哲もない `add` プロシージャであるが、 `cint` と `{.exportc.}` は見慣れないかも
 しれない。
@@ -127,7 +130,10 @@ Nimのドキュメントには書かれていたりいなかったりするの�
 
 利用できないモジュールを使用していたらどうなるか、以下のコードで検証した。
 
+[source,nim]
+----
 include::./js/ostest.nim[]
+----
 
 このコードをコンパイルしてみる。
 
@@ -151,7 +157,10 @@ Error: OS module not ported to your operating system!
 前述のosモジュールをimportしていたソースコードを以下のように修正することでJSバッ
 クエンドでコンパイルできるようになる。
 
+[source,nim]
+----
 include::./js/ostest2.nim[]
+----
 
 NimはPython風とよく聞くけれど、オフサイドルール（インデントでブロックを表現する
 ）のを採用しているだけで、Pythonの皮をかぶったC言語というのは言い得て妙。ところ
