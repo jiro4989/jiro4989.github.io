@@ -1,6 +1,6 @@
 ## このプロジェクトのビルドツール
 
-import os, sequtils, ospaths, osproc
+import os, sequtils, ospaths, osproc, terminal
 from strutils import split, join
 from strformat import `&`
 import posix ## Unix依存 Windowsだと問題おきそう
@@ -29,10 +29,10 @@ proc buildHTML(fromDir, toDir: string) =
       let movedFile = genedDir / genedFp.name & genedFp.ext
       moveFile(genedFile, movedFile)
       
-      stderr.writeLine &"[OK] Generated {movedFile}"
+      styledEcho fgGreen, bgDefault, &"[OK] Generated {movedFile}", resetStyle
     except:
-      stderr.writeLine &"[NG] Failed generating from {f}"
-      stderr.writeLine getCurrentExceptionMsg()
+      styledEcho fgRed, bgDefault, &"[NG] Failed generating from {f}", resetStyle
+      styledEcho fgRed, bgDefault, getCurrentExceptionMsg(), resetStyle
 
 when isMainModule:
   buildHTML("page", "docs")
