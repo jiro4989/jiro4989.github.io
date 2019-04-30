@@ -1,11 +1,35 @@
 ## このプロジェクトのビルドツール
 
 import os, sequtils, ospaths, osproc, terminal
-from strutils import split, join
+from strutils import split, join, replace
 from strformat import `&`
 import posix ## Unix依存 Windowsだと問題おきそう
 
+let indexAdocTemplate = readFile("page/index.adoc.tmpl")
+
+proc buildIndexAdoc(dir: string, depth: int) =
+  ## index.htmlの元になるindex.adocを生成する。
+  for k, f in walkDir(dir):
+    if k == pcDir:
+      var links: string
+      for k2, f2 in walkDir(f):
+        if k2 == pcDir:
+          links.add &"* link:./{tailDir(f2)}.html[]\n"
+      for k2, f2 in walkDir(f):
+        if k2 == pcFile:
+          links.add &"* link:./{tailDir(f2)}.html[]\n"
+      let outFile = &"{f}.adoc"
+      echo outFile
+
+      var tmpl = indexAdocTemplate
+      tmpl = tmpl.replace("{title}", f)
+      tmpl = tmpl.replace("{metadataPath}", "..".repeat(depth).join("/") & "/metadata.txt")
+      tmpl = tmpl.replace("{links}", links)
+      writeFile(outFile, tmpl)
+      buildIndexAdoc(f, depth + 1)
+
 proc buildHTML(fromDir, toDir: string) =
+  ## AsciidocからHTMLを生成する。
   for f in walkDirRec(fromDir):
     try:
       # asciidoc以外は無視
@@ -34,5 +58,7 @@ proc buildHTML(fromDir, toDir: string) =
       styledEcho fgRed, bgDefault, &"[NG] Failed generating from {f}", resetStyle
       styledEcho fgRed, bgDefault, getCurrentExceptionMsg(), resetStyle
 
-when isMainModule:
+when false:
   buildHTML("page", "docs")
+else:
+  buildIndexAdoc("page", 0)
