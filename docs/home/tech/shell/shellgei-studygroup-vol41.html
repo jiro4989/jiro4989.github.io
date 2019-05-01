@@ -456,6 +456,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#_lt会">4. LT会</a></li>
+<li><a href="#_まとめ">5. まとめ</a></li>
 </ul>
 </div>
 </div>
@@ -474,7 +475,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>2019/4/27 (土)に「jus共催 第41回{ウン,ガク,}{チ,ト,}{,ン}{,コイン}{ブ,}{ラブラ,
 ハ,}{,イブ}{無,有}罪シェル芸勉強会」に参加してきたのでその振り返り。
 この名称自体もシェル芸で[ブレース展開]という記法。これをechoしてみると以下のよう
-になる(※長すぎて[Scrapbox]が固まってしまったので一部抜粋)</p>
+になる(※長すぎたので一部抜粋)</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -562,6 +563,46 @@ AA, AB, &#8230;&#8203;のやつ）順に並べ替えてください。</p>
 999 QQQ</pre>
 </div>
 </div>
+<div class="paragraph">
+<p>回答としては、以下のように出力されてほしい。テストの意図としては、文字列の長さも
+考慮してソートしてほしい、というもの。</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>114514 B
+1192296 AA
+4120 TZ
+593195 CEZ
+999 QQQ</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>普通に <code>sort</code> コマンドで2カラム目を指定すると以下のようにソートされてしまう。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">% sort -k2 excel
+593195 AA
+114514 B
+1192296 CEZ
+999 QQQ
+4120 TZ</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>文字列の長さのカラムを追加してソートするのが正攻法だろう。
+僕の回答としては以下の通り。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">% awk '{print $0, length($2)}' excel | sort -k3 -k2 | cut -d ' ' -f 1,2
+114514 B
+593195 AA
+4120 TZ
+1192296 CEZ
+999 QQQ</code></pre>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_q2">3.2. Q2</h3>
@@ -594,6 +635,67 @@ AA, AB, &#8230;&#8203;のやつ）順に並べ替えてください。</p>
 子丑寅卯辰巳午未申酉戌亥</pre>
 </div>
 </div>
+<div class="paragraph">
+<p>etoファイルの並びを利用してeto_yomiをソートするもの。まずは正攻法から。</p>
+</div>
+<div class="paragraph">
+<p>sortなので素直にsortコマンドと別のファイルの中身を結合すると考えてjoinコマンドを
+使用する。僕の回答としては以下の通り。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">% grep -o . eto | nl | sort -k2 | join -1 2 -2 1 - &lt;(sort eto_yomi) | sort -nk2 | cut -d ' ' -f 1,3
+子 ね
+丑 うし
+寅 とら
+卯 う
+辰 たつ
+巳 み
+午 うま
+未 ひつじ
+申 さる
+酉 とり
+戌 いぬ</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>流れとしては下記の通り
+. <code>grep -o</code> で1行のデータを縦に並べて <code>nl</code> で番号の列を追加
+. 後に控えている <code>join</code> は結合するフィールドが辞書順にソートされている必要がある
+  ため、joinに指定するフィールドを辞書順にソート
+. joinで結合。 <code>-1 2</code> と <code>-2 1</code> で１個めのファイルの２フィールド目と２個めのファ
+  イルの１フィールド目を結合する
+.. eto_yomiも辞書順でソート
+. 最初にnlで付与した番号で干支順にソートし直す
+. cutで不要なフィールドの削除</p>
+</div>
+<div class="paragraph">
+<p>シェル芸の非常に良いお題だったと思う。</p>
+</div>
+<div class="paragraph">
+<p>次にgrepを使用した非常にコンパクトな例。これは僕は思いつかなかった。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">% grep -o . eto | xargs -I@ grep @ eto_yomi
+子 ね
+丑 うし
+寅 とら
+卯 う
+辰 たつ
+巳 み
+午 うま
+未 ひつじ
+申 さる
+酉 とり
+戌 いぬ
+亥 い</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>すでに干支順でソートされているのでそのままgrepしてしまう、というもの。
+こういうアプローチもあるのか、とまたシェル芸の知見が深まった。</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_q3">3.3. Q3</h3>
@@ -609,6 +711,20 @@ AA, AB, &#8230;&#8203;のやつ）順に並べ替えてください。</p>
 3-1-5 金日成
 495/3 金正恩
 0x1F 金正哲</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>これは割とすぐに思いついた。はじめは <code>bc</code> コマンドを使用していたが0x1fで失敗する
+のでbashの算術式を使用するようにしたら通った。
+僕の回答としては下記の通り。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">% cat kim_calc | while read -r e n; do echo $(($e)) $e $n; done | sort -nk1 | cut -d ' ' -f 2,3
+3-1-5 金日成
+1+2+4 金正日
+4*3 金正男
+0x1F 金正哲</code></pre>
 </div>
 </div>
 </div>
@@ -629,6 +745,37 @@ $ cat sjis | nkf -wLux
 ２２４２ たまもとやろう</pre>
 </div>
 </div>
+<div class="paragraph">
+<p>これは最初は試験の意図がわからなかったが、2つ結果を出力するだけでよかったらしい
+。
+１の辞書順については下記の通り。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">% cat sjis | nkf -wLux | sort
+１２３ ずんごるももう
+２０ ほじぱんふんじこみ
+２２４２ うえってきたかるとらまん
+３１ こきたてひーひー</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>２の数字の小さい順は手間が必要。このファイルの数値は全角数字なので数値ソートがで
+きない。なので修正してソートしてから復元する必要がある。僕の回答としては下記の通
+り。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">% cat sjis | nkf -wLux | sed 'y/１２３４５６７８９０/1234567890/' | sort -nk1 | sed 'y/1234567890/１２３４５６７８９０/'
+２０ ほじぱんふんじこみ
+３１ こきたてひーひー
+１２３ ずんごるももう
+２２４２ うえってきたかるとらまん</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>sedのyコマンドを使用して対応する数値を変換しているだけ。これも簡単な方だと思う。</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_q5">3.5. Q5</h3>
@@ -644,6 +791,34 @@ $ cat sjis | nkf -wLux
 1000000000kB
 0.4GB
 410MB</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>はじめはsortのヒューマンリーダブルオプションでいけるか、と思ったがダメだった。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">% cat size | sort --sort h
+1000000000kB
+410MB
+40000MB
+0.4GB
+1.2GB
+2GB</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>なんとキロバイト順、メガバイト順、ギガバイト順にソートされている。仕方なくnumfmt
+で変換してもとに戻す形にした。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">% cat size | tr -d B | tr k K | numfmt --from iec --to=none | paste - size | sort -nk1 | cut -f2
+0.4GB
+410MB
+1.2GB
+2GB
+40000MB</code></pre>
 </div>
 </div>
 </div>
@@ -662,6 +837,21 @@ $ cat sjis | nkf -wLux
 6</pre>
 </div>
 </div>
+<div class="paragraph">
+<p>これも割とすぐ思いついた。
+内部コマンドってなんだろうと思ったが <code>help</code> というコマンドを使えば分かる。
+whileやforが使えたのと、非同期実行を使えば行ける。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">% while read i; do (sleep $i; echo $i) &amp; done &lt; nums
+0.34
+0.9
+2.3
+5.4
+6</code></pre>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_q7">3.7. Q7</h3>
@@ -678,6 +868,40 @@ IX
 XLIII
 XX
 VIII</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>これは割と力づくだった。しかも間違えた。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">% cat ShellGeiData/vol.41/roman \
+| sed 's/IV/4 /g;s/XL/40 /g;s/IX/9 /g;s/I/1 /g;s/L/50 /g;s/X/10 /g;s/V/5 /g;s/ /+/g;s/+$//g;s/.*/echo $((&amp;))/e' \
+| paste - ShellGeiData/vol.41/roman \
+| sort -nk1 \
+| cut -f 2
+IV
+VIII
+IX
+XI
+XX
+XLIII
+LXXXIX</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>numconvというコマンドの存在を他の方のシェルから知った。それを使えばいかのようにシンプルに修正できる。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">% cat roman | numconv | paste - roman | sort -nk1 | cut -f2
+IV
+VIII
+IX
+XI
+XX
+XLIII
+LXXXIX</code></pre>
 </div>
 </div>
 </div>
@@ -714,6 +938,24 @@ VIII</pre>
 こじんてきにはクソ</pre>
 </div>
 </div>
+<div class="paragraph">
+<p>これははじめどうしたら良いかわからなかったが、午前の部で話していた内容を使えばすぐに解決できることがわかった。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">% cat ShellGeiData/vol.41/gagigugego | uconv -x NFD | sort | uconv -x NFC
+がきの使い
+かき氷
+ぎ・おなら吸い込み隊
+きききりん
+きつねうどん
+ぐりこもりなが事件
+くその役にも立たない
+げんしりょく発電
+ごりらいも
+こじんてきにはクソ</code></pre>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -732,6 +974,28 @@ VIII</pre>
 <p>cam</p>
 </li>
 </ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_まとめ">5. まとめ</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>はじめてシェル芸勉強会に参加したけれど、新しい知見がいっぱいだった。
+シェルはガリガリ普段から書いていたので、問題自体は割となんとかなった。
+8問のうち6問は自力で解けた。解けなかったのはローマ数字とがぎぐげごのやつ。</p>
+</div>
+<div class="paragraph">
+<p>何はともあれシェル芸勉強会、面白かった。
+シェルはいろんな環境にあるし、ちょっとした作業をぱぱっと自動化できてやはり好きだし
+今後も必要で有り続ける技術だと思うので、引き続き勉強は続けようと思う。</p>
+</div>
+<div class="paragraph">
+<p><strong>ただし100行を超えるような処理をシェルで書くのはやめようね。
+素直に他の言語を使うべし(経験者は語る)。</strong></p>
+</div>
+<div class="paragraph">
+<p>以上。</p>
 </div>
 </div>
 </div>
