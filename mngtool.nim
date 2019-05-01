@@ -28,7 +28,7 @@ proc buildIndexAdoc(dir: string, depth: int) =
       try:
         var links: string
         # 先にディレクトリの一覧をセット
-        links.add "* カテゴリ\n"
+        links.add "* サブカテゴリ\n"
         for k2, f2 in walkDir(f):
           if k2 == pcDir:
             # 相対パス指定にするため最後のディレクトリ名だけ取得
