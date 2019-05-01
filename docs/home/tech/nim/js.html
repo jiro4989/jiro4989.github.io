@@ -436,7 +436,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h1>NimでJavaScriptとして出力しHTMLから利用する</h1>
 <div class="details">
 <span id="author" class="author">次郎 (jiro)</span><br>
-<span id="revdate">2019-04-30 23:23:03 UTC</span>
+<span id="revdate">2019-05-01 13:50:41 UTC</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">目次</div>
@@ -486,8 +486,7 @@ Nimで別モジュールからプロシージャをインポートするとき�
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nim hljs" data-lang="nim">proc add(a, b: cint): cint {.exportc.} =
-  return a + b</code></pre>
+<pre class="highlightjs highlight"><code class="language-nim hljs" data-lang="nim">Unresolved directive in body.adoc - include::./js/exportc.nim[]</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -629,9 +628,7 @@ proc add(a, b: cint): cint {.exportc.} =
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nim hljs" data-lang="nim">import os
-
-echo 1</code></pre>
+<pre class="highlightjs highlight"><code class="language-nim hljs" data-lang="nim">Unresolved directive in body.adoc - include::./js/ostest.nim[]</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -667,16 +664,19 @@ Error: OS module not ported to your operating system!
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nim hljs" data-lang="nim">when not defined(js):
-  import os
-
-echo 1</code></pre>
+<pre class="highlightjs highlight"><code class="language-nim hljs" data-lang="nim">Unresolved directive in body.adoc - include::./js/ostest2.nim[]</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>NimはPython風とよく聞くけれど、オフサイドルール（インデントでブロックを表現する
 ）のを採用しているだけで、Pythonの皮をかぶったC言語というのは言い得て妙。ところ
 どころにC言語の <code>#ifdef</code> 地獄の片鱗が見えて恐ろしい。</p>
+</div>
+<hr>
+<div class="paragraph">
+<p><a href="./index.html">nim目次へ移動</a> /
+<a href="https://jiro4989.github.io/index.html">トップページへ移動</a> /
+<a href="https://jiro4989.github.io/home/tech/index.html">技術メモへ移動</a></p>
 </div>
 </div>
 </div>

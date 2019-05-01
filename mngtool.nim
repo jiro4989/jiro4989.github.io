@@ -7,8 +7,15 @@ from algorithm import sorted
 import posix ## Unix依存 Windowsだと問題おきそう
 
 let
-  indexAdocTemplate = readFile("page/index.adoc.tmpl")
+  indexAdocTemplate = readFile("tmpl/index.adoc-layout.txt")
   asciidocExtension = ".adoc"
+
+const
+  workDir = "work"
+  tmplDir = "tmpl"
+  varDir = "var"
+  newPageListFile = "new-pages.txt"
+  categoryListFile = "categories.txt"
 
 proc echoTaskTitle(title: string) =
     echo &"""
@@ -31,6 +38,12 @@ proc hasAsciiDocFile(dir: string): bool =
   for k, f in walkDir(dir):
     if k == pcFile and f.splitFile.ext == asciidocExtension:
       return true
+
+proc runBuildCommand(f: string) =
+  let uid = getuid()
+  let gid = getgid()
+  let cwd = getCurrentDir()
+  discard execProcess(&"docker run --rm -u {uid}:{gid} -v {cwd}:/documents/ asciidoctor/docker-asciidoctor asciidoctor -r asciidoctor-diagram {f}")
 
 proc buildIndexAdoc(dir: string, depth: int) =
   ## index.htmlの元になるindex.adocを生成する。
@@ -68,10 +81,8 @@ proc buildIndexAdoc(dir: string, depth: int) =
       # テンプレートファイルにリンクなどを埋め込む
       let outFile = f / "index.adoc"
       let tmpl = indexAdocTemplate
-        .replace("{title}", f.split(AltSep)[1..^1].join($AltSep))
-        .replace("{metadataPath}", "../" & "..".repeat(depth).join("/") & "/metadata-index.txt[]")
-        .replace("{parentCategory}", "link:../index.html[こちら]")
-        .replace("{links}", links)
+        .replace("{{title}}", f.split(AltSep)[1..^1].join($AltSep))
+        .replace("{{links}}", links)
       writeFile(outFile, tmpl)
 
       info outFile
@@ -80,12 +91,48 @@ proc buildIndexAdoc(dir: string, depth: int) =
       err getCurrentExceptionMsg(), prefix="     "
     buildIndexAdoc(f, depth + 1)
 
-proc buildHTML(fromDir, toDir: string) =
+proc buildHTML(f, filePrefix: string): string =
+  ## 各記事のHTMLを生成する。
+  # テンプレートから必要ファイルをコピー
+  copyFile(tmplDir / &"{filePrefix}-metadata.txt", workDir / "metadata.txt")
+  copyFile(f, workDir / "body.adoc")
+
+  # フッターファイルは置換で中身を一部書き換える
+  let footerFile = workDir / "footer.txt"
+  copyFile(tmplDir / &"{filePrefix}-footer.txt", footerFile)
+  let category = if filePrefix == "index": f.splitPath[0].splitPath[0].splitPath[1]
+                 else: f.splitPath[0].splitPath[1]
+  let fotterContent = footerFile.readFile.replace("{{category}}", category)
+  writeFile(footerFile, fotterContent)
+
+  # ヘッダファイルとボディ、フッタをincludeするレイアウトファイルを配置
+  let layoutFile = workDir / "layout.adoc"
+  copyFile(tmplDir / "layout.txt", layoutFile)
+
+  # Dockerでasciidocからhtmlを生成
+  runBuildCommand(layoutFile)
+
+  # ビルド対象と同じパスにhtmlファイルが生成されるので返却
+  return layoutFile.changeFileExt(".html")
+
+proc buildSite(fromDir, toDir: string) =
   ## AsciidocからHTMLを生成する。
+  ##
+  ## 1. 公開用ディレクトリの削除
+  ## 2. 公開用ディレクトリの作成
+  ## 3. ビルド用のメタ情報、ヘッダテンプレートファイルをビルド用ディレクトリにコピー
+  ## 4. テンプレートファイルのうち、ディレクトリ位置によって値の変化する箇所を置換
+  ## 5. 成果物を公開用ディレクトリに移動
   echoTaskTitle "Build HTML"
-  # ビルドしたHTMLの配置先を最初に全部消す
+  # ビルドしたHTMLの配置先を作り直す
   removeDir(toDir)
   createDir(toDir)
+  # ビルド作業用のディレクトリを作る
+  removeDir(workDir)
+  createDir(workDir)
+  # カテゴリ一覧、最新記事リストを配置
+  copyFile(varDir / newPageListFile, workDir / newPageListFile)
+  copyFile(varDir / categoryListFile, workDir / categoryListFile)
   for f in walkDirRec(fromDir):
     try:
       # asciidoc以外は無視
@@ -93,23 +140,20 @@ proc buildHTML(fromDir, toDir: string) =
       if fp.ext != asciidocExtension:
         continue
 
-      # dockerでHTMLを生成
-      # 生成されるファイルの所有権がrootにならないように指定
-      let uid = getuid()
-      let gid = getgid()
-      discard execProcess(&"docker run --rm -u {uid}:{gid} -v {getCurrentDir()}:/documents/ asciidoctor/docker-asciidoctor asciidoctor -r asciidoctor-diagram {f}")
+      # HTMLを生成
+      let filePrefix = if fp.name == "index": "index"
+                       else: "page"
+      let genedFile = buildHTML(f, filePrefix)
 
-      # 生成したファイルと対応する配置先ディレクトリの生成
-      let genedFile = f.changeFileExt(".html")
+      # 生成元ファイルと対応する配置先ディレクトリの生成
       let genedDir = toDir / fp.dir.split(AltSep)[1..^1].join($AltSep)
       createDir(genedDir)
 
       # 生成したディレクトリにファイルを移動
-      let genedFp = genedFile.splitFile
-      let movedFile = genedDir / genedFp.name & genedFp.ext
-      moveFile(genedFile, movedFile)
+      let moveFile = genedDir / fp.name & ".html"
+      moveFile(genedFile, moveFile)
       
-      info movedFile
+      info moveFile
     except:
       err f
       err getCurrentExceptionMsg(), prefix="     "
@@ -148,7 +192,7 @@ proc buildNewerWrittenFile(dir: string, pageCount: int) =
     let linkTitle = f.path.readPageTitle
     let writeTime = f.lastWriteTime
     s.add &"* link:./{url}[{linkTitle}] {writeTime} 更新\n"
-  let outFile = &"{dir}/new-pages.txt"
+  let outFile = &"{varDir}/new-pages.txt"
   writeFile(outFile, s)
   info outFile
 
@@ -178,7 +222,7 @@ proc buildCategoriesFile(dir: string) =
 
 """
   getCategories(category, dir)
-  let outFile = &"{dir}/categories.txt"
+  let outFile = varDir / categoryListFile
   writeFile(outFile, category)
   info outFile
 
@@ -186,4 +230,4 @@ when isMainModule:
   buildIndexAdoc("page", 0)
   buildNewerWrittenFile("page", 10)
   buildCategoriesFile("page")
-  buildHTML("page", "docs")
+  buildSite("page", "docs")

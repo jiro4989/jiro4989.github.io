@@ -1,5 +1,4 @@
 = 次ログ
-include::./metadata-index.txt[]
 // 記事のタグ
 // 独自記法のためコメントで表現
 // :tag: [top, home]
@@ -17,6 +16,6 @@ include::./metadata-index.txt[]
 *** https://github.com/jiro4989/jiro4989.github.io/tree/master[jiro4989/jiro4989.github.io] このブログのソースコード
 ** http://b.hatena.ne.jp/jiroron666/bookmark[はてなブックマーク] よかったと思った記事はここに登録している
 
-include::./new-pages.txt[]
+include::new-pages.txt[]
 
-include::./categories.txt[]
+include::categories.txt[]

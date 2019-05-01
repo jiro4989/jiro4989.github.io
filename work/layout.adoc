@@ -1,0 +1,5 @@
+include::metadata.txt[]
+
+include::body.adoc[]
+
+include::footer.txt[]

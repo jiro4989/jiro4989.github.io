@@ -1,5 +1,4 @@
 = SQLite3環境構築と基本的な使い方
-include::../../../metadata.txt[]
 // 記事のタグ
 // 独自記法のためコメントで表現
 // :tag: [sqlite, database]

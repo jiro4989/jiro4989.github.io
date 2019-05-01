@@ -436,7 +436,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h1>SQLite3環境構築と基本的な使い方</h1>
 <div class="details">
 <span id="author" class="author">次郎 (jiro)</span><br>
-<span id="revdate">2019-05-01 09:15:19 UTC</span>
+<span id="revdate">2019-05-01 13:50:37 UTC</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">目次</div>
@@ -597,23 +597,7 @@ sqlite&gt;</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sample.sql hljs" data-lang="sample.sql">DROP TABLE IF EXISTS user;
-CREATE TABLE user(id INTEGER, name TEXT);
-INSERT INTO user (id, name) VALUES (1, 'taro');
-INSERT INTO user (id, name) VALUES (2, 'ichiro');
-INSERT INTO user (id, name) VALUES (3, 'hanako');
-INSERT INTO user (id, name) VALUES (4, 'hiroshi');
-
-DROP TABLE IF EXISTS hobby;
-CREATE TABLE hobby(id INTEGER, user_id, name TEXT, description TEXT);
-INSERT INTO hobby (id, user_id, name, description) VALUES (1, 1, 'baseball', NULL);
-INSERT INTO hobby (id, user_id, name, description) VALUES (2, 1, 'pingpong', NULL);
-INSERT INTO hobby (id, user_id, name, description) VALUES (3, 2, 'game', NULL);
-INSERT INTO hobby (id, user_id, name, description) VALUES (3, 2, 'dart', NULL);
-INSERT INTO hobby (id, user_id, name, description) VALUES (4, 3, 'cooking', NULL);
-INSERT INTO hobby (id, user_id, name, description) VALUES (5, 3, 'dance', NULL);
-INSERT INTO hobby (id, user_id, name, description) VALUES (6, 4, 'music', NULL);
-INSERT INTO hobby (id, user_id, name, description) VALUES (7, 4, 'volunteer', NULL);</code></pre>
+<pre class="highlightjs highlight"><code class="language-sample.sql hljs" data-lang="sample.sql">Unresolved directive in body.adoc - include::./basic/create.sql[]</code></pre>
 </div>
 </div>
 <div class="listingblock">
@@ -652,13 +636,7 @@ sqlite&gt;</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-select.sql hljs" data-lang="select.sql">SELECt * FROM user;
-SELECt * FROM hobby;
-
-SELECT u.id, u.name, h.name, h.description
-  FROM user AS u
-  JOIN hobby AS h
-    ON u.id = h.user_id;</code></pre>
+<pre class="highlightjs highlight"><code class="language-select.sql hljs" data-lang="select.sql">Unresolved directive in body.adoc - include::./basic/select.sql[]</code></pre>
 </div>
 </div>
 <div class="listingblock">
@@ -700,6 +678,12 @@ SELECT u.id, u.name, h.name, h.description
 <p><a href="https://www.dbonline.jp/sqlite/" class="bare">https://www.dbonline.jp/sqlite/</a></p>
 </li>
 </ul>
+</div>
+<hr>
+<div class="paragraph">
+<p><a href="./index.html">sqlite目次へ移動</a> /
+<a href="https://jiro4989.github.io/index.html">トップページへ移動</a> /
+<a href="https://jiro4989.github.io/home/tech/index.html">技術メモへ移動</a></p>
 </div>
 </div>
 </div>

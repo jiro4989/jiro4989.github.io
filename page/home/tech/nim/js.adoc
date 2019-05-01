@@ -1,5 +1,4 @@
 = NimでJavaScriptとして出力しHTMLから利用する
-include::../../../metadata.txt[]
 // 記事のタグ
 // 独自記法のためコメントで表現
 // :tag: [nim, javascript]
@@ -165,4 +164,3 @@ include::./js/ostest2.nim[]
 NimはPython風とよく聞くけれど、オフサイドルール（インデントでブロックを表現する
 ）のを採用しているだけで、Pythonの皮をかぶったC言語というのは言い得て妙。ところ
 どころにC言語の `#ifdef` 地獄の片鱗が見えて恐ろしい。
-
