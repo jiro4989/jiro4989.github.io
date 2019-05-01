@@ -50,6 +50,30 @@ proc runBuildCommand(f: string) =
   let cwd = getCurrentDir()
   discard execProcess(&"docker run --rm -u {uid}:{gid} -v {cwd}:/documents/ asciidoctor/docker-asciidoctor asciidoctor -r asciidoctor-diagram {f}")
 
+proc readSubCategoryList(f: string): string =
+  ## サブカテゴリの一覧を取得し、Asciidoc記法でのリスト表現に変換して返す。
+  result.add "* サブカテゴリ\n"
+  for k2, f2 in walkDir(f):
+    if k2 != pcDir:
+      continue
+    if not f2.hasAsciiDocFile:
+      continue
+    # 相対パス指定にするため最後のディレクトリ名だけ取得
+    let f2fp = splitPath(f2)
+    let title = f2fp[1]
+    let nf = title / "index.html"
+    result.add &"** link:./{nf}[{title}]\n"
+
+proc readPageList(f: string): string =
+  ## ページ一覧を取得し、Asciidoc記法でのリスト表現に変換して返す。
+  result.add "* ページ\n"
+  for k2, f2 in walkDir(f):
+    if k2 == pcFile and f2.splitFile.name != "index":
+      # 相対パス指定にするため最後のファイル名だけ取得
+      let nf = f2.changeFileExt(".html").splitPath[1]
+      var title = f2.readPageTitle
+      result.add &"** link:./{nf}[{title}]\n"
+
 proc createIndexAdocFiles(dir: string, depth: int) =
   ## index.htmlの元になるindex.adocを生成する。
   if depth == 0:
@@ -61,29 +85,8 @@ proc createIndexAdocFiles(dir: string, depth: int) =
       continue
     try:
       var links: string
-
-      # サブカテゴリの一覧をセット
-      links.add "* サブカテゴリ\n"
-      for k2, f2 in walkDir(f):
-        if k2 != pcDir:
-          continue
-        if not f2.hasAsciiDocFile:
-          continue
-        # 相対パス指定にするため最後のディレクトリ名だけ取得
-        let f2fp = splitPath(f2)
-        let title = f2fp[1]
-        let nf = title / "index.html"
-        links.add &"** link:./{nf}[{title}]\n"
-
-      # ページ一覧をセット
-      links.add "* ページ\n"
-      for k2, f2 in walkDir(f):
-        if k2 == pcFile and f2.splitFile.name != "index":
-          # 相対パス指定にするため最後のファイル名だけ取得
-          let nf = f2.changeFileExt(".html").splitPath[1]
-          var title = f2.readPageTitle
-          links.add &"** link:./{nf}[{title}]\n"
-
+      links.add f.readSubCategoryList # サブカテゴリの一覧をセット
+      links.add f.readPageList        # ページ一覧をセット
       # テンプレートファイルにリンクなどを埋め込む
       let outFile = f / "index.adoc"
       let tmpl = indexAdocTemplate
