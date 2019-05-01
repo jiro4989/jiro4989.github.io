@@ -118,6 +118,14 @@ proc createHTMLFile(f, filePrefix: string): string =
   let layoutFile = workDir / "layout.adoc"
   copyFile(tmplDir / "layout.txt", layoutFile)
 
+  # ページがincludeするディレクトリを配置
+  block:
+    let fp = f.splitFile
+    let dir = fp.dir / fp.name
+    if dir.existsDir:
+      let moveDir = workDir / fp.name
+      copyDir(dir, moveDir)
+
   # Dockerでasciidocからhtmlを生成
   runBuildCommand(layoutFile)
 
