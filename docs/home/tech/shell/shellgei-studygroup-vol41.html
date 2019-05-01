@@ -659,15 +659,35 @@ AA, AB, &#8230;&#8203;のやつ）順に並べ替えてください。</p>
 </div>
 </div>
 <div class="paragraph">
-<p>流れとしては下記の通り
-. <code>grep -o</code> で1行のデータを縦に並べて <code>nl</code> で番号の列を追加
-. 後に控えている <code>join</code> は結合するフィールドが辞書順にソートされている必要がある
-  ため、joinに指定するフィールドを辞書順にソート
-. joinで結合。 <code>-1 2</code> と <code>-2 1</code> で１個めのファイルの２フィールド目と２個めのファ
-  イルの１フィールド目を結合する
-.. eto_yomiも辞書順でソート
-. 最初にnlで付与した番号で干支順にソートし直す
-. cutで不要なフィールドの削除</p>
+<p>流れとしては下記の通り</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>grep -o</code> で1行のデータを縦に並べて <code>nl</code> で番号の列を追加</p>
+</li>
+<li>
+<p>後に控えている <code>join</code> は結合するフィールドが辞書順にソートされている必要がある
+ため、joinに指定するフィールドを辞書順にソート</p>
+</li>
+<li>
+<p>joinで結合。 <code>-1 2</code> と <code>-2 1</code> で１個めのファイルの２フィールド目と２個めのファ
+イルの１フィールド目を結合する</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>eto_yomiも辞書順でソート</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>最初にnlで付与した番号で干支順にソートし直す</p>
+</li>
+<li>
+<p>cutで不要なフィールドの削除</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
 <p>シェル芸の非常に良いお題だったと思う。</p>
