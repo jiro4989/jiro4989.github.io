@@ -30,42 +30,43 @@ proc buildIndexAdoc(dir: string, depth: int) =
   if depth == 0:
     echoTaskTitle "Build index adoc"
   for k, f in walkDir(dir):
-    if k == pcDir:
-      try:
-        var links: string
-        # 先にディレクトリの一覧をセット
-        links.add "* サブカテゴリ\n"
-        for k2, f2 in walkDir(f):
-          if k2 == pcDir:
-            # 相対パス指定にするため最後のディレクトリ名だけ取得
-            let f2fp = splitPath(f2)
-            let title = f2fp[1]
-            let nf = title / "index.html"
-            links.add &"** link:./{nf}[{title}]\n"
+    if k != pcDir:
+      continue
+    try:
+      var links: string
+      # 先にディレクトリの一覧をセット
+      links.add "* サブカテゴリ\n"
+      for k2, f2 in walkDir(f):
+        if k2 == pcDir:
+          # 相対パス指定にするため最後のディレクトリ名だけ取得
+          let f2fp = splitPath(f2)
+          let title = f2fp[1]
+          let nf = title / "index.html"
+          links.add &"** link:./{nf}[{title}]\n"
 
-        # ファイル一覧をセット
-        links.add "* ページ\n"
-        for k2, f2 in walkDir(f):
-          if k2 == pcFile and f2.splitFile.name != "index":
-            # 相対パス指定にするため最後のファイル名だけ取得
-            let nf = f2.changeFileExt(".html").splitPath[1]
-            var title = f2.readPageTitle
-            links.add &"** link:./{nf}[{title}]\n"
+      # ファイル一覧をセット
+      links.add "* ページ\n"
+      for k2, f2 in walkDir(f):
+        if k2 == pcFile and f2.splitFile.name != "index":
+          # 相対パス指定にするため最後のファイル名だけ取得
+          let nf = f2.changeFileExt(".html").splitPath[1]
+          var title = f2.readPageTitle
+          links.add &"** link:./{nf}[{title}]\n"
 
-        # テンプレートファイルにリンクなどを埋め込む
-        let outFile = f / "index.adoc"
-        let tmpl = indexAdocTemplate
-          .replace("{title}", f.split(AltSep)[1..^1].join($AltSep))
-          .replace("{metadataPath}", "../" & "..".repeat(depth).join("/") & "/metadata-index.txt[]")
-          .replace("{parentCategory}", "link:../index.html[こちら]")
-          .replace("{links}", links)
-        writeFile(outFile, tmpl)
+      # テンプレートファイルにリンクなどを埋め込む
+      let outFile = f / "index.adoc"
+      let tmpl = indexAdocTemplate
+        .replace("{title}", f.split(AltSep)[1..^1].join($AltSep))
+        .replace("{metadataPath}", "../" & "..".repeat(depth).join("/") & "/metadata-index.txt[]")
+        .replace("{parentCategory}", "link:../index.html[こちら]")
+        .replace("{links}", links)
+      writeFile(outFile, tmpl)
 
-        info outFile
-      except:
-        err f
-        err getCurrentExceptionMsg(), prefix="     "
-      buildIndexAdoc(f, depth + 1)
+      info outFile
+    except:
+      err f
+      err getCurrentExceptionMsg(), prefix="     "
+    buildIndexAdoc(f, depth + 1)
 
 proc buildHTML(fromDir, toDir: string) =
   ## AsciidocからHTMLを生成する。
@@ -121,7 +122,7 @@ proc getNewerWrittenPages(dir: string, pageCount: int): seq[tuple[path, lastWrit
                           cmp(y.t.toSeconds, x.t.toSeconds))[0..<pc]
                 .mapIt((it.path, it.t.format("yyyy/MM/dd HH:mm:ss")))
 
-proc buildNewerWritternPages(dir: string, pageCount: int) =
+proc buildNewerWritternFile(dir: string, pageCount: int) =
   ## 更新日時最新のものを指定数取得し、一覧ファイルに出力する。
   echoTaskTitle "Build newer written pages"
   var s = &"""
@@ -139,7 +140,30 @@ proc buildNewerWritternPages(dir: string, pageCount: int) =
   writeFile(outFile, s)
   info outFile
 
+proc getCategories(ret: var string, dir: string, depth = 1) =
+  for k, f in walkDir(dir):
+    if k != pcDir:
+      continue
+    let f2 = f.split(AltSep)[1..^1].join($AltSep)
+    let category = f.splitPath[1]
+    let listStr = "*".repeat(depth).join & &" link:./{f2}/index.html[{category}]\n"
+    ret.add listStr
+    getCategories(ret, f, depth + 1)
+
+
+proc buildCategoriesFile(dir: string) =
+  echoTaskTitle "Build categories file"
+  var category = """
+== カテゴリ一覧
+
+"""
+  getCategories(category, dir)
+  let outFile = "page/categories.txt"
+  writeFile(outFile, category)
+  info outFile
+
 when isMainModule:
   buildIndexAdoc("page", 0)
-  buildNewerWritternPages("page", 10)
+  buildNewerWritternFile("page", 10)
+  buildCategoriesFile("page")
   buildHTML("page", "docs")
