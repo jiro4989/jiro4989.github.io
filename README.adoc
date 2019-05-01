@@ -12,5 +12,5 @@ https://github.com/darshandsoni/asciidoctor-skins から探す。
 == HTMLの生成
 
 [source,bash]
-nim c mngtool.nim
+nim c -d:release mngtool.nim
 ./mngtool
