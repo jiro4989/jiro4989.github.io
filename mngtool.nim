@@ -25,6 +25,11 @@ proc readPageTitle(path: string): string =
     if line.startsWith("= "):
       return line.replace("= ", "")
 
+proc hasAsciiDocFile(dir: string): bool =
+  for k, f in walkDir(dir):
+    if k == pcFile and f.splitFile.ext == ".adoc":
+      return true
+
 proc buildIndexAdoc(dir: string, depth: int) =
   ## index.htmlの元になるindex.adocを生成する。
   if depth == 0:
@@ -32,17 +37,22 @@ proc buildIndexAdoc(dir: string, depth: int) =
   for k, f in walkDir(dir):
     if k != pcDir:
       continue
+    if not f.hasAsciiDocFile:
+      continue
     try:
       var links: string
       # 先にディレクトリの一覧をセット
       links.add "* サブカテゴリ\n"
       for k2, f2 in walkDir(f):
-        if k2 == pcDir:
-          # 相対パス指定にするため最後のディレクトリ名だけ取得
-          let f2fp = splitPath(f2)
-          let title = f2fp[1]
-          let nf = title / "index.html"
-          links.add &"** link:./{nf}[{title}]\n"
+        if k2 != pcDir:
+          continue
+        if not f2.hasAsciiDocFile:
+          continue
+        # 相対パス指定にするため最後のディレクトリ名だけ取得
+        let f2fp = splitPath(f2)
+        let title = f2fp[1]
+        let nf = title / "index.html"
+        links.add &"** link:./{nf}[{title}]\n"
 
       # ファイル一覧をセット
       links.add "* ページ\n"
@@ -143,6 +153,8 @@ proc buildNewerWrittenFile(dir: string, pageCount: int) =
 proc getCategories(ret: var string, dir: string, depth = 1) =
   for k, f in walkDir(dir):
     if k != pcDir:
+      continue
+    if not f.hasAsciiDocFile:
       continue
     let f2 = f.split(AltSep)[1..^1].join($AltSep)
     let category = f.splitPath[1]
