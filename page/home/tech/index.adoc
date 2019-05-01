@@ -1,13 +1,12 @@
 = home/tech
-include::../../metadata.txt[]
+include::../../metadata-index.txt[]
 
 下層へのリンク集です。 +
 親カテゴリはlink:../index.html[こちら]。
 
-各種リンク
-==========
+== 各種リンク
 
-* カテゴリ
+* サブカテゴリ
 ** link:./shell/index.html[shell]
 ** link:./nim/index.html[nim]
 ** link:./sqlite/index.html[sqlite]
