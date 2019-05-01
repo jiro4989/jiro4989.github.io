@@ -7,7 +7,6 @@ include::../../../metadata-index.txt[]
 == 各種リンク
 
 * サブカテゴリ
-** link:./js/index.html[js]
 * ページ
 ** link:./multibyte.html[Nimでマルチバイト文字を扱う]
 ** link:./js.html[NimでJavaScriptとして出力しHTMLから利用する]
