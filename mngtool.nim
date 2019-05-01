@@ -6,7 +6,9 @@ from strformat import `&`
 from algorithm import sorted
 import posix ## Unix依存 Windowsだと問題おきそう
 
-let indexAdocTemplate = readFile("page/index.adoc.tmpl")
+let
+  indexAdocTemplate = readFile("page/index.adoc.tmpl")
+  asciidocExtension = ".adoc"
 
 proc echoTaskTitle(title: string) =
     echo &"""
@@ -27,7 +29,7 @@ proc readPageTitle(path: string): string =
 
 proc hasAsciiDocFile(dir: string): bool =
   for k, f in walkDir(dir):
-    if k == pcFile and f.splitFile.ext == ".adoc":
+    if k == pcFile and f.splitFile.ext == asciidocExtension:
       return true
 
 proc buildIndexAdoc(dir: string, depth: int) =
@@ -88,7 +90,7 @@ proc buildHTML(fromDir, toDir: string) =
     try:
       # asciidoc以外は無視
       let fp = splitFile(f)
-      if fp.ext != ".adoc":
+      if fp.ext != asciidocExtension:
         continue
 
       # dockerでHTMLを生成
@@ -118,7 +120,7 @@ proc getNewerWrittenPages(dir: string, pageCount: int): seq[tuple[path, lastWrit
   var paths: seq[tuple[path: string, t: times.Time]]
   var pathsCount: int
   for fp in walkDirRec(dir, yieldFilter={pcFile}):
-    if fp.splitFile.ext != ".adoc":
+    if fp.splitFile.ext != asciidocExtension:
       continue
     if fp.splitFile.name == "index":
       continue
@@ -150,6 +152,11 @@ proc buildNewerWrittenFile(dir: string, pageCount: int) =
   writeFile(outFile, s)
   info outFile
 
+proc getAsciiDocFileCountOfSubDirectories(dir: string): int =
+  for f in walkDirRec(dir, yieldFilter = {pcFile}):
+    if f.splitFile.ext == asciidocExtension and f.splitFile.name != "index":
+      result.inc
+
 proc getCategories(ret: var string, dir: string, depth = 1) =
   for k, f in walkDir(dir):
     if k != pcDir:
@@ -158,7 +165,8 @@ proc getCategories(ret: var string, dir: string, depth = 1) =
       continue
     let f2 = f.split(AltSep)[1..^1].join($AltSep)
     let category = f.splitPath[1]
-    let listStr = "*".repeat(depth).join & &" link:./{f2}/index.html[{category}]\n"
+    let count = f.getAsciiDocFileCountOfSubDirectories
+    let listStr = "*".repeat(depth).join & &" link:./{f2}/index.html[{category}] [{count}]\n"
     ret.add listStr
     getCategories(ret, f, depth + 1)
 

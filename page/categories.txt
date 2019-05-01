@@ -1,7 +1,7 @@
 == カテゴリ一覧
 
-* link:./home/index.html[home]
-** link:./home/tech/index.html[tech]
-*** link:./home/tech/shell/index.html[shell]
-*** link:./home/tech/nim/index.html[nim]
-*** link:./home/tech/sqlite/index.html[sqlite]
+* link:./home/index.html[home] [4]
+** link:./home/tech/index.html[tech] [4]
+*** link:./home/tech/shell/index.html[shell] [1]
+*** link:./home/tech/nim/index.html[nim] [2]
+*** link:./home/tech/sqlite/index.html[sqlite] [1]
