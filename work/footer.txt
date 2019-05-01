@@ -1,6 +1,0 @@
-
----
-
-link:../index.html[tech目次へ移動] /
-https://jiro4989.github.io/index.html[トップページへ移動] /
-https://jiro4989.github.io/home/tech/index.html[技術メモへ移動]
