@@ -1,7 +1,7 @@
 ## このプロジェクトのビルドツール
 
 import os, sequtils, ospaths, osproc, terminal
-from strutils import split, join, replace
+from strutils import split, join, replace, startsWith
 from strformat import `&`
 import posix ## Unix依存 Windowsだと問題おきそう
 
@@ -26,28 +26,40 @@ proc buildIndexAdoc(dir: string, depth: int) =
       try:
         var links: string
         # 先にディレクトリの一覧をセット
+        links.add "* カテゴリ\n"
         for k2, f2 in walkDir(f):
           if k2 == pcDir:
             # 相対パス指定にするため最後のディレクトリ名だけ取得
             let f2fp = splitPath(f2)
-            let nf = f2fp[1] / "index.html"
-            links.add &"* link:./{nf}[]\n"
+            let title = f2fp[1]
+            let nf = title / "index.html"
+            links.add &"** link:./{nf}[{title}]\n"
+
         # ファイル一覧をセット
+        links.add "* ページ\n"
         for k2, f2 in walkDir(f):
           if k2 == pcFile and f2.splitFile.name != "index":
-            # 相対パス指定にするため最後のディレクトリ名だけ取得
+            # 相対パス指定にするため最後のファイル名だけ取得
             let nf = f2.changeFileExt(".html").splitPath[1]
-            links.add &"* link:./{nf}[]\n"
+            var title = ""
+            for line in f2.readFile.split("\n"):
+              if line.startsWith("= "):
+                title = line.replace("= ", "")
+                break
+            links.add &"** link:./{nf}[{title}]\n"
+
         let outFile = f / "index.adoc"
         var tmpl = indexAdocTemplate
         tmpl = tmpl.replace("{title}", f.split(AltSep)[1..^1].join($AltSep))
         tmpl = tmpl.replace("{metadataPath}", "../" & "..".repeat(depth).join("/") & "/metadata.txt[]")
+        tmpl = tmpl.replace("{parentCategory}", "link:../index.html[こちら]")
         tmpl = tmpl.replace("{links}", links)
         writeFile(outFile, tmpl)
+
         info outFile
       except:
         err f
-        err getCurrentExceptionMsg()
+        err getCurrentExceptionMsg(), prefix="     "
       buildIndexAdoc(f, depth + 1)
 
 proc buildHTML(fromDir, toDir: string) =
@@ -83,7 +95,7 @@ proc buildHTML(fromDir, toDir: string) =
       info movedFile
     except:
       err f
-      err getCurrentExceptionMsg()
+      err getCurrentExceptionMsg(), prefix="     "
 
 when isMainModule:
   buildIndexAdoc("page", 0)
