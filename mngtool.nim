@@ -7,6 +7,12 @@ import posix ## Unix依存 Windowsだと問題おきそう
 
 let indexAdocTemplate = readFile("page/index.adoc.tmpl")
 
+proc echoTaskTitle(title: string) =
+    echo &"""
+=====================================================================
+  {title}
+====================================================================="""
+
 proc info(f: string) =
   styledEcho fgGreen, bgDefault, &"[OK] Generated {f}", resetStyle
 
@@ -16,11 +22,7 @@ proc err(f: string, prefix = "[NG] Failed generating from ") =
 proc buildIndexAdoc(dir: string, depth: int) =
   ## index.htmlの元になるindex.adocを生成する。
   if depth == 0:
-    echo """
-=====================================================================
-  Build index adoc
-=====================================================================
-  """
+    echoTaskTitle "Build index adoc"
   for k, f in walkDir(dir):
     if k == pcDir:
       try:
@@ -65,11 +67,7 @@ proc buildIndexAdoc(dir: string, depth: int) =
 
 proc buildHTML(fromDir, toDir: string) =
   ## AsciidocからHTMLを生成する。
-  echo """
-=====================================================================
-  Build HTML
-=====================================================================
-  """
+  echoTaskTitle "Build HTML"
   for f in walkDirRec(fromDir):
     try:
       # asciidoc以外は無視
