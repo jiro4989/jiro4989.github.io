@@ -30,25 +30,30 @@ proc err(f: string, prefix = "[NG] Failed generating from ") =
   styledEcho fgRed, bgDefault, prefix & f & ".", resetStyle
 
 proc readPageTitle(path: string): string =
+  ## Asciidocファイルからページのタイトルを取得する。
+  ## ページタイトルが取得できなかった場合は空文字列を返却する。
   for line in path.readFile.split("\n"):
     if line.startsWith("= "):
       return line.replace("= ", "")
 
 proc hasAsciiDocFile(dir: string): bool =
+  ## サブディレクトリがadocファイルを持つかどうかを判定する。
+  ## なお判定は1階層までしか検査しない。
   for k, f in walkDir(dir):
     if k == pcFile and f.splitFile.ext == asciidocExtension:
       return true
 
 proc runBuildCommand(f: string) =
+  ## AsciidocファイルをHTMLファイルに変換する。
   let uid = getuid()
   let gid = getgid()
   let cwd = getCurrentDir()
   discard execProcess(&"docker run --rm -u {uid}:{gid} -v {cwd}:/documents/ asciidoctor/docker-asciidoctor asciidoctor -r asciidoctor-diagram {f}")
 
-proc buildIndexAdoc(dir: string, depth: int) =
+proc createIndexAdocFiles(dir: string, depth: int) =
   ## index.htmlの元になるindex.adocを生成する。
   if depth == 0:
-    echoTaskTitle "Build index adoc"
+    echoTaskTitle "Create index adoc files"
   for k, f in walkDir(dir):
     if k != pcDir:
       continue
@@ -56,7 +61,8 @@ proc buildIndexAdoc(dir: string, depth: int) =
       continue
     try:
       var links: string
-      # 先にディレクトリの一覧をセット
+
+      # サブカテゴリの一覧をセット
       links.add "* サブカテゴリ\n"
       for k2, f2 in walkDir(f):
         if k2 != pcDir:
@@ -69,7 +75,7 @@ proc buildIndexAdoc(dir: string, depth: int) =
         let nf = title / "index.html"
         links.add &"** link:./{nf}[{title}]\n"
 
-      # ファイル一覧をセット
+      # ページ一覧をセット
       links.add "* ページ\n"
       for k2, f2 in walkDir(f):
         if k2 == pcFile and f2.splitFile.name != "index":
@@ -89,10 +95,10 @@ proc buildIndexAdoc(dir: string, depth: int) =
     except:
       err f
       err getCurrentExceptionMsg(), prefix="     "
-    buildIndexAdoc(f, depth + 1)
+    createIndexAdocFiles(f, depth + 1)
 
-proc buildHTML(f, filePrefix: string): string =
-  ## 各記事のHTMLを生成する。
+proc createHTMLFile(f, filePrefix: string): string =
+  ## HTMLを生成する。
   # テンプレートから必要ファイルをコピー
   copyFile(tmplDir / &"{filePrefix}-metadata.txt", workDir / "metadata.txt")
   copyFile(f, workDir / "body.adoc")
@@ -115,7 +121,7 @@ proc buildHTML(f, filePrefix: string): string =
   # ビルド対象と同じパスにhtmlファイルが生成されるので返却
   return layoutFile.changeFileExt(".html")
 
-proc buildSite(fromDir, toDir: string) =
+proc createHTMLFiles(fromDir, toDir: string) =
   ## AsciidocからHTMLを生成する。
   ##
   ## 1. 公開用ディレクトリの削除
@@ -123,7 +129,7 @@ proc buildSite(fromDir, toDir: string) =
   ## 3. ビルド用のメタ情報、ヘッダテンプレートファイルをビルド用ディレクトリにコピー
   ## 4. テンプレートファイルのうち、ディレクトリ位置によって値の変化する箇所を置換
   ## 5. 成果物を公開用ディレクトリに移動
-  echoTaskTitle "Build HTML"
+  echoTaskTitle "Create HTML files"
   # ビルドしたHTMLの配置先を作り直す
   removeDir(toDir)
   createDir(toDir)
@@ -143,7 +149,7 @@ proc buildSite(fromDir, toDir: string) =
       # HTMLを生成
       let filePrefix = if fp.name == "index": "index"
                        else: "page"
-      let genedFile = buildHTML(f, filePrefix)
+      let genedFile = createHTMLFile(f, filePrefix)
 
       # 生成元ファイルと対応する配置先ディレクトリの生成
       let genedDir = toDir / fp.dir.split(AltSep)[1..^1].join($AltSep)
@@ -178,9 +184,9 @@ proc getNewerWrittenPages(dir: string, pageCount: int): seq[tuple[path, lastWrit
                           cmp(y.t.toUnix, x.t.toUnix))[0..<pc]
                 .mapIt((it.path, it.t.format("yyyy/MM/dd HH:mm:ss")))
 
-proc buildNewerWrittenFile(dir: string, pageCount: int) =
+proc createNewerWrittenPagesFile(dir: string, pageCount: int) =
   ## 更新日時最新のものを指定数取得し、一覧ファイルに出力する。
-  echoTaskTitle "Build newer written pages"
+  echoTaskTitle "Create newer written pages file"
   var s = &"""
 == 最新の更新された記事一覧 ({pageCount}件)
 
@@ -215,8 +221,8 @@ proc getCategories(ret: var string, dir: string, depth = 1) =
     getCategories(ret, f, depth + 1)
 
 
-proc buildCategoriesFile(dir: string) =
-  echoTaskTitle "Build categories file"
+proc createCategoriesFile(dir: string) =
+  echoTaskTitle "Create categories file"
   var category = """
 == カテゴリ一覧
 
@@ -227,7 +233,7 @@ proc buildCategoriesFile(dir: string) =
   info outFile
 
 when isMainModule:
-  buildIndexAdoc("page", 0)
-  buildNewerWrittenFile("page", 10)
-  buildCategoriesFile("page")
-  buildSite("page", "docs")
+  createIndexAdocFiles("page", 0)
+  createNewerWrittenPagesFile("page", 10)
+  createCategoriesFile("page")
+  createHTMLFiles("page", "docs")
