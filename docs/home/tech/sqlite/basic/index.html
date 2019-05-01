@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.8">
 <meta name="author" content="次郎 (jiro)">
-<title>SQLite3環境構築と基本的な使い方</title>
+<title>home/tech/sqlite/basic</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -431,273 +431,42 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
 </head>
-<body class="article toc2 toc-left">
+<body class="article">
 <div id="header">
-<h1>SQLite3環境構築と基本的な使い方</h1>
+<h1>home/tech/sqlite/basic</h1>
 <div class="details">
 <span id="author" class="author">次郎 (jiro)</span><br>
-<span id="revdate">2019-05-01 09:15:19 UTC</span>
-</div>
-<div id="toc" class="toc2">
-<div id="toctitle">目次</div>
-<ul class="sectlevel1">
-<li><a href="#_sqlite3のインストール">1. SQLite3のインストール</a></li>
-<li><a href="#_sqliteの対話モードを起動する">2. SQLiteの対話モードを起動する</a></li>
-<li><a href="#_dbを作る">3. DBを作る</a></li>
-<li><a href="#_テーブルを作る">4. テーブルを作る</a></li>
-<li><a href="#_外部ファイルをsqliteインタプリタから読む">5. 外部ファイルをSQLiteインタプリタから読む</a></li>
-<li><a href="#_sqlite外からsqlを読み込ませる">6. SQLite外からSQLを読み込ませる</a></li>
-<li><a href="#_参考資料">7. 参考資料</a></li>
-</ul>
 </div>
 </div>
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Nimの <a href="https://nim-lang.github.io/Nim/db_sqlite.html">db_sqlite</a>というモジュールの
-ドキュメントを書くにあたって環境構築の必要がでたのでそのメモ。</p>
+<p>下層へのリンク集です。<br>
+親カテゴリは<a href="../index.html">こちら</a>。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_sqlite3のインストール">1. SQLite3のインストール</h2>
+<h2 id="_各種リンク">各種リンク</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Ubuntu18.10環境へのインストール。
-普通にaptからインストールできる。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">% sudo apt install -y sqlite3
-% sqlite3 --version
-3.24.0 2018-06-04 19:24:41
-% which sqlite3
-/usr/bin/sqlite3</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_sqliteの対話モードを起動する">2. SQLiteの対話モードを起動する</h2>
-<div class="sectionbody">
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">% sqlite3
-SQLite version 3.24.0 2018-06-04 19:24:41
-Enter ".help" for usage hints.
-Connected to a transient in-memory database.
-Use ".open FILENAME" to reopen on a persistent database.
-sqlite&gt;</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>今までMySQLとOracleDBしか触ったことがなかった。
-SQL構文とは違う、DBMS自体の操作に関連する機能については、やはり他の言語と全然こ
-となる。初めて操作したときは <code>show tables</code> が存在しなくて困惑した。
-とりあえず最低限操作に必要なコマンドは下記の通り。</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">表 1. DBの状態を確認するコマンド</caption>
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">コマンド</th>
-<th class="tableblock halign-left valign-top">説明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">.help</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ヘルプメニューの表示</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">.databases</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">DB名を表示</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">.tables</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">テーブル一覧を表示</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">.exit</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">SQLite3を抜ける</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_dbを作る">3. DBを作る</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>sqlite3を起動するときに引数を渡すとそれがそのままDB名になる。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">% sqlite3 test.db</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>このコマンドを実行した時、カレントディレクトリにtest.dbというファイルが生成され
-る。これがDBにのすべて。消したらDBが消えるし、移動もできる。コピーもできる。</p>
-</div>
-<div class="paragraph">
-<p>一度作成したDBを再度指定すると、そのDBをそのまま利用する。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">% sqlite3 test.db
-SQLite version 3.24.0 2018-06-04 19:24:41
-Enter ".help" for usage hints.
-sqlite&gt; .databases
-main: /tmp/test.db</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_テーブルを作る">4. テーブルを作る</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>テーブルを作るのは他のDBMSと同じようにSQL文を実行する。
-違いは、テーブル作成時にカラムの型を指定しなくてよいこと。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-sqlite3 hljs" data-lang="sqlite3">sqlite&gt; create table user(id, name);
-sqlite&gt; .tables
-user
-sqlite&gt;</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>型をしない場合はどんなデータでも挿入できる。
-当然、型を指定をすることもできるし、普通なら型を指定するべきだろう。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-sqlite3 hljs" data-lang="sqlite3">sqlite&gt; create table user(id integer, name varchar(50));
-sqlite&gt; .table
-user
-sqlite&gt;</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_外部ファイルをsqliteインタプリタから読む">5. 外部ファイルをSQLiteインタプリタから読む</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>以下のようなcreate.sqlというファイルを作ってみた。
-これをSQLiteインタプリタから読んで見る。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-sample.sql hljs" data-lang="sample.sql">DROP TABLE IF EXISTS user;
-CREATE TABLE user(id INTEGER, name TEXT);
-INSERT INTO user (id, name) VALUES (1, 'taro');
-INSERT INTO user (id, name) VALUES (2, 'ichiro');
-INSERT INTO user (id, name) VALUES (3, 'hanako');
-INSERT INTO user (id, name) VALUES (4, 'hiroshi');
-
-DROP TABLE IF EXISTS hobby;
-CREATE TABLE hobby(id INTEGER, user_id, name TEXT, description TEXT);
-INSERT INTO hobby (id, user_id, name, description) VALUES (1, 1, 'baseball', NULL);
-INSERT INTO hobby (id, user_id, name, description) VALUES (2, 1, 'pingpong', NULL);
-INSERT INTO hobby (id, user_id, name, description) VALUES (3, 2, 'game', NULL);
-INSERT INTO hobby (id, user_id, name, description) VALUES (3, 2, 'dart', NULL);
-INSERT INTO hobby (id, user_id, name, description) VALUES (4, 3, 'cooking', NULL);
-INSERT INTO hobby (id, user_id, name, description) VALUES (5, 3, 'dance', NULL);
-INSERT INTO hobby (id, user_id, name, description) VALUES (6, 4, 'music', NULL);
-INSERT INTO hobby (id, user_id, name, description) VALUES (7, 4, 'volunteer', NULL);</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-sqlite3 hljs" data-lang="sqlite3">.read create.sql
-sqlite&gt; .read create.sql
-sqlite&gt; .tables
-hobby  user
-sqlite&gt; select * from user;
-1|taro
-2|ichiro
-3|hanako
-4|hiroshi
-sqlite&gt; select * from hobby;
-1|1|baseball|
-2|1|pingpong|
-3|2|game|
-3|2|dart|
-4|3|cooking|
-5|3|dance|
-6|4|music|
-7|4|volunteer|
-sqlite&gt;</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>読み込めた。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_sqlite外からsqlを読み込ませる">6. SQLite外からSQLを読み込ませる</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>以下のようにファイルを標準入力から渡してやれば良い。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-select.sql hljs" data-lang="select.sql">SELECt * FROM user;
-SELECt * FROM hobby;
-
-SELECT u.id, u.name, h.name, h.description
-  FROM user AS u
-  JOIN hobby AS h
-    ON u.id = h.user_id;</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">% sqlite3 test.db &lt; select.sql
-1|taro
-2|ichiro
-3|hanako
-4|hiroshi
-1|1|baseball|
-2|1|pingpong|
-3|2|game|
-3|2|dart|
-4|3|cooking|
-5|3|dance|
-6|4|music|
-7|4|volunteer|
-1|taro|baseball|
-1|taro|pingpong|
-2|ichiro|game|
-2|ichiro|dart|
-3|hanako|cooking|
-3|hanako|dance|
-4|hiroshi|music|
-4|hiroshi|volunteer|</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_参考資料">7. 参考資料</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>まぁここに書いてあることのほうがずっとずっと参考になる。</p>
-</div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://www.dbonline.jp/sqlite/" class="bare">https://www.dbonline.jp/sqlite/</a></p>
+<p>サブカテゴリ</p>
+</li>
+<li>
+<p>ページ</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="./select.html" class="bare">./select.html</a></p>
+</li>
+<li>
+<p><a href="./create.html" class="bare">./create.html</a></p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>

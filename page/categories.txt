@@ -6,3 +6,4 @@
 *** link:./home/tech/nim/index.html[nim]
 **** link:./home/tech/nim/js/index.html[js]
 *** link:./home/tech/sqlite/index.html[sqlite]
+**** link:./home/tech/sqlite/basic/index.html[basic]

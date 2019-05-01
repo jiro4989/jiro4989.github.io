@@ -7,7 +7,6 @@ include::../../../metadata-index.txt[]
 == 各種リンク
 
 * サブカテゴリ
+** link:./basic/index.html[basic]
 * ページ
-** link:./basic.html[sqlite basic]
-** link:./show.html[]
-** link:./basic.html[]
+** link:./basic.html[SQLite3環境構築と基本的な使い方]
