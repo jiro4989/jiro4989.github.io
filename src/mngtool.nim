@@ -236,6 +236,9 @@ proc createCategoriesFile(dir: string) =
   info outFile
 
 when isMainModule:
+  removeDir(varDir)
+  createDir(varDir)
+
   createIndexAdocFiles("page", 0)
   createNewerWrittenPagesFile("page", 10)
   createCategoriesFile("page")
