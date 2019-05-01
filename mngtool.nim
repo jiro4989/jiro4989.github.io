@@ -1,8 +1,9 @@
 ## このプロジェクトのビルドツール
 
-import os, sequtils, ospaths, osproc, terminal
+import os, sequtils, ospaths, osproc, terminal, times
 from strutils import split, join, replace, startsWith
 from strformat import `&`
+from algorithm import sorted
 import posix ## Unix依存 Windowsだと問題おきそう
 
 let indexAdocTemplate = readFile("page/index.adoc.tmpl")
@@ -18,6 +19,11 @@ proc info(f: string) =
 
 proc err(f: string, prefix = "[NG] Failed generating from ") =
   styledEcho fgRed, bgDefault, prefix & f & ".", resetStyle
+
+proc readPageTitle(path: string): string =
+  for line in path.readFile.split("\n"):
+    if line.startsWith("= "):
+      return line.replace("= ", "")
 
 proc buildIndexAdoc(dir: string, depth: int) =
   ## index.htmlの元になるindex.adocを生成する。
@@ -43,11 +49,7 @@ proc buildIndexAdoc(dir: string, depth: int) =
           if k2 == pcFile and f2.splitFile.name != "index":
             # 相対パス指定にするため最後のファイル名だけ取得
             let nf = f2.changeFileExt(".html").splitPath[1]
-            var title = ""
-            for line in f2.readFile.split("\n"):
-              if line.startsWith("= "):
-                title = line.replace("= ", "")
-                break
+            var title = f2.readPageTitle
             links.add &"** link:./{nf}[{title}]\n"
 
         # テンプレートファイルにリンクなどを埋め込む
@@ -68,6 +70,9 @@ proc buildIndexAdoc(dir: string, depth: int) =
 proc buildHTML(fromDir, toDir: string) =
   ## AsciidocからHTMLを生成する。
   echoTaskTitle "Build HTML"
+  # ビルドしたHTMLの配置先を最初に全部消す
+  removeDir(toDir)
+  createDir(toDir)
   for f in walkDirRec(fromDir):
     try:
       # asciidoc以外は無視
@@ -95,7 +100,47 @@ proc buildHTML(fromDir, toDir: string) =
     except:
       err f
       err getCurrentExceptionMsg(), prefix="     "
+  
+proc getNewerWrittenPages(dir: string, pageCount: int): seq[tuple[path, lastWriteTime: string]] =
+  ## 更新日時最新のものを指定数取得する。
+  ## index.htmlはカウント対象から除く。
+  var paths: seq[tuple[path: string, t: times.Time]]
+  var pathsCount: int
+  for fp in walkDirRec(dir, yieldFilter={pcFile}):
+    if fp.splitFile.ext != ".adoc":
+      continue
+    if fp.splitFile.name == "index":
+      continue
+    var f = open(fp)
+    let wt = fp.getFileInfo.lastWriteTime
+    paths.add (fp, wt)
+    f.close
+    pathsCount.inc
+  let pc = if pathsCount < pageCount: pathsCount else: pageCount
+  result = paths.sorted(proc (x, y: tuple[path: string, t: times.Time]): int =
+                          cmp(y.t.toSeconds, x.t.toSeconds))[0..<pc]
+                .mapIt((it.path, it.t.format("yyyy/MM/dd HH:mm:ss")))
 
-when isMainModule:
+proc buildNewerWritternPages(dir: string, pageCount: int) =
+  ## 更新日時最新のものを指定数取得し、一覧ファイルに出力する。
+  echoTaskTitle "Build newer written pages"
+  var s = &"""
+最新の更新された記事一覧 ({pageCount}件)
+-----------------------
+"""
+  # 最新のページ一覧を取得
+  # 更新日時とともにAsciidoc記法のリストとして追加
+  for f in getNewerWrittenPages(dir, pageCount):
+    let url = f.path.split(AltSep)[1..^1].join($AltSep)
+    let linkTitle = f.path.readPageTitle
+    let writeTime = f.lastWriteTime
+    s.add &"* link:./{url}[{linkTitle}] {writeTime} 更新\n"
+  let outFile = "page/new-pages.txt"
+  writeFile(outFile, s)
+  info outFile
+
+when false:
   buildIndexAdoc("page", 0)
   buildHTML("page", "docs")
+else:
+  buildNewerWritternPages("page", 10)
