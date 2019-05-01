@@ -11,7 +11,7 @@ let indexAdocTemplate = readFile("page/index.adoc.tmpl")
 proc echoTaskTitle(title: string) =
     echo &"""
 =====================================================================
-  {title}
+    {title}
 ====================================================================="""
 
 proc info(f: string) =
@@ -54,11 +54,11 @@ proc buildIndexAdoc(dir: string, depth: int) =
 
         # テンプレートファイルにリンクなどを埋め込む
         let outFile = f / "index.adoc"
-        var tmpl = indexAdocTemplate
-        tmpl = tmpl.replace("{title}", f.split(AltSep)[1..^1].join($AltSep))
-        tmpl = tmpl.replace("{metadataPath}", "../" & "..".repeat(depth).join("/") & "/metadata.txt[]")
-        tmpl = tmpl.replace("{parentCategory}", "link:../index.html[こちら]")
-        tmpl = tmpl.replace("{links}", links)
+        let tmpl = indexAdocTemplate
+          .replace("{title}", f.split(AltSep)[1..^1].join($AltSep))
+          .replace("{metadataPath}", "../" & "..".repeat(depth).join("/") & "/metadata-index.txt[]")
+          .replace("{parentCategory}", "link:../index.html[こちら]")
+          .replace("{links}", links)
         writeFile(outFile, tmpl)
 
         info outFile
@@ -125,13 +125,13 @@ proc buildNewerWritternPages(dir: string, pageCount: int) =
   ## 更新日時最新のものを指定数取得し、一覧ファイルに出力する。
   echoTaskTitle "Build newer written pages"
   var s = &"""
-最新の更新された記事一覧 ({pageCount}件)
------------------------
+== 最新の更新された記事一覧 ({pageCount}件)
+
 """
   # 最新のページ一覧を取得
   # 更新日時とともにAsciidoc記法のリストとして追加
   for f in getNewerWrittenPages(dir, pageCount):
-    let url = f.path.split(AltSep)[1..^1].join($AltSep)
+    let url = f.path.split(AltSep)[1..^1].join($AltSep).changeFileExt(".html")
     let linkTitle = f.path.readPageTitle
     let writeTime = f.lastWriteTime
     s.add &"* link:./{url}[{linkTitle}] {writeTime} 更新\n"
@@ -139,8 +139,7 @@ proc buildNewerWritternPages(dir: string, pageCount: int) =
   writeFile(outFile, s)
   info outFile
 
-when false:
+when isMainModule:
   buildIndexAdoc("page", 0)
-  buildHTML("page", "docs")
-else:
   buildNewerWritternPages("page", 10)
+  buildHTML("page", "docs")
