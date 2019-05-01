@@ -119,7 +119,7 @@ proc getNewerWrittenPages(dir: string, pageCount: int): seq[tuple[path, lastWrit
     pathsCount.inc
   let pc = if pathsCount < pageCount: pathsCount else: pageCount
   result = paths.sorted(proc (x, y: tuple[path: string, t: times.Time]): int =
-                          cmp(y.t.toSeconds, x.t.toSeconds))[0..<pc]
+                          cmp(y.t.toUnix, x.t.toUnix))[0..<pc]
                 .mapIt((it.path, it.t.format("yyyy/MM/dd HH:mm:ss")))
 
 proc buildNewerWritternFile(dir: string, pageCount: int) =
@@ -136,7 +136,7 @@ proc buildNewerWritternFile(dir: string, pageCount: int) =
     let linkTitle = f.path.readPageTitle
     let writeTime = f.lastWriteTime
     s.add &"* link:./{url}[{linkTitle}] {writeTime} 更新\n"
-  let outFile = "page/new-pages.txt"
+  let outFile = &"{dir}/new-pages.txt"
   writeFile(outFile, s)
   info outFile
 
@@ -158,7 +158,7 @@ proc buildCategoriesFile(dir: string) =
 
 """
   getCategories(category, dir)
-  let outFile = "page/categories.txt"
+  let outFile = &"{dir}/categories.txt"
   writeFile(outFile, category)
   info outFile
 
