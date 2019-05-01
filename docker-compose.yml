@@ -8,4 +8,4 @@ services:
     working_dir: /root
     volumes:
       - ".:/root"
-    command: textlint --preset ja-technical-writing page/**/*.adoc
+    command: textlint --preset ja-technical-writing page
