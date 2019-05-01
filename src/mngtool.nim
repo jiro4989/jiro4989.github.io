@@ -191,7 +191,7 @@ proc createNewerWrittenPagesFile(dir: string, pageCount: int) =
   ## 更新日時最新のものを指定数取得し、一覧ファイルに出力する。
   echoTaskTitle "Create newer written pages file"
   var s = &"""
-== 最新の更新された記事一覧 ({pageCount}件)
+== 最新の更新された記事 ({pageCount}件)
 
 """
   # 最新のページ一覧を取得
@@ -201,7 +201,7 @@ proc createNewerWrittenPagesFile(dir: string, pageCount: int) =
     let linkTitle = f.path.readPageTitle
     let writeTime = f.lastWriteTime
     s.add &"* link:./{url}[{linkTitle}] {writeTime} 更新\n"
-  let outFile = &"{varDir}/new-pages.txt"
+  let outFile = varDir / newPageListFile
   writeFile(outFile, s)
   info outFile
 
