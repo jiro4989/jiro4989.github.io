@@ -14,6 +14,7 @@ include::./metadata-index.txt[]
 * 技術関連
 ** link:./home/tech/index.html[技術カテゴリ] このサイトのメインコンテンツ
 ** https://github.com/jiro4989[GitHub - jiro4989] 成果物は全部ここにある
+*** https://github.com/jiro4989/jiro4989.github.io/tree/master[jiro4989/jiro4989.github.io] このブログを構築しているリポジトリ
 ** http://b.hatena.ne.jp/jiroron666/bookmark[はてなブックマーク] よかったと思った記事はここに登録している
 
 include::./new-pages.txt[]
