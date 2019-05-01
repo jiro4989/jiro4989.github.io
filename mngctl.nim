@@ -48,6 +48,7 @@ proc buildIndexAdoc(dir: string, depth: int) =
                 break
             links.add &"** link:./{nf}[{title}]\n"
 
+        # テンプレートファイルにリンクなどを埋め込む
         let outFile = f / "index.adoc"
         var tmpl = indexAdocTemplate
         tmpl = tmpl.replace("{title}", f.split(AltSep)[1..^1].join($AltSep))
