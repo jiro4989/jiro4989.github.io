@@ -1,0 +1,12 @@
+= home
+include::..//metadata.txt[]
+
+下層へのリンク集です。 +
+親カテゴリはlink:../index.html[こちら]。
+
+各種リンク
+==========
+
+* カテゴリ
+** link:./tech/index.html[tech]
+* ページ

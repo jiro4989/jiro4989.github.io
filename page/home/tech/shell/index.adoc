@@ -1,0 +1,12 @@
+= home/tech/shell
+include::../../../metadata.txt[]
+
+下層へのリンク集です。 +
+親カテゴリはlink:../index.html[こちら]。
+
+各種リンク
+==========
+
+* カテゴリ
+* ページ
+** link:./shellgei-studygroup-vol41.html[第41回 シェル芸勉強会振り返り]

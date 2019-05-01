@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.8">
 <meta name="author" content="次郎 (jiro)">
-<title>第41回 シェル芸勉強会振り返り</title>
+<title>home/tech/sqlite</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -431,305 +431,44 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
 </head>
-<body class="article toc2 toc-left">
+<body class="article">
 <div id="header">
-<h1>第41回 シェル芸勉強会振り返り</h1>
+<h1>home/tech/sqlite</h1>
 <div class="details">
 <span id="author" class="author">次郎 (jiro)</span><br>
 <span id="revnumber">version 1.0</span>
 </div>
-<div id="toc" class="toc2">
-<div id="toctitle">目次</div>
-<ul class="sectlevel1">
-<li><a href="#_まえがき">1. まえがき</a></li>
-<li><a href="#_午前の部">2. 午前の部</a></li>
-<li><a href="#_午後の部">3. 午後の部</a>
-<ul class="sectlevel2">
-<li><a href="#_q1">3.1. Q1</a></li>
-<li><a href="#_q2">3.2. Q2</a></li>
-<li><a href="#_q3">3.3. Q3</a></li>
-<li><a href="#_q4">3.4. Q4</a></li>
-<li><a href="#_q5">3.5. Q5</a></li>
-<li><a href="#_q6">3.6. Q6</a></li>
-<li><a href="#_q7">3.7. Q7</a></li>
-<li><a href="#_q8">3.8. Q8</a></li>
-</ul>
-</li>
-<li><a href="#_lt会">4. LT会</a></li>
-</ul>
-</div>
 </div>
 <div id="content">
-<div id="preamble">
-<div class="sectionbody">
 <div class="paragraph">
-<p>第41回シェル芸勉強会に参加した。初参加です。</p>
+<p>下層へのリンク集です。<br>
+親カテゴリは<a href="../index.html">こちら</a>。</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_まえがき">1. まえがき</h2>
-<div class="sectionbody">
 <div class="paragraph">
-<p>2019/4/27 (土)に「jus共催 第41回{ウン,ガク,}{チ,ト,}{,ン}{,コイン}{ブ,}{ラブラ,
-ハ,}{,イブ}{無,有}罪シェル芸勉強会」に参加してきたのでその振り返り。
-この名称自体もシェル芸で[ブレース展開]という記法。これをechoしてみると以下のよう
-になる(※長すぎて[Scrapbox]が固まってしまったので一部抜粋)</p>
+<p>各種リンク</p>
 </div>
-<div class="listingblock">
+<div class="exampleblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">echo jus共催 第41回{ウン,ガク,}{チ,ト,}{,ン}{,コイン}{ブ,}{ラブラ,ハ,}{,イブ}{無,有}罪シェル芸勉強会"\n" | wc -l</code></pre>
-</div>
-</div>
-<div class="quoteblock">
-<blockquote>
-865
-</blockquote>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">echo jus共催 第41回{ウン,ガク,}{チ,ト,}{,ン}{,コイン}{ブ,}{ラブラ,ハ,}{,イブ}{無,有}罪シェル芸勉強会"\n" | head</code></pre>
-</div>
-</div>
-<div class="quoteblock">
-<blockquote>
-jus共催 第41回ウンチブラブラ無罪シェル芸勉強会<br>
- 第41回ウンチブラブラ有罪シェル芸勉強会<br>
- 第41回ウンチブラブライブ無罪シェル芸勉強会<br>
- 第41回ウンチブラブライブ有罪シェル芸勉強会<br>
- 第41回ウンチブハ無罪シェル芸勉強会<br>
- 第41回ウンチブハ有罪シェル芸勉強会<br>
- 第41回ウンチブハイブ無罪シェル芸勉強会<br>
- 第41回ウンチブハイブ有罪シェル芸勉強会<br>
- 第41回ウンチブ無罪シェル芸勉強会<br>
- 第41回ウンチブ有罪シェル芸勉強会
-</blockquote>
-</div>
-<div class="paragraph">
-<p>シェル芸勉強会の様子は <a href="https://togetter.com/li/1342525">Togetter</a>にまとまっている。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_午前の部">2. 午前の部</h2>
-<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p>文字コードの話</p>
+<p>カテゴリ</p>
 </li>
 <li>
-<p>文字列の結合、絵文字の結合、絵文字の色の変更ができる</p>
+<p>ページ</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="./basic.html">sqlite basic</a></p>
 </li>
 <li>
-<p>UnicodeData.txtというファイルにユニコード文字のすべてが載っている</p>
+<p><a href="./show.html" class="bare">./show.html</a></p>
+</li>
+<li>
+<p><a href="./basic.html" class="bare">./basic.html</a></p>
 </li>
 </ul>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_午後の部">3. 午後の部</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>8問のシェルの問題を片っ端からとくというもの。
-問題に必要なファイルは <a href="https://github.com/ryuichiueda/ShellGeiData">こちら</a>にある。
-シェル芸のコマンドを実際に実行するなら事前に以下のコマンドを実行して準備を整えておく。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git clone https://github.com/ryuichiueda/ShellGeiData
-cd ShellGeiData/vol.41</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>問題の一覧は <a href="https://b.ueda.tech/?post=20190427_shellgei_41_q">こちら</a>。
-以降は問題と自分の回答。</p>
-</div>
-<div class="sect2">
-<h3 id="_q1">3.1. Q1</h3>
-<div class="paragraph">
-<p>Q.次のファイルについて、2列目をキーにしてエクセルの横列の記号（A, B, &#8230;&#8203;, Z,
-AA, AB, &#8230;&#8203;のやつ）順に並べ替えてください。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>$ cat excel
-114514 B
-1192296 AA
-593195 CEZ
-4120 TZ
-999 QQQ</pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_q2">3.2. Q2</h3>
-<div class="paragraph">
-<p>Q.次のファイルのレコードを干支順にソートしてください。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>$ cat eto_yomi
-申 さる
-子 ね
-寅 とら
-卯 う
-巳 み
-辰 たつ
-丑 うし
-酉 とり
-戌 いぬ
-亥 い
-午 うま
-未 ひつじ</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>ただし、次のファイルを補助に使って良いこととします。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>$ cat eto
-子丑寅卯辰巳午未申酉戌亥</pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_q3">3.3. Q3</h3>
-<div class="paragraph">
-<p>Q.次のファイルのレコードを数字（第一フィールドの計算結果）が小さい順に並べてく
-ださい。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>$ cat kim_calc
-1+2+4 金正日
-4*3 金正男
-3-1-5 金日成
-495/3 金正恩
-0x1F 金正哲</pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_q4">3.4. Q4</h3>
-<div class="paragraph">
-<p>Q.次のファイルはシフトJISのテキストですが、これを1) 辞書順、2) 数字の小さい順
-、にソートしてください。出力もシフトJISとします。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>$ cat sjis | nkf -g
-Shift_JIS
-$ cat sjis | nkf -wLux
-１２３ ずんごるももう
-３１ こきたてひーひー
-９ ほじぱんふんじこみ
-２２４２ たまもとやろう</pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_q5">3.5. Q5</h3>
-<div class="paragraph">
-<p>Q.サイズの小さい順にソートしてください。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>$ cat size
-2GB
-1.2GB
-40000MB
-1000000000kB
-0.4GB
-410MB</pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_q6">3.6. Q6</h3>
-<div class="paragraph">
-<p>Q.sleepと内部コマンドだけを使って次の数を小さい順にソートしてください。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>$ cat nums
-5.4
-0.34
-2.3
-0.9
-6</pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_q7">3.7. Q7</h3>
-<div class="paragraph">
-<p>Q.次のローマ数字をソートしてください。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>$ cat roman
-IV
-XI
-LXXXIX
-IX
-XLIII
-XX
-VIII</pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_q8">3.8. Q8</h3>
-<div class="paragraph">
-<p>Q.次のファイルを辞書順にソートしてください。ただし、濁点がついているものが先に
-来るようにしてください。できる人はワンライナー中で「かきくけこがぎぐげご」の文
-字を使わないでください。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>$ cat gagigugego
-かき氷
-ぎ・おなら吸い込み隊
-きつねうどん
-ぐりこもりなが事件
-きききりん
-がきの使い
-くその役にも立たない
-げんしりょく発電
-ごりらいも
-こじんてきにはクソ
-例
-がきの使い
-かき氷
-ぎ・おなら吸い込み隊
-きききりん
-きつねうどん
-ぐりこもりなが事件
-くその役にも立たない
-げんしりょく発電
-ごりらいも
-こじんてきにはクソ</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_lt会">4. LT会</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>テキストからドット画像を出力するコマンド</p>
-</li>
-<li>
-<p>AlaSQL</p>
-</li>
-<li>
-<p>cam</p>
 </li>
 </ul>
 </div>

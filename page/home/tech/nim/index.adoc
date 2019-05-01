@@ -1,0 +1,14 @@
+= home/tech/nim
+include::../../../metadata.txt[]
+
+下層へのリンク集です。 +
+親カテゴリはlink:../index.html[こちら]。
+
+各種リンク
+==========
+
+* カテゴリ
+** link:./js/index.html[js]
+* ページ
+** link:./multibyte.html[Nimでマルチバイト文字を扱う]
+** link:./js.html[NimでJavaScriptとして出力しHTMLから利用する]

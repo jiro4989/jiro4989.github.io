@@ -1,0 +1,14 @@
+= home/tech/sqlite
+include::../../../metadata.txt[]
+
+下層へのリンク集です。 +
+親カテゴリはlink:../index.html[こちら]。
+
+各種リンク
+==========
+
+* カテゴリ
+* ページ
+** link:./basic.html[sqlite basic]
+** link:./show.html[]
+** link:./basic.html[]

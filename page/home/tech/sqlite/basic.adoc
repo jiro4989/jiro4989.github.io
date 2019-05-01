@@ -1,0 +1,55 @@
+= sqlite basic
+
+== create database
+
+[source,bash]
+sqlite3 testdb
+
+New databases will be created if `testdb` database hasn't existed.
+New database file is created in current directory as `testdb`.
+
+[source]
+----
+% sqlite3 testdb
+SQLite version 3.24.0 2018-06-04 19:24:41
+Enter ".help" for usage hints.
+sqlite> .databases
+main: /tmp/testdb
+sqlite> .exit
+----
+
+[source,bash]
+----
+% ls testdb
+testdb
+----
+
+== create tables
+
+[source]
+----
+sqlite> create table user(id, name);
+sqlite> .tables
+user
+sqlite> 
+----
+
+Definite types.
+
+== connect existed database
+
+Set path of database file.
+
+[source,bash]
+----
+sqlite3 testdb
+----
+
+== read SQL file
+
+[source,sql]
+.read show.sql
+
+== reference
+
+* https://www.dbonline.jp/sqlite/
