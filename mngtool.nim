@@ -122,7 +122,7 @@ proc getNewerWrittenPages(dir: string, pageCount: int): seq[tuple[path, lastWrit
                           cmp(y.t.toUnix, x.t.toUnix))[0..<pc]
                 .mapIt((it.path, it.t.format("yyyy/MM/dd HH:mm:ss")))
 
-proc buildNewerWritternFile(dir: string, pageCount: int) =
+proc buildNewerWrittenFile(dir: string, pageCount: int) =
   ## 更新日時最新のものを指定数取得し、一覧ファイルに出力する。
   echoTaskTitle "Build newer written pages"
   var s = &"""
@@ -164,6 +164,6 @@ proc buildCategoriesFile(dir: string) =
 
 when isMainModule:
   buildIndexAdoc("page", 0)
-  buildNewerWritternFile("page", 10)
+  buildNewerWrittenFile("page", 10)
   buildCategoriesFile("page")
   buildHTML("page", "docs")
