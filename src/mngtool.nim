@@ -107,12 +107,17 @@ proc createHTMLFile(f, filePrefix: string): string =
   copyFile(f, workDir / "body.adoc")
 
   # フッターファイルは置換で中身を一部書き換える
-  let footerFile = workDir / "footer.txt"
-  copyFile(tmplDir / &"{filePrefix}-footer.txt", footerFile)
-  let category = if filePrefix == "index": f.splitPath[0].splitPath[0].splitPath[1]
-                 else: f.splitPath[0].splitPath[1]
-  let fotterContent = footerFile.readFile.replace("{{category}}", category)
-  writeFile(footerFile, fotterContent)
+  block:
+    let footerFile = workDir / "footer.txt"
+    let fp = case f.count(AltSep)
+             of 1: "top"
+             of 2: "index-depth1"
+             else: filePrefix
+    copyFile(tmplDir / &"{fp}-footer.txt", footerFile)
+    let category = if filePrefix == "index": f.splitPath[0].splitPath[0].splitPath[1]
+                  else: f.splitPath[0].splitPath[1]
+    let fotterContent = footerFile.readFile.replace("{{category}}", category)
+    writeFile(footerFile, fotterContent)
 
   # ヘッダファイルとボディ、フッタをincludeするレイアウトファイルを配置
   let layoutFile = workDir / "layout.adoc"
