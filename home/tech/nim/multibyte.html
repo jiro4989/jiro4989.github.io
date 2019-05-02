@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.8">
 <meta name="author" content="次郎 (jiro)">
-<title>次ログ</title>
+<title>Nimでマルチバイト文字を扱う</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -431,119 +431,137 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
 </head>
-<body class="article">
+<body class="article toc2 toc-left">
 <div id="header">
-<h1>次ログ</h1>
+<h1>Nimでマルチバイト文字を扱う</h1>
 <div class="details">
 <span id="author" class="author">次郎 (jiro)</span><br>
+<span id="revdate">2019-05-02 00:39:50 UTC</span>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">目次</div>
+<ul class="sectlevel1">
+<li><a href="#_単純に配列としてアクセスすることの問題">1. 単純に配列としてアクセスすることの問題</a></li>
+<li><a href="#_マルチバイト文字としてアクセスする方法">2. マルチバイト文字としてアクセスする方法</a></li>
+</ul>
 </div>
 </div>
 <div id="content">
-<div id="preamble">
+<div class="sect1">
+<h2 id="_単純に配列としてアクセスすることの問題">1. 単純に配列としてアクセスすることの問題</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>次郎 (Jiro)のホームページです。
-技術関連のメモを中心に残しています。</p>
+<p>Nimで文字列に配列インデックスでアクセスすると1バイト配列としてアクセスすることに
+なる。これだと日本語などのマルチバイト文字では文字が化けてしまう。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nim hljs" data-lang="nim">echo "abcde"
+echo "abcde"[0]
+echo "あいうえお"
+echo "あいうえお"[0]</code></pre>
+</div>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>abcde<br>
+a<br>
+あいうえお<br>
+�</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>よって、このままマルチバイト文字を含む文字列でループを書くと文字化けしてしまう。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nim hljs" data-lang="nim">for c in "あいうえお":
+  echo c</code></pre>
+</div>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>�<br>
+�<br>
+�<br>
+�<br>
+�<br>
+�<br>
+�<br>
+�<br>
+�<br>
+�<br>
+�<br>
+�<br>
+�<br>
+�<br>
+�</p>
+</div>
+</blockquote>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_サイト情報">サイト情報</h2>
+<h2 id="_マルチバイト文字としてアクセスする方法">2. マルチバイト文字としてアクセスする方法</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>SNS</p>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://twitter.com/jiro_saburomaru">Twitter - @jiro_saburomaru</a> 思考を垂れ流している</p>
-</li>
-</ul>
+<div class="paragraph">
+<p><a href="https://nim-lang.org/docs/unicode.html">unicode</a>モジュールのプロシージャを使用す
+ることでこの問題を解消できる。この例だと <code>toRunes</code> というプロシージャが使える。
+前述の文字化けが発生する問題は以下のように書き直すことで解決できる。</p>
 </div>
-</li>
-<li>
-<p>技術関連</p>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="./home/tech/index.html">技術カテゴリ</a> このサイトのメインコンテンツ</p>
-</li>
-<li>
-<p><a href="https://github.com/jiro4989">GitHub - jiro4989</a> 成果物は全部ここにある</p>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://github.com/jiro4989/jiro4989.github.io/tree/master">jiro4989/jiro4989.github.io</a> このブログのソースコード</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><a href="http://b.hatena.ne.jp/jiroron666/bookmark">はてなブックマーク</a> よかったと思った記事はここに登録している</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nim hljs" data-lang="nim">import unicode
+
+echo "abcde".toRunes
+echo "abcde".toRunes[0]
+echo "あいうえお".toRunes
+echo "あいうえお".toRunes[0]
+# "あいうえお".toRunes[0] と同じ結果にするのに runeAt を使用してもよい
+echo "あいうえお".runeAt(0)</code></pre>
 </div>
 </div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>abcde<br>
+a<br>
+あいうえお<br>
+あ<br>
+あ</p>
 </div>
-<div class="sect1">
-<h2 id="_最新の更新された記事_10件">最新の更新された記事 (10件)</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><a href="./home/tech/sqlite/basic.html">SQLite3環境構築と基本的な使い方</a> 2019/05/01 22:39:29 更新</p>
-</li>
-<li>
-<p><a href="./home/tech/shell/shellgei-studygroup-vol41.html">第41回 シェル芸勉強会振り返り</a> 2019/05/01 22:39:13 更新</p>
-</li>
-<li>
-<p><a href="./home/tech/nim/js.html">NimでJavaScriptとして出力しHTMLから利用する</a> 2019/05/01 22:39:07 更新</p>
-</li>
-<li>
-<p><a href="./home/tech/nim/multibyte.html">Nimでマルチバイト文字を扱う</a> 2019/05/01 22:39:00 更新</p>
-</li>
-</ul>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>前述のループ処理も <code>toRunes</code> を使用することで文字化けを防げる。
+以下のように修正する。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nim hljs" data-lang="nim">import unicode
+
+for c in "あいうえお".toRunes:
+  echo c</code></pre>
 </div>
 </div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>あ<br>
+い<br>
+う<br>
+え<br>
+お</p>
 </div>
-<div class="sect1">
-<h2 id="_カテゴリ一覧">カテゴリ一覧</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><a href="./home/index.html">home</a> [4]</p>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="./home/tech/index.html">tech</a> [4]</p>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="./home/tech/shell/index.html">shell</a> [1]</p>
-</li>
-<li>
-<p><a href="./home/tech/nim/index.html">nim</a> [2]</p>
-</li>
-<li>
-<p><a href="./home/tech/sqlite/index.html">sqlite</a> [1]</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
+</blockquote>
 </div>
 <hr>
 <div class="paragraph">
-<p>目次へ移動 /
-トップページへ移動 /
+<p><a href="./index.html">nim目次へ移動</a> /
+<a href="https://jiro4989.github.io/index.html">トップページへ移動</a> /
 <a href="https://jiro4989.github.io/home/tech/index.html">技術メモへ移動</a></p>
 </div>
 </div>

@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.8">
 <meta name="author" content="次郎 (jiro)">
-<title>第41回 シェル芸勉強会振り返り</title>
+<title>次ログ</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -431,605 +431,119 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
 </head>
-<body class="article toc2 toc-left">
+<body class="article">
 <div id="header">
-<h1>第41回 シェル芸勉強会振り返り</h1>
+<h1>次ログ</h1>
 <div class="details">
 <span id="author" class="author">次郎 (jiro)</span><br>
-<span id="revdate">2019-05-02 00:26:08 UTC</span>
-</div>
-<div id="toc" class="toc2">
-<div id="toctitle">目次</div>
-<ul class="sectlevel1">
-<li><a href="#_まえがき">1. まえがき</a></li>
-<li><a href="#_午前の部">2. 午前の部</a></li>
-<li><a href="#_午後の部">3. 午後の部</a>
-<ul class="sectlevel2">
-<li><a href="#_q1">3.1. Q1</a></li>
-<li><a href="#_q2">3.2. Q2</a></li>
-<li><a href="#_q3">3.3. Q3</a></li>
-<li><a href="#_q4">3.4. Q4</a></li>
-<li><a href="#_q5">3.5. Q5</a></li>
-<li><a href="#_q6">3.6. Q6</a></li>
-<li><a href="#_q7">3.7. Q7</a></li>
-<li><a href="#_q8">3.8. Q8</a></li>
-</ul>
-</li>
-<li><a href="#_lt会">4. LT会</a></li>
-<li><a href="#_まとめ">5. まとめ</a></li>
-</ul>
 </div>
 </div>
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>第41回シェル芸勉強会に参加した。初参加です。</p>
+<p>次郎 (Jiro)のホームページです。
+技術関連のメモを中心に残しています。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_まえがき">1. まえがき</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>2019/4/27 (土)に「jus共催 第41回{ウン,ガク,}{チ,ト,}{,ン}{,コイン}{ブ,}{ラブラ,
-ハ,}{,イブ}{無,有}罪シェル芸勉強会」に参加してきたのでその振り返り。
-この名称自体もシェル芸で[ブレース展開]という記法。これをechoしてみると以下のよう
-になる(※長すぎたので一部抜粋)</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">echo jus共催 第41回{ウン,ガク,}{チ,ト,}{,ン}{,コイン}{ブ,}{ラブラ,ハ,}{,イブ}{無,有}罪シェル芸勉強会"\n" | wc -l</code></pre>
-</div>
-</div>
-<div class="quoteblock">
-<blockquote>
-865
-</blockquote>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">echo jus共催 第41回{ウン,ガク,}{チ,ト,}{,ン}{,コイン}{ブ,}{ラブラ,ハ,}{,イブ}{無,有}罪シェル芸勉強会"\n" | head</code></pre>
-</div>
-</div>
-<div class="quoteblock">
-<blockquote>
-jus共催 第41回ウンチブラブラ無罪シェル芸勉強会<br>
- 第41回ウンチブラブラ有罪シェル芸勉強会<br>
- 第41回ウンチブラブライブ無罪シェル芸勉強会<br>
- 第41回ウンチブラブライブ有罪シェル芸勉強会<br>
- 第41回ウンチブハ無罪シェル芸勉強会<br>
- 第41回ウンチブハ有罪シェル芸勉強会<br>
- 第41回ウンチブハイブ無罪シェル芸勉強会<br>
- 第41回ウンチブハイブ有罪シェル芸勉強会<br>
- 第41回ウンチブ無罪シェル芸勉強会<br>
- 第41回ウンチブ有罪シェル芸勉強会
-</blockquote>
-</div>
-<div class="paragraph">
-<p>シェル芸勉強会の様子は <a href="https://togetter.com/li/1342525">Togetter</a>にまとまっている。</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_午前の部">2. 午前の部</h2>
+<h2 id="_サイト情報">サイト情報</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p>文字コードの話</p>
+<p>SNS</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://twitter.com/jiro_saburomaru">Twitter - @jiro_saburomaru</a> 思考を垂れ流している</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p>文字列の結合、絵文字の結合、絵文字の色の変更ができる</p>
+<p>技術関連</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="./home/tech/index.html">技術カテゴリ</a> このサイトのメインコンテンツ</p>
 </li>
 <li>
-<p>UnicodeData.txtというファイルにユニコード文字のすべてが載っている</p>
+<p><a href="https://github.com/jiro4989">GitHub - jiro4989</a> 成果物は全部ここにある</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/jiro4989/jiro4989.github.io/tree/master">jiro4989/jiro4989.github.io</a> このブログのソースコード</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="http://b.hatena.ne.jp/jiroron666/bookmark">はてなブックマーク</a> よかったと思った記事はここに登録している</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_午後の部">3. 午後の部</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>8問のシェルの問題を片っ端からとくというもの。
-問題に必要なファイルは <a href="https://github.com/ryuichiueda/ShellGeiData">こちら</a>にある。
-シェル芸のコマンドを実際に実行するなら事前に以下のコマンドを実行して準備を整えておく。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">git clone https://github.com/ryuichiueda/ShellGeiData
-cd ShellGeiData/vol.41</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>問題の一覧は <a href="https://b.ueda.tech/?post=20190427_shellgei_41_q">こちら</a>。
-以降は問題と自分の回答。</p>
-</div>
-<div class="sect2">
-<h3 id="_q1">3.1. Q1</h3>
-<div class="paragraph">
-<p>Q.次のファイルについて、2列目をキーにしてエクセルの横列の記号（A, B, &#8230;&#8203;, Z,
-AA, AB, &#8230;&#8203;のやつ）順に並べ替えてください。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>$ cat excel
-114514 B
-1192296 AA
-593195 CEZ
-4120 TZ
-999 QQQ</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>回答としては、以下のように出力されてほしい。テストの意図としては、文字列の長さも
-考慮してソートしてほしい、というもの。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>114514 B
-1192296 AA
-4120 TZ
-593195 CEZ
-999 QQQ</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>普通に <code>sort</code> コマンドで2カラム目を指定すると以下のようにソートされてしまう。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">% sort -k2 excel
-593195 AA
-114514 B
-1192296 CEZ
-999 QQQ
-4120 TZ</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>文字列の長さのカラムを追加してソートするのが正攻法だろう。
-僕の回答としては以下の通り。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">% awk '{print $0, length($2)}' excel | sort -k3 -k2 | cut -d ' ' -f 1,2
-114514 B
-593195 AA
-4120 TZ
-1192296 CEZ
-999 QQQ</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_q2">3.2. Q2</h3>
-<div class="paragraph">
-<p>Q.次のファイルのレコードを干支順にソートしてください。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>$ cat eto_yomi
-申 さる
-子 ね
-寅 とら
-卯 う
-巳 み
-辰 たつ
-丑 うし
-酉 とり
-戌 いぬ
-亥 い
-午 うま
-未 ひつじ</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>ただし、次のファイルを補助に使って良いこととします。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>$ cat eto
-子丑寅卯辰巳午未申酉戌亥</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>etoファイルの並びを利用してeto_yomiをソートするもの。まずは正攻法から。</p>
-</div>
-<div class="paragraph">
-<p>sortなので素直にsortコマンドと別のファイルの中身を結合すると考えてjoinコマンドを
-使用する。僕の回答としては以下の通り。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">% grep -o . eto | nl | sort -k2 | join -1 2 -2 1 - &lt;(sort eto_yomi) | sort -nk2 | cut -d ' ' -f 1,3
-子 ね
-丑 うし
-寅 とら
-卯 う
-辰 たつ
-巳 み
-午 うま
-未 ひつじ
-申 さる
-酉 とり
-戌 いぬ</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>流れとしては下記の通り</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><code>grep -o</code> で1行のデータを縦に並べて <code>nl</code> で番号の列を追加</p>
-</li>
-<li>
-<p>後に控えている <code>join</code> は結合するフィールドが辞書順にソートされている必要がある
-ため、joinに指定するフィールドを辞書順にソート</p>
-</li>
-<li>
-<p>joinで結合。 <code>-1 2</code> と <code>-2 1</code> で１個めのファイルの２フィールド目と２個めのファ
-イルの１フィールド目を結合する</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>eto_yomiも辞書順でソート</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>最初にnlで付与した番号で干支順にソートし直す</p>
-</li>
-<li>
-<p>cutで不要なフィールドの削除</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>シェル芸の非常に良いお題だったと思う。</p>
-</div>
-<div class="paragraph">
-<p>次にgrepを使用した非常にコンパクトな例。これは僕は思いつかなかった。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">% grep -o . eto | xargs -I@ grep @ eto_yomi
-子 ね
-丑 うし
-寅 とら
-卯 う
-辰 たつ
-巳 み
-午 うま
-未 ひつじ
-申 さる
-酉 とり
-戌 いぬ
-亥 い</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>すでに干支順でソートされているのでそのままgrepしてしまう、というもの。
-こういうアプローチもあるのか、とまたシェル芸の知見が深まった。</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_q3">3.3. Q3</h3>
-<div class="paragraph">
-<p>Q.次のファイルのレコードを数字（第一フィールドの計算結果）が小さい順に並べてく
-ださい。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>$ cat kim_calc
-1+2+4 金正日
-4*3 金正男
-3-1-5 金日成
-495/3 金正恩
-0x1F 金正哲</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>これは割とすぐに思いついた。はじめは <code>bc</code> コマンドを使用していたが0x1fで失敗する
-のでbashの算術式を使用するようにしたら通った。
-僕の回答としては下記の通り。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">% cat kim_calc | while read -r e n; do echo $(($e)) $e $n; done | sort -nk1 | cut -d ' ' -f 2,3
-3-1-5 金日成
-1+2+4 金正日
-4*3 金正男
-0x1F 金正哲</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_q4">3.4. Q4</h3>
-<div class="paragraph">
-<p>Q.次のファイルはシフトJISのテキストですが、これを1) 辞書順、2) 数字の小さい順
-、にソートしてください。出力もシフトJISとします。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>$ cat sjis | nkf -g
-Shift_JIS
-$ cat sjis | nkf -wLux
-１２３ ずんごるももう
-３１ こきたてひーひー
-９ ほじぱんふんじこみ
-２２４２ たまもとやろう</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>これは最初は試験の意図がわからなかったが、2つ結果を出力するだけでよかったらしい
-。
-１の辞書順については下記の通り。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">% cat sjis | nkf -wLux | sort
-１２３ ずんごるももう
-２０ ほじぱんふんじこみ
-２２４２ うえってきたかるとらまん
-３１ こきたてひーひー</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>２の数字の小さい順は手間が必要。このファイルの数値は全角数字なので数値ソートがで
-きない。なので修正してソートしてから復元する必要がある。僕の回答としては下記の通
-り。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">% cat sjis | nkf -wLux | sed 'y/１２３４５６７８９０/1234567890/' | sort -nk1 | sed 'y/1234567890/１２３４５６７８９０/'
-２０ ほじぱんふんじこみ
-３１ こきたてひーひー
-１２３ ずんごるももう
-２２４２ うえってきたかるとらまん</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>sedのyコマンドを使用して対応する数値を変換しているだけ。これも簡単な方だと思う。</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_q5">3.5. Q5</h3>
-<div class="paragraph">
-<p>Q.サイズの小さい順にソートしてください。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>$ cat size
-2GB
-1.2GB
-40000MB
-1000000000kB
-0.4GB
-410MB</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>はじめはsortのヒューマンリーダブルオプションでいけるか、と思ったがダメだった。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">% cat size | sort --sort h
-1000000000kB
-410MB
-40000MB
-0.4GB
-1.2GB
-2GB</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>なんとキロバイト順、メガバイト順、ギガバイト順にソートされている。仕方なくnumfmt
-で変換してもとに戻す形にした。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">% cat size | tr -d B | tr k K | numfmt --from iec --to=none | paste - size | sort -nk1 | cut -f2
-0.4GB
-410MB
-1.2GB
-2GB
-40000MB</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_q6">3.6. Q6</h3>
-<div class="paragraph">
-<p>Q.sleepと内部コマンドだけを使って次の数を小さい順にソートしてください。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>$ cat nums
-5.4
-0.34
-2.3
-0.9
-6</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>これも割とすぐ思いついた。
-内部コマンドってなんだろうと思ったが <code>help</code> というコマンドを使えば分かる。
-whileやforが使えたのと、非同期実行を使えば行ける。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">% while read i; do (sleep $i; echo $i) &amp; done &lt; nums
-0.34
-0.9
-2.3
-5.4
-6</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_q7">3.7. Q7</h3>
-<div class="paragraph">
-<p>Q.次のローマ数字をソートしてください。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>$ cat roman
-IV
-XI
-LXXXIX
-IX
-XLIII
-XX
-VIII</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>これは割と力づくだったが一応いけた。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">% cat ShellGeiData/vol.41/roman \
-| sed 's/IV/4 /g;s/XL/40 /g;s/IX/9 /g;s/I/1 /g;s/L/50 /g;s/X/10 /g;s/V/5 /g;s/ /+/g;s/+$//g;s/.*/echo $((&amp;))/e' \
-| paste - ShellGeiData/vol.41/roman \
-| sort -nk1 \
-| cut -f 2
-IV
-VIII
-IX
-XI
-XX
-XLIII
-LXXXIX</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>numconvというコマンドの存在を他の方のシェルから知った。それを使えばいかのようにシンプルに修正できる。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">% cat roman | numconv | paste - roman | sort -nk1 | cut -f2
-IV
-VIII
-IX
-XI
-XX
-XLIII
-LXXXIX</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_q8">3.8. Q8</h3>
-<div class="paragraph">
-<p>Q.次のファイルを辞書順にソートしてください。ただし、濁点がついているものが先に
-来るようにしてください。できる人はワンライナー中で「かきくけこがぎぐげご」の文
-字を使わないでください。</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>$ cat gagigugego
-かき氷
-ぎ・おなら吸い込み隊
-きつねうどん
-ぐりこもりなが事件
-きききりん
-がきの使い
-くその役にも立たない
-げんしりょく発電
-ごりらいも
-こじんてきにはクソ
-例
-がきの使い
-かき氷
-ぎ・おなら吸い込み隊
-きききりん
-きつねうどん
-ぐりこもりなが事件
-くその役にも立たない
-げんしりょく発電
-ごりらいも
-こじんてきにはクソ</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>これははじめどうしたら良いかわからなかったが、午前の部で話していた内容を使えばす
-ぐに解決できることがわかった。濁点文字を濁点なしの文字と濁点の結合文字に分割する
-ことでソート順序を変更するというもの。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">% cat ShellGeiData/vol.41/gagigugego | uconv -x NFD | sort | uconv -x NFC
-がきの使い
-かき氷
-ぎ・おなら吸い込み隊
-きききりん
-きつねうどん
-ぐりこもりなが事件
-くその役にも立たない
-げんしりょく発電
-ごりらいも
-こじんてきにはクソ</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_lt会">4. LT会</h2>
+<h2 id="_最新の更新された記事_10件">最新の更新された記事 (10件)</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/agershun/alasql">AlaSQL</a>はJS製インメモリDB。SQL構文でデータ
-を操作できる</p>
+<p><a href="./home/tech/sqlite/basic.html">SQLite3環境構築と基本的な使い方</a> 2019/05/02 09:38:24 更新</p>
 </li>
 <li>
-<p><a href="https://github.com/itchyny/cam">cam</a>ターミナル上で画像が閲覧できる</p>
+<p><a href="./home/tech/nim/multibyte.html">Nimでマルチバイト文字を扱う</a> 2019/05/02 09:38:24 更新</p>
 </li>
 <li>
-<p>上田さんとお会いできた</p>
+<p><a href="./home/tech/nim/js.html">NimでJavaScriptとして出力しHTMLから利用する</a> 2019/05/02 09:38:24 更新</p>
 </li>
 <li>
-<p>Blacknonさんとお会いできた</p>
-</li>
-<li>
-<p>僕はシェル芸うんこ派の人という認識らしい</p>
+<p><a href="./home/tech/shell/shellgei-studygroup-vol41.html">第41回 シェル芸勉強会振り返り</a> 2019/05/02 09:38:24 更新</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_まとめ">5. まとめ</h2>
+<h2 id="_カテゴリ一覧">カテゴリ一覧</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>はじめてシェル芸勉強会に参加したけれど、新しい知見がいっぱいだった。
-シェルはガリガリ普段から書いていたので、問題自体は割となんとかなった。
-8問のうち7問は自力で解けた。解けなかったのはがぎぐげごのやつ。</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="./home/index.html">home</a> [4]</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="./home/tech/index.html">tech</a> [4]</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="./home/tech/shell/index.html">shell</a> [1]</p>
+</li>
+<li>
+<p><a href="./home/tech/nim/index.html">nim</a> [2]</p>
+</li>
+<li>
+<p><a href="./home/tech/sqlite/index.html">sqlite</a> [1]</p>
+</li>
+</ul>
 </div>
-<div class="paragraph">
-<p>何はともあれシェル芸勉強会、面白かった。
-シェルはいろんな環境にあるし、ちょっとした作業をぱぱっと自動化できてやはり好きだし
-今後も必要で有り続ける技術だと思うので、引き続き勉強は続けようと思う。</p>
+</li>
+</ul>
 </div>
-<div class="paragraph">
-<p><strong>ただし100行を超えるような処理をシェルで書くのはやめよう。
-素直に他の言語を使うべし(経験者は語る)。</strong></p>
-</div>
-<div class="paragraph">
-<p>以上。</p>
+</li>
+</ul>
 </div>
 <hr>
 <div class="paragraph">
-<p><a href="./index.html">shell目次へ移動</a> /
-<a href="https://jiro4989.github.io/index.html">トップページへ移動</a> /
+<p>目次へ移動 /
+トップページへ移動 /
 <a href="https://jiro4989.github.io/home/tech/index.html">技術メモへ移動</a></p>
 </div>
 </div>

@@ -147,8 +147,8 @@ proc createHTMLFiles(fromDir, toDir: string) =
   ## 5. 成果物を公開用ディレクトリに移動
   echoTaskTitle "Create HTML files"
   # ビルドしたHTMLの配置先を作り直す
-  removeDir(toDir)
-  createDir(toDir)
+  # removeDir(toDir)
+  # createDir(toDir)
   # ビルド作業用のディレクトリを作る
   removeDir(workDir)
   createDir(workDir)
@@ -255,4 +255,4 @@ when isMainModule:
   createIndexAdocFiles("page", 0)
   createNewerWrittenPagesFile("page", 10)
   createCategoriesFile("page")
-  createHTMLFiles("page", "docs")
+  createHTMLFiles("page", ".")

@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.8">
 <meta name="author" content="次郎 (jiro)">
-<title>Nimでマルチバイト文字を扱う</title>
+<title>NimでJavaScriptとして出力しHTMLから利用する</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -433,136 +433,257 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>Nimでマルチバイト文字を扱う</h1>
+<h1>NimでJavaScriptとして出力しHTMLから利用する</h1>
 <div class="details">
 <span id="author" class="author">次郎 (jiro)</span><br>
-<span id="revdate">2019-05-02 00:26:06 UTC</span>
+<span id="revdate">2019-05-02 00:39:51 UTC</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">目次</div>
 <ul class="sectlevel1">
-<li><a href="#_単純に配列としてアクセスすることの問題">1. 単純に配列としてアクセスすることの問題</a></li>
-<li><a href="#_マルチバイト文字としてアクセスする方法">2. マルチバイト文字としてアクセスする方法</a></li>
+<li><a href="#_そもそもjavascriptバックエンドとは">1. そもそもJavaScriptバックエンドとは</a></li>
+<li><a href="#_jsコンパイルする方法">2. JSコンパイルする方法</a></li>
+<li><a href="#_html側からコンパイルしたjsにアクセスする方法">3. HTML側からコンパイルしたJSにアクセスする方法</a></li>
+<li><a href="#_jsバックエンドでコンパイルする際に起きる問題">4. JSバックエンドでコンパイルする際に起きる問題</a>
+<ul class="sectlevel2">
+<li><a href="#_ライブラリをjsから利用したいが型が違うケース">4.1. ライブラリをJSから利用したいが型が違うケース</a></li>
+<li><a href="#_jsバックエンドからは利用できないモジュールやプロシージャが存在するケース">4.2. JSバックエンドからは利用できないモジュールやプロシージャが存在するケース</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 <div id="content">
-<div class="sect1">
-<h2 id="_単純に配列としてアクセスすることの問題">1. 単純に配列としてアクセスすることの問題</h2>
+<div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Nimで文字列に配列インデックスでアクセスすると1バイト配列としてアクセスすることに
-なる。これだと日本語などのマルチバイト文字では文字が化けてしまう。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-nim hljs" data-lang="nim">echo "abcde"
-echo "abcde"[0]
-echo "あいうえお"
-echo "あいうえお"[0]</code></pre>
-</div>
-</div>
-<div class="quoteblock">
-<blockquote>
-<div class="paragraph">
-<p>abcde<br>
-a<br>
-あいうえお<br>
-�</p>
-</div>
-</blockquote>
-</div>
-<div class="paragraph">
-<p>よって、このままマルチバイト文字を含む文字列でループを書くと文字化けしてしまう。</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-nim hljs" data-lang="nim">for c in "あいうえお":
-  echo c</code></pre>
-</div>
-</div>
-<div class="quoteblock">
-<blockquote>
-<div class="paragraph">
-<p>�<br>
-�<br>
-�<br>
-�<br>
-�<br>
-�<br>
-�<br>
-�<br>
-�<br>
-�<br>
-�<br>
-�<br>
-�<br>
-�<br>
-�</p>
-</div>
-</blockquote>
+<p>NimのコードをJavaScriptバックエンドとしてコンパイルして
+それをHTMLから利用する方法について記載。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_マルチバイト文字としてアクセスする方法">2. マルチバイト文字としてアクセスする方法</h2>
+<h2 id="_そもそもjavascriptバックエンドとは">1. そもそもJavaScriptバックエンドとは</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="https://nim-lang.org/docs/unicode.html">unicode</a>モジュールのプロシージャを使用す
-ることでこの問題を解消できる。この例だと <code>toRunes</code> というプロシージャが使える。
-前述の文字化けが発生する問題は以下のように書き直すことで解決できる。</p>
+<p>Nimで書いたコードをコンパイルするとき、何言語にコンパイルするのかを指定する。
+<code>nim c</code> だとC言語にトランスコンパイルし、 <code>nim cpp</code> C＋＋にトランスコンパイル
+する。同じ要領で <code>nim js</code> とするとJavaScriptにコンパイルする。
+JavaScriptバックエンドとは <code>nim js</code> でコンパイルすることをここでは指す。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_jsコンパイルする方法">2. JSコンパイルする方法</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>コンパイルするのは簡単で、あるプラグマを追加するだけである。
+Nimで別モジュールからプロシージャをインポートするときは <code>*</code> という指定が必要だっ
+たがJSコンパイルのときは不要。代わりにexportcプラグマが必要になる。</p>
+</div>
+<div class="paragraph">
+<p>以下にJSからアクセス可能なNimソースを用意した。</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nim hljs" data-lang="nim">import unicode
-
-echo "abcde".toRunes
-echo "abcde".toRunes[0]
-echo "あいうえお".toRunes
-echo "あいうえお".toRunes[0]
-# "あいうえお".toRunes[0] と同じ結果にするのに runeAt を使用してもよい
-echo "あいうえお".runeAt(0)</code></pre>
+<pre class="highlightjs highlight"><code class="language-nim hljs" data-lang="nim">proc add(a, b: cint): cint {.exportc.} =
+  return a + b</code></pre>
 </div>
-</div>
-<div class="quoteblock">
-<blockquote>
-<div class="paragraph">
-<p>abcde<br>
-a<br>
-あいうえお<br>
-あ<br>
-あ</p>
-</div>
-</blockquote>
 </div>
 <div class="paragraph">
-<p>前述のループ処理も <code>toRunes</code> を使用することで文字化けを防げる。
-以下のように修正する。</p>
+<p>何の変哲もない <code>add</code> プロシージャであるが、 <code>cint</code> と <code>{.exportc.}</code> は見慣れないかも
+しれない。</p>
+</div>
+<div class="paragraph">
+<p><code>cint</code> はNim以外の言語環境とのデータやり取りの際に使用する型である。C言語とやり
+取りするときにも c で始まる型でやり取りをする。JSのときも同様である。</p>
+</div>
+<div class="paragraph">
+<p><code>{.exportc.}</code> はNim以外の環境に公開する際に指定するプラグマである。この指定がな
+いとJSからはプロシージャを使用できない。</p>
+</div>
+<div class="paragraph">
+<p>これらの指定をした上で、以下のコマンドでNimコードをJSにコンパイルする。
+コンパイル対象のソースは <code>js/exportc.nim</code> であるものとする。</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nim hljs" data-lang="nim">import unicode
-
-for c in "あいうえお".toRunes:
-  echo c</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">nim js js/exportc.nim</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>これでjsディレクトリ配下にnimcacheというディレクトリが生成され、その配下に
+exportc.jsというファイルが生成される。
+出力先とファイル名を指定したい場合はオプションを指定する。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">nim js -o:static/js/exportc.js js/exportc.nim
+# ディレクトリが存在しなくても自動で作成してくれる</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_html側からコンパイルしたjsにアクセスする方法">3. HTML側からコンパイルしたJSにアクセスする方法</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>HTML側から普通にJavascriptの関数のように関数を呼べば良い。
+関数を呼ぶ場合は、当然だがscriptタグでJSを読み込んでおく必要がある。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-html hljs" data-lang="html">&lt;script src="static/js/exportc.js"&gt;&lt;/script&gt;
+
+&lt;script&gt;
+window.onload = function() {
+  console.log(add(1, 2)); // -&gt; 3
+}
+&lt;/script&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_jsバックエンドでコンパイルする際に起きる問題">4. JSバックエンドでコンパイルする際に起きる問題</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_ライブラリをjsから利用したいが型が違うケース">4.1. ライブラリをJSから利用したいが型が違うケース</h3>
+<div class="paragraph">
+<p><a href="https://github.com/jiro4989/gameoflife">ライフゲームのライブラリ</a>をNimで書いたり
+したときに直面したが、ライブラリを書いて、JSから利用したいけれど型が違うのをどう
+したらよいか。たとえば以下のようなケース。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nim hljs" data-lang="nim">proc add*(a, b: int): int =
+  return a + b</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>このようにライブラリ内では普通のNimの型で書いている場合。
+JSから利用しようとしても肩が違うとやりとりできない。しかしJS側にわざわざ合わせた
+型にもしたくない(cで始まる型(cintとかcstringとか)は普通にNimコード側から扱おうと
+するといちいち型を変換しないといけなくて面倒)。</p>
+</div>
+<div class="paragraph">
+<p>そういうときはライブラリとは完全に別ファイルに分けてしまって、モジュールをimport
+してプロシージャ呼び出しをラッピングシてしまえば良い。
+例えば以下のようにする。</p>
+</div>
+<div class="paragraph">
+<p>lib.nim</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nim hljs" data-lang="nim">proc add*(a, b: int): int =
+  return a + b</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>libjs.nim</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nim hljs" data-lang="nim">import lib
+
+proc add(a, b: cint): cint {.exportc.} =
+  return lib.add(a.int, b.int)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>こんな感じで、JSとのインタフェースになる箇所はcintなどの型で定義しておき、
+やり取りする際は型を変換して渡すようにする。
+前述の２つのソースを同じ階層に配置したうえで、以下のようにコンパイルする。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">nim js -o:js/libjs.js js/libjs.nim</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>これでNim/のソースと同階層にJSファイルがコンパイルされて出力された。
+コンパイルしたNimソースがモジュールに依存していても依存先モジュールも合わせてコ
+ンパイルしてJSソースに含めてくれるのでそのあたりは気にしなくて良い。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_jsバックエンドからは利用できないモジュールやプロシージャが存在するケース">4.2. JSバックエンドからは利用できないモジュールやプロシージャが存在するケース</h3>
+<div class="paragraph">
+<p>Nimのドキュメントには書かれていたりいなかったりするのだが、JSバックエンドからは
+利用できないプロシージャがあったりする。ソースコードを読むと分かるが、
+<code>when not defined(js):</code> というフロックで表現されている箇所はJSからは利用できない
+機能になる。利用とするとプロシージャ未定義でコンパイルに失敗する。</p>
+</div>
+<div class="paragraph">
+<p>できないものは特にos、loggingといったファイルIO周り、posixモジュール、streamsモジュ
+ールなど、他にも探しだしたらきりがない。
+ファイルIO周りがJSバックエンドで使用できないのはJavaScript自体のセキュリティ上の
+制約の都合上なので仕方ない。</p>
+</div>
+<div class="paragraph">
+<p>逆にstrutilsやsequtilsといったものは普通にJSバックエンドでも利用できる。</p>
+</div>
+<div class="paragraph">
+<p>利用できないモジュールを使用していたらどうなるか、以下のコードで検証した。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nim hljs" data-lang="nim">import os
+
+echo 1</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>このコードをコンパイルしてみる。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">nim js -o:js/ostest.js js/ostest.nim</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>と、以下のようなエラーが発生してコンパイルが失敗する。</p>
 </div>
 <div class="quoteblock">
 <blockquote>
-<div class="paragraph">
-<p>あ<br>
-い<br>
-う<br>
-え<br>
-お</p>
-</div>
+Error: OS module not ported to your operating system!
 </blockquote>
+</div>
+<div class="paragraph">
+<p>見ての通りosモジュールはimportだけでもNGのようだ。
+これもosモジュールのソースを読めば理由は分かる。
+<code>when</code> ブロックでバックエンドが対象外のときはエラーで落ちるように指定が入ってい
+る。</p>
+</div>
+<div class="paragraph">
+<p>ライブラリをimportしたいのに特定のモジュールをimportしていたり特定のプロシージャ
+を使おうとしてコンパイルができない、ということはJSバックエンドだとよくある。その
+ようなときは、JSバックエンド用に作成したソースでも <code>when</code> を使えばよい。</p>
+</div>
+<div class="paragraph">
+<p>前述のosモジュールをimportしていたソースコードを以下のように修正することでJSバッ
+クエンドでコンパイルできるようになる。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-nim hljs" data-lang="nim">when not defined(js):
+  import os
+
+echo 1</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>NimはPython風とよく聞くけれど、オフサイドルール（インデントでブロックを表現する
+）のを採用しているだけで、Pythonの皮をかぶったC言語というのは言い得て妙。ところ
+どころにC言語の <code>#ifdef</code> 地獄の片鱗が見えて恐ろしい。</p>
 </div>
 <hr>
 <div class="paragraph">
 <p><a href="./index.html">nim目次へ移動</a> /
 <a href="https://jiro4989.github.io/index.html">トップページへ移動</a> /
 <a href="https://jiro4989.github.io/home/tech/index.html">技術メモへ移動</a></p>
+</div>
 </div>
 </div>
 </div>
