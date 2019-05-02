@@ -1,0 +1,11 @@
+= home/tech
+
+下層へのリンク集です。 +
+
+== 各種リンク
+
+* サブカテゴリ
+** link:./shell/index.html[shell]
+** link:./nim/index.html[nim]
+** link:./sqlite/index.html[sqlite]
+* ページ

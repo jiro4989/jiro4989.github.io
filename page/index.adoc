@@ -1,0 +1,21 @@
+= 次ログ
+// 記事のタグ
+// 独自記法のためコメントで表現
+// :tag: [top, home]
+
+次郎 (Jiro)のホームページです。
+技術関連のメモを中心に残しています。
+
+== サイト情報
+
+* SNS
+** https://twitter.com/jiro_saburomaru[Twitter - @jiro_saburomaru] 思考を垂れ流している
+* 技術関連
+** link:./home/tech/index.html[技術カテゴリ] このサイトのメインコンテンツ
+** https://github.com/jiro4989[GitHub - jiro4989] 成果物は全部ここにある
+*** https://github.com/jiro4989/jiro4989.github.io/tree/master[jiro4989/jiro4989.github.io] このブログのソースコード
+** http://b.hatena.ne.jp/jiroron666/bookmark[はてなブックマーク] よかったと思った記事はここに登録している
+
+include::new-pages.txt[]
+
+include::categories.txt[]

@@ -1,0 +1,16 @@
+= jiro4989.github.io
+次郎 (Jiro)
+:toc: left
+:sectnums:
+
+次郎のホームページ。
+Asciidocで記述。
+
+Asciidocで生成されるHTMLのスキンを変更したいときは
+https://github.com/darshandsoni/asciidoctor-skins から探す。
+
+== HTMLの生成
+
+[source,bash]
+nimble build -d:release
+./mngtool

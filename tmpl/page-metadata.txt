@@ -1,0 +1,13 @@
+// 作者情報
+:author: 次郎 (jiro)
+:revdate: {docdate} {doctime}
+:homepage: https://jiro4989.github.io
+// ドキュメント情報
+:lang: ja
+:toc: left
+:toc-title: 目次
+:sectnums:
+:table-caption: 表
+:nofooter:
+// カラースキン
+:source-highlighter: highlightjs

@@ -1,0 +1,9 @@
+= home/tech/shell
+
+下層へのリンク集です。 +
+
+== 各種リンク
+
+* サブカテゴリ
+* ページ
+** link:./shellgei-studygroup-vol41.html[第41回 シェル芸勉強会振り返り]

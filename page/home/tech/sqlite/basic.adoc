@@ -1,0 +1,158 @@
+= SQLite3環境構築と基本的な使い方
+// 記事のタグ
+// 独自記法のためコメントで表現
+// :tag: [sqlite, database]
+
+Nimの https://nim-lang.github.io/Nim/db_sqlite.html[db_sqlite]というモジュールの
+ドキュメントを書くにあたって環境構築の必要がでたのでそのメモ。
+
+== SQLite3のインストール
+
+Ubuntu18.10環境へのインストール。
+普通にaptからインストールできる。
+
+[source,bash]
+% sudo apt install -y sqlite3
+% sqlite3 --version
+3.24.0 2018-06-04 19:24:41
+% which sqlite3
+/usr/bin/sqlite3
+
+== SQLiteの対話モードを起動する
+
+[source,bash]
+% sqlite3
+SQLite version 3.24.0 2018-06-04 19:24:41
+Enter ".help" for usage hints.
+Connected to a transient in-memory database.
+Use ".open FILENAME" to reopen on a persistent database.
+sqlite> 
+
+今までMySQLとOracleDBしか触ったことがなかった。
+SQL構文とは違う、DBMS自体の操作に関連する機能については、やはり他の言語と全然こ
+となる。初めて操作したときは `show tables` が存在しなくて困惑した。
+とりあえず最低限操作に必要なコマンドは下記の通り。
+
+.DBの状態を確認するコマンド
+[options="header"]
+|===================
+|コマンド|説明
+|.help|ヘルプメニューの表示
+|.databases|DB名を表示
+|.tables|テーブル一覧を表示
+|.exit|SQLite3を抜ける
+|===================
+
+== DBを作る
+
+sqlite3を起動するときに引数を渡すとそれがそのままDB名になる。
+
+[source,bash]
+% sqlite3 test.db
+
+このコマンドを実行した時、カレントディレクトリにtest.dbというファイルが生成され
+る。これがDBにのすべて。消したらDBが消えるし、移動もできる。コピーもできる。
+
+一度作成したDBを再度指定すると、そのDBをそのまま利用する。
+
+[source,bash]
+% sqlite3 test.db
+SQLite version 3.24.0 2018-06-04 19:24:41
+Enter ".help" for usage hints.
+sqlite> .databases
+main: /tmp/test.db
+
+== テーブルを作る
+
+テーブルを作るのは他のDBMSと同じようにSQL文を実行する。
+違いは、テーブル作成時にカラムの型を指定しなくてよいこと。
+
+[source,sqlite3]
+----
+sqlite> create table user(id, name);
+sqlite> .tables
+user
+sqlite> 
+----
+
+型をしない場合はどんなデータでも挿入できる。
+当然、型を指定をすることもできるし、普通なら型を指定するべきだろう。
+
+[source,sqlite3]
+sqlite> create table user(id integer, name varchar(50));
+sqlite> .table
+user
+sqlite> 
+
+== 外部ファイルをSQLiteインタプリタから読む
+
+以下のようなcreate.sqlというファイルを作ってみた。
+これをSQLiteインタプリタから読んで見る。
+
+[source,sample.sql]
+----
+include::./basic/create.sql[]
+----
+
+[source,sqlite3]
+----
+.read create.sql
+sqlite> .read create.sql
+sqlite> .tables
+hobby  user 
+sqlite> select * from user;
+1|taro
+2|ichiro
+3|hanako
+4|hiroshi
+sqlite> select * from hobby;
+1|1|baseball|
+2|1|pingpong|
+3|2|game|
+3|2|dart|
+4|3|cooking|
+5|3|dance|
+6|4|music|
+7|4|volunteer|
+sqlite> 
+----
+
+読み込めた。
+
+== SQLite外からSQLを読み込ませる
+
+以下のようにファイルを標準入力から渡してやれば良い。
+
+[source,select.sql]
+----
+include::./basic/select.sql[]
+----
+
+[source,bash]
+% sqlite3 test.db < select.sql 
+1|taro
+2|ichiro
+3|hanako
+4|hiroshi
+1|1|baseball|
+2|1|pingpong|
+3|2|game|
+3|2|dart|
+4|3|cooking|
+5|3|dance|
+6|4|music|
+7|4|volunteer|
+1|taro|baseball|
+1|taro|pingpong|
+2|ichiro|game|
+2|ichiro|dart|
+3|hanako|cooking|
+3|hanako|dance|
+4|hiroshi|music|
+4|hiroshi|volunteer|
+
+== 参考資料
+
+まぁここに書いてあることのほうがずっとずっと参考になる。
+
+* https://www.dbonline.jp/sqlite/
