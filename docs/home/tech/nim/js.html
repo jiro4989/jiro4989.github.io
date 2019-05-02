@@ -436,7 +436,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h1>NimでJavaScriptとして出力しHTMLから利用する</h1>
 <div class="details">
 <span id="author" class="author">次郎 (jiro)</span><br>
-<span id="revdate">2019-05-01 14:53:16 UTC</span>
+<span id="revdate">2019-05-02 00:26:07 UTC</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">目次</div>
@@ -486,7 +486,8 @@ Nimで別モジュールからプロシージャをインポートするとき�
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nim hljs" data-lang="nim">Unresolved directive in body.adoc - include::./js/exportc.nim[]</code></pre>
+<pre class="highlightjs highlight"><code class="language-nim hljs" data-lang="nim">proc add(a, b: cint): cint {.exportc.} =
+  return a + b</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -628,7 +629,9 @@ proc add(a, b: cint): cint {.exportc.} =
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nim hljs" data-lang="nim">Unresolved directive in body.adoc - include::./js/ostest.nim[]</code></pre>
+<pre class="highlightjs highlight"><code class="language-nim hljs" data-lang="nim">import os
+
+echo 1</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -664,7 +667,10 @@ Error: OS module not ported to your operating system!
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-nim hljs" data-lang="nim">Unresolved directive in body.adoc - include::./js/ostest2.nim[]</code></pre>
+<pre class="highlightjs highlight"><code class="language-nim hljs" data-lang="nim">when not defined(js):
+  import os
+
+echo 1</code></pre>
 </div>
 </div>
 <div class="paragraph">
