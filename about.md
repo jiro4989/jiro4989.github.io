@@ -5,10 +5,10 @@
 
 ## このサイトについて
 
-jiro4989 のブログです。
+次郎のブログです。
 技術ブログのつもりですけれど、趣味の話も書きます。
 
-## 管理人プロフィール
+## 次郎のプロフィール
 
 | 項目 | 内容 |
 | --- | --- |
@@ -17,6 +17,10 @@ jiro4989 のブログです。
 | 職業 | SRE, ソフトウェアエンジニア |
 | 趣味 | ゲーム (FPS, RPG)、漫画、ホラー映画・音楽鑑賞 |
 | 学歴 | 情報工学の大学の学部卒 |
+| GitHub | [jiro4989](https://github.com/jiro4989) |
+| Qiita | [jiro4989](https://qiita.com/jiro4989) |
+| X (Twitter) | [@jiro\_saburomaru](https://twitter.com/jiro_saburomaru) |
+| 運用してるサイト | [websh](https://websh.jiro4989.com/), [Ojosama web converter](https://ojosama.jiro4989.com/) |
 
 ## 職務経歴
 
