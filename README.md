@@ -1,6 +1,6 @@
 # jiro4989.github.io
 
-## About
+## はじめに
 
 * [このサイトについて](https://jiro4989.github.io/about)
   * プロフィール、職務経歴など
