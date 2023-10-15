@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 title: "ブログの変遷"
 date: 2023-10-15 20:22:00 +0900
 categories: blog
