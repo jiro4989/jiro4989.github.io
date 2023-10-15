@@ -1,3 +1,5 @@
+lang: ja-JP
+title: '<a href="https://jiro4989.github.io/" style="color:white">jiro4989.github.io</a>'
 remote_theme: pages-themes/slate@v0.2.0
 plugins:
   - jekyll-remote-theme
