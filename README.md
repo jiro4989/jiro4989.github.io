@@ -11,6 +11,6 @@
 ## 投稿記事
 
 * 技術系
-  * [ブログの変遷](/blog/2023/10/15/blog-changelog.html)
+  * 2023/10/15 [ブログの変遷](/blog/2023/10/15/blog-changelog.html)
 * 趣味
-  * [ホラー映画の感想](/blog/2023/10/15/movie.html)
+  * 2023/10/15 [ホラー映画の感想](/blog/2023/10/15/movie.html)
