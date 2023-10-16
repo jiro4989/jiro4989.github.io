@@ -20,10 +20,14 @@ UIやデザインについては公式が提供してるものをそのまま使
 | 職業 | SRE, ソフトウェアエンジニア |
 | 趣味 | ゲーム (FPS, RPG)、漫画、ホラー映画・音楽鑑賞 |
 | 学歴 | 情報工学の大学の学部卒 |
+| 性格 | [16 personalitiesの INFJ-T 提唱者](https://www.16personalities.com/ja/infj%E5%9E%8B%E3%81%AE%E6%80%A7%E6%A0%BC) 図1 |
 | GitHub | [jiro4989](https://github.com/jiro4989) |
 | Qiita | [jiro4989](https://qiita.com/jiro4989) |
 | X (Twitter) | [@jiro\_saburomaru](https://twitter.com/jiro_saburomaru) |
 | 運用してるサイト | [websh](https://websh.jiro4989.com/), [Ojosama web converter](https://ojosama.jiro4989.com/) |
+
+![16 personalitiesの結果 提唱者](https://i.gyazo.com/thumb_dpr/1000/433823b539d886bddcadc84f7a4076c8-png.png)
+図1 16 personalitiesの結果 提唱者
 
 ## 職務経歴
 
