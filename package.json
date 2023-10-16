@@ -1,0 +1,16 @@
+{
+  "name": "jiro4989.github.io",
+  "version": "1.0.0",
+  "description": "次郎の技術ブログ",
+  "main": "index.js",
+  "scripts": {
+    "lint": "textlint --preset ja-technical-writing *.md _posts/*.md"
+  },
+  "author": "jiro4989",
+  "license": "MIT",
+  "devDependencies": {
+    "textlint": "^12.2.2",
+    "textlint-filter-rule-whitelist": "^2.0.0",
+    "textlint-rule-preset-ja-technical-writing": "^7.0.0"
+  }
+}
