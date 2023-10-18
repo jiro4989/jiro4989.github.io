@@ -1,4 +1,4 @@
-# jiro4989.github.io
+# 次郎の貝塚
 
 * Table of contents
 {:toc}
