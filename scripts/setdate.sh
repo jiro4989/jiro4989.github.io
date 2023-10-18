@@ -2,6 +2,10 @@
 
 set -eu
 
+info() {
+  echo "[$(date +'%Y-%m-%d %H:%M:%S')] INFO $*"
+}
+
 if [[ $# -eq 0 ]] || [[ $1 =~ ^(-h|--help)$ ]]; then
   cat << EOS
 setdate.sh は _posts 配下の markdown の date パラメータを更新して、ファイル名の日付を更新するスクリプトである。
@@ -22,7 +26,7 @@ ymd="$(echo "$now" | awk '{print $1}')"
 dest_file="$(echo "$target_file" | sed -E "s/[0-9]{4}-[0-9]{2}-[0-9]{2}/$ymd/")"
 
 sed -Ei "/---/,/---/s/^date:.*/date: $now/" "$target_file"
-echo "Updated date of '$target_file'"
+info "Updated date of '$target_file'"
 
 mv "$target_file" "$dest_file"
-echo "[INFO] Moved '$target_file' to '$dest_file'"
+info "Moved '$target_file' to '$dest_file'"
