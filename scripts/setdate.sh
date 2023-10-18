@@ -30,3 +30,5 @@ info "Updated date of '$target_file'"
 
 mv "$target_file" "$dest_file"
 info "Moved '$target_file' to '$dest_file'"
+
+info "Script completed"
