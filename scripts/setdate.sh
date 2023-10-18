@@ -3,7 +3,7 @@
 set -eu
 
 info() {
-  echo "[$(date +'%Y-%m-%d %H:%M:%S')] INFO $*"
+  echo "[$(date +'%Y-%m-%d %H:%M:%S')] INFO | $*"
 }
 
 if [[ $# -eq 0 ]] || [[ $1 =~ ^(-h|--help)$ ]]; then
@@ -26,9 +26,9 @@ ymd="$(echo "$now" | awk '{print $1}')"
 dest_file="$(echo "$target_file" | sed -E "s/[0-9]{4}-[0-9]{2}-[0-9]{2}/$ymd/")"
 
 sed -Ei "/---/,/---/s/^date:.*/date: $now/" "$target_file"
-info "Updated date of '$target_file'"
+info "updated date of '$target_file'"
 
 mv "$target_file" "$dest_file"
-info "Moved '$target_file' to '$dest_file'"
+info "moved '$target_file' to '$dest_file'"
 
-info "Script completed"
+info "script completed"
