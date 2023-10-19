@@ -216,3 +216,21 @@ map メソッドを使うことで、配列の要素1つずつを加工して、
 ⟩ seq -s ' ' 10 | ruby -lane 'puts $F.map(&:to_i).sum'
 55
 ```
+
+### 数値の平均
+
+前述の数値の合計に対して、配列変数 `$F` の長さで割ってやれば平均が出せる。
+この時、左辺か右辺のどちらかを浮動小数点数 Float 型に変換しておく必要がある。
+整数型変数のメソッド `to_f` を使えば Float 型に変換できる。
+
+```bash
+⟩ seq -s ' ' 10 | ruby -lane 'puts $F.map{|s| s.to_i}.sum.to_f / $F.length'
+5.5
+```
+
+整数を整数で割ると、戻り値が整数になってしまう。
+
+```bash
+⟩ seq -s ' ' 10 | ruby -lane 'puts $F.map{|s| s.to_i}.sum / $F.length'
+5
+```
