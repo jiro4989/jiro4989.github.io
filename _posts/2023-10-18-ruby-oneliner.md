@@ -204,6 +204,9 @@ map メソッドを使うことで、配列の要素1つずつを加工して、
 これを利用して数値型に変換すれば、数値の合計を算出できる。
 
 ```bash
+⟩ seq -s ' ' 10
+1 2 3 4 5 6 7 8 9 10
+
 ⟩ seq -s ' ' 10 | ruby -lane 'puts $F.map{|s| s.to_i}.sum'
 55
 ```
@@ -214,6 +217,37 @@ map メソッドを使うことで、配列の要素1つずつを加工して、
 
 ```bash
 ⟩ seq -s ' ' 10 | ruby -lane 'puts $F.map(&:to_i).sum'
+55
+```
+
+`seq -s ' ' 10` は、1行に半角スペース区切りで数値を並べる。
+1行ずつ数値が渡されるケースに対応するなら、以下のように書く。
+awkと同様に、BEGIN、ENDブロックが使える。
+ただしセミコロンで区切る必要がある。
+
+```bash
+⟩ seq 10 | ruby -lane 'BEGIN{ a = [] }; a.append($_.to_i); END{ puts a.sum }'
+55
+```
+
+awkであれば、いきなり未初期化変数に対して代入ができる。
+Rubyだと、そういった雑なコードは書けない。
+かならず変数の初期化が必要である。
+
+```bash
+⟩ seq 10 | awk '{ a += $0 } END{ print a }'
+55
+
+# 変数 a は初期化してないのでエラーになる
+⟩ seq 10 | ruby -lane 'a.append($_.to_i); END{ puts a.sum }'
+-e:1:in `<main>': undefined local variable or method `a' for main:Object (NameError)
+```
+
+なお「変数が未定義の時だけ代入する」といった式も書ける。
+この書き方ならBEGINブロックを省略できる。
+
+```bash
+⟩ seq 10 | ruby -lane 'a ||= []; a.append($_.to_i); END{ puts a.sum }'
 55
 ```
 
@@ -234,3 +268,7 @@ map メソッドを使うことで、配列の要素1つずつを加工して、
 ⟩ seq -s ' ' 10 | ruby -lane 'puts $F.map{|s| s.to_i}.sum / $F.length'
 5
 ```
+
+## 参考
+
+* [Rubyで使われる記号の意味（正規表現の複雑な記号は除く） - Ruby 3.2 リファレンスマニュアル](https://docs.ruby-lang.org/ja/latest/doc/symref.html)
