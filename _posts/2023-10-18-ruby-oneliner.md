@@ -351,6 +351,14 @@ EOS
 2021-03-21T09:41:30Z hello9
 ```
 
+## 標準ライブラリ
+
+僕がワンライナーで扱うデータのうち、Rubyの標準ライブラリを使うことで簡単に処理できるのはCSV、JSONそして日付の3つだ。
+それ以外にも、Rubyは多数の標準ライブラリを備えている。
+
+[ライブラリ一覧](https://docs.ruby-lang.org/ja/latest/library/index.html)に、標準で使えるライブラリが載っている。
+ここのライブラリの名前だけでも覚えておけば、有事の際に役に立つだろう。
+
 ## 参考
 
 * [Rubyで使われる記号の意味（正規表現の複雑な記号は除く） - Ruby 3.2 リファレンスマニュアル](https://docs.ruby-lang.org/ja/latest/doc/symref.html)
