@@ -28,9 +28,13 @@ Lv150はプレイヤー層が一番多いレベル帯らしく、協力サイン
 
 ## 脳筋肉屋
 
+### ステータス
+
+[脳筋肉屋ビルド](https://8bitdesign.dev/ja/elden-ring/?name=%E8%84%B3%E7%AD%8B%E8%82%89%E5%B1%8B&classType=7&vigor=40&mind=25&endurance=20&strength=99&dexterity=20&intelligence=9&faith=8&arcane=8)
+
 ### 装備構成
 
-スクショ。
+![肉屋](https://github.com/jiro4989/jiro4989.github.io/assets/13825004/b822ca29-5c99-4fff-8a8f-0789a2891d04)
 
 武器。
 
@@ -63,8 +67,6 @@ Lv150はプレイヤー層が一番多いレベル帯らしく、協力サイン
 記憶。
 
 * 火の癒しよ
-
-[脳筋肉屋ビルド](https://8bitdesign.dev/ja/elden-ring/?name=%E8%84%B3%E7%AD%8B%E8%82%89%E5%B1%8B&classType=7&vigor=40&mind=25&endurance=20&strength=99&dexterity=20&intelligence=9&faith=8&arcane=8)
 
 ### 解説
 
@@ -104,9 +106,13 @@ Lv150はプレイヤー層が一番多いレベル帯らしく、協力サイン
 
 ## 忌み潰しのロロ
 
+### ステータス
+
+[忌み潰しのロロビルド](https://8bitdesign.dev/ja/elden-ring/?name=%E5%BF%8C%E3%81%BF%E6%BD%B0%E3%81%97%E3%81%AE%E3%83%AD%E3%83%AD&classType=1&vigor=40&mind=25&endurance=30&strength=80&dexterity=29&intelligence=9&faith=9&arcane=7)
+
 ### 装備構成
 
-スクショ。
+![ロロ](https://github.com/jiro4989/jiro4989.github.io/assets/13825004/dca5ac77-a1db-4390-b3f6-0074960bd2a5)
 
 武器。
 
@@ -135,8 +141,6 @@ Lv150はプレイヤー層が一番多いレベル帯らしく、協力サイン
 記憶。
 
 * 火の癒しよ
-
-[忌み潰しのロロビルド](https://8bitdesign.dev/ja/elden-ring/?name=%E5%BF%8C%E3%81%BF%E6%BD%B0%E3%81%97%E3%81%AE%E3%83%AD%E3%83%AD&classType=1&vigor=40&mind=25&endurance=30&strength=80&dexterity=29&intelligence=9&faith=9&arcane=7)
 
 ### 解説
 
@@ -186,9 +190,13 @@ Lv150はプレイヤー層が一番多いレベル帯らしく、協力サイン
 
 ## 死かき棒の魔術師
 
+### ステータス
+
+[死かき棒の魔術師ビルド](https://8bitdesign.dev/ja/elden-ring/?name=%E6%AD%BB%E3%81%8B%E3%81%8D%E6%A3%92%E9%AD%94%E8%A1%93%E5%B8%AB&classType=7&vigor=40&mind=25&endurance=20&strength=20&dexterity=65&intelligence=43&faith=8&arcane=8)
+
 ### 装備構成
 
-スクショ。
+![死かき棒](https://github.com/jiro4989/jiro4989.github.io/assets/13825004/cec54197-1f6e-4a9a-bbe4-a76bf1dc5e9b)
 
 武器。
 
@@ -222,8 +230,6 @@ Lv150はプレイヤー層が一番多いレベル帯らしく、協力サイン
 * 輝石のアーク
 * ローレッタの大弓
 * 火の癒しよ
-
-[死かき棒の魔術師ビルド](https://8bitdesign.dev/ja/elden-ring/?name=%E6%AD%BB%E3%81%8B%E3%81%8D%E6%A3%92%E9%AD%94%E8%A1%93%E5%B8%AB&classType=7&vigor=40&mind=25&endurance=20&strength=20&dexterity=65&intelligence=43&faith=8&arcane=8)
 
 ### 解説
 
@@ -272,9 +278,13 @@ Lv150で2つのステータスを特化させるにはレベル不足感もあ�
 
 ## 猟犬騎士
 
+### ステータス
+
+[猟犬騎士ビルド](https://8bitdesign.dev/ja/elden-ring/?name=%E7%8C%9F%E7%8A%AC%E9%A8%8E%E5%A3%AB&classType=7&vigor=40&mind=20&endurance=21&strength=37&dexterity=80&intelligence=9&faith=12&arcane=10)
+
 ### 装備構成
 
-スクショ。
+![猟犬騎士](https://github.com/jiro4989/jiro4989.github.io/assets/13825004/10a40d67-5beb-4a53-8bf4-6d2bffe9939e)
 
 武器。
 
@@ -303,8 +313,6 @@ Lv150で2つのステータスを特化させるにはレベル不足感もあ�
 
 * 火の癒しよ
 * 血炎の刃
-
-[猟犬騎士ビルド](https://8bitdesign.dev/ja/elden-ring/?name=%E7%8C%9F%E7%8A%AC%E9%A8%8E%E5%A3%AB&classType=7&vigor=40&mind=20&endurance=21&strength=37&dexterity=80&intelligence=9&faith=12&arcane=10)
 
 ### 解説
 
@@ -336,9 +344,13 @@ Lv150で2つのステータスを特化させるにはレベル不足感もあ�
 
 ## ヒーラー
 
+### ステータス
+
+[ヒーラービルド](https://8bitdesign.dev/ja/elden-ring/?name=%E3%83%92%E3%83%BC%E3%83%A9%E3%83%BC&classType=6&vigor=40&mind=46&endurance=13&strength=16&dexterity=12&intelligence=7&faith=85&arcane=10)
+
 ### 装備構成
 
-スクショ。
+![ヒーラー](https://github.com/jiro4989/jiro4989.github.io/assets/13825004/e20d42d2-859a-4f7e-9070-c1dcf2f081ee)
 
 武器。
 
@@ -376,8 +388,6 @@ Lv150で2つのステータスを特化させるにはレベル不足感もあ�
 * 黄金の怒り
 * 黄金樹の回復
 * 火の癒しよ
-
-[ヒーラービルド](https://8bitdesign.dev/ja/elden-ring/?name=%E3%83%92%E3%83%BC%E3%83%A9%E3%83%BC&classType=6&vigor=40&mind=46&endurance=13&strength=16&dexterity=12&intelligence=7&faith=85&arcane=10)
 
 ### 解説
 
