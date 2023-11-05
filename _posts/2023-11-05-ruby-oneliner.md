@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Rubyワンライナーの基本とユースケース"
-date: 2023-11-05 20:03:00 +0900
+date: 2023-11-05 20:47:25 +0900
 categories: tech
 ---
 
