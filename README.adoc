@@ -1,0 +1,39 @@
+= jiro4989.github.io
+:toc: left
+:sectnums:
+
+次郎の個人ブログです。
+名前は適当に「次郎の貝塚」にしました。
+
+以下の URL からアクセスできます。
+
+https://jiro4989.github.io/
+
+== 記事の作成フロー
+
+. `post/*` ブランチを作成する
+. `_posts` ディレクトリ配下に Markdown ファイルを追加する
+. 内容を書く
+. CI の lint がパスすることを確認する
+. `scripts/setdate.sh <path>` で当該記事の日付を更新する
+. `master` ブランチにマージする
+
+== 記述ルール
+
+. lint がパスすること
+. ですます調で書くこと
+
+== リポジトリの方針
+
+あんまり凝ったサイトにするモチベーションが無いので、
+なるべくデフォルトで提供されている theme をそのまま使う。
+
+プラグインで提供されているものは使うが、
+スクリプトを自前で作る必要があるならやらない。
+
+自前で CSS 書いたりして調整したりしない。
+
+== 参考資料
+
+* https://docs.github.com/ja/pages/setting-up-a-github-pages-site-with-jekyll/adding-content-to-your-github-pages-site-using-jekyll[Jekyll を使用して GitHub Pages サイトにコンテンツを追加する - GitHub Pages]
+* https://docs.github.com/ja/pages/getting-started-with-github-pages/creating-a-github-pages-site[GitHub Pages サイトを作成する - GitHub Docs]
