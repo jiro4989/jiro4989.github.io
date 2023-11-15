@@ -15,7 +15,8 @@ https://jiro4989.github.io/
 . `_posts` ディレクトリ配下に Markdown ファイルを追加する
 . 内容を書く
 . CI の lint がパスすることを確認する
-. `scripts/setdate.sh <path>` で当該記事の日付を更新する
+. `scripts/set_date.sh <path>` で当該記事の日付を更新する
+. `scripts/set_pagelink.sh` でリンクを index.md に埋め込む
 . `master` ブランチにマージする
 
 == 記述ルール
