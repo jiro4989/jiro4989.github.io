@@ -19,8 +19,3 @@
 * 2023/10/15 映画 [ホラー映画の感想](/movie/2023/10/15/movie.html)
 * 2023/10/15 雑記 [ブログの変遷](/daily/2023/10/15/blog-changelog.html)
 <!-- END_POSTS -->
-
-## その他
-
-* GitHub Pagesの書き方
-  * [Jekyll を使用して GitHub Pages サイトにコンテンツを追加する - GitHub Pages](https://docs.github.com/ja/pages/setting-up-a-github-pages-site-with-jekyll/adding-content-to-your-github-pages-site-using-jekyll)
