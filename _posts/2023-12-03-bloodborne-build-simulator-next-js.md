@@ -36,6 +36,7 @@ Bloodborne はエルデンリングと違ってステータスの振り直しが
 以下の URL で公開している。URL の通り GitHub Pages でホスティングしている。
 
 * <https://jiro4989.github.io/bloodborne-build-simulator/>
+* [ソースコード](https://github.com/jiro4989/bloodborne-build-simulator)
 
 ![Bloodborne ビルドシミュレータのトップページ](https://github.com/jiro4989/bloodborne-build-simulator/raw/main/docs/toppage.png)
 
@@ -278,7 +279,7 @@ Push the commit or tag
 もうすこし大規模なプロジェクトになれば、また違ってくるのだろうか？
 
 Tailwind CSS については、簡単に触った程度となってしまった。
-https://tailwindcss.com/docs/margin などのドキュメントを見ながら、
+<https://tailwindcss.com/docs/margin> などのドキュメントを見ながら、
 提供されているクラスを探して適用するだけで使えるので、CSSに疎い僕には便利だった。
 
 ただし、CSSクラスの当て方を雑にやってしまったので、ソースコードはかなり汚い。
