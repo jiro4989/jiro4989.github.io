@@ -14,6 +14,7 @@
 記事の内容での検索は[検索フォーム](https://github.com/search?q=repo%3Ajiro4989%2Fjiro4989.github.io+path%3A%2F%5E_posts%5C%2F%2F+&type=code)からどうぞ。
 
 <!-- START_POSTS -->
+* 2024/07/30 ゲーム [モンスターハンターライズ サンブレイクをクリアした](/game/2024/07/30/monster-hunter-rise.html)
 * 2024/07/05 技術 [setup-nim-action を v2 にバージョンアップした](/tech/2024/07/05/setup-nim-action-v2.html)
 * 2023/12/03 技術 [Bloodborne のビルドシミュレータを Next.js で作った](/tech/2023/12/03/bloodborne-build-simulator-next-js.html)
 * 2023/11/19 技術 [メモを書く環境](/tech/2023/11/19/memo-environment.html)
