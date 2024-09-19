@@ -12,7 +12,7 @@ https://jiro4989.github.io/
 == 記事の作成フロー
 
 . `master` ブランチで作業しても作業ブランチで作業してもいい
-. `_posts` ディレクトリ配下に Markdown ファイルを追加する
+. `scripts/new_post.sh` を実行して Markdown ファイルを追加する
 . 内容を書く
 . CI の lint がパスすることを確認する
 . `scripts/set_date.sh <path>` で当該記事の日付を更新する
