@@ -26,7 +26,7 @@
         if (catEn in categoriesMap) {
           cat = categoriesMap[catEn]
         }
-        p.textContent = `投稿日時 {{ page.date }} | カテゴリー:${cat}`
+        p.textContent = `投稿日時 {{ page.date }} | カテゴリー ${cat}`
         h.after(p)
       }
     </script>
