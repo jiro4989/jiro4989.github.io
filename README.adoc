@@ -11,18 +11,23 @@ https://jiro4989.github.io/
 
 == 記事の作成フロー
 
-. `post/*` ブランチを作成する
+. `master` ブランチで作業しても作業ブランチで作業してもいい
 . `_posts` ディレクトリ配下に Markdown ファイルを追加する
 . 内容を書く
 . CI の lint がパスすることを確認する
 . `scripts/set_date.sh <path>` で当該記事の日付を更新する
 . `scripts/set_pagelink.sh` でリンクを index.md に埋め込む
-. `master` ブランチにマージする
+. `gh-pages` ブランチにマージする
+.. `gh-pages` ブランチの更新時だけ反映される
 
 == 記述ルール
 
 . lint がパスすること
 . ですます調にはしない
+
+== ブランチ保護
+
+`master` と `gh-pages` ブランチは削除保護を設定している。
 
 == リポジトリの方針
 
