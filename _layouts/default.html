@@ -9,6 +9,16 @@
 
 {% seo %}
     {% include head-custom.html %}
+{% if page.id != "" %}
+    <script>
+      window.onload = function() {
+        const h = document.getElementByTagName("h1")[1]
+        const p = document.createElement("p")
+        p.textContent = "投稿日時:{{ page.date }}"
+        h.after(p)
+      }
+    </script>
+{% endif %}
   </head>
 
   <body>
