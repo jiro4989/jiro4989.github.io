@@ -12,9 +12,21 @@
 {% if page.date %}
     <script>
       window.onload = function() {
+        // 記事タイトルの次にメタ情報を後付する
         const h = document.getElementsByTagName("h1")[1]
         const p = document.createElement("p")
-        p.textContent = "投稿日時:{{ page.date }}"
+        const categoriesMap = {
+          "tech": "技術",
+          "movie": "映画",
+          "game": "ゲーム",
+          "daily": "雑記",
+        }
+        const catEn = "{{ page.categories[0] }}"
+        let cat = "その他"
+        if (catEn in categoriesMap) {
+          cat = categoriesMap[catEn]
+        }
+        p.textContent = `投稿日時:{{ page.date }}, カテゴリー:${cat}`
         h.after(p)
       }
     </script>
