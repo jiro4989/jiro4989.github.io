@@ -2,6 +2,12 @@
 
 set -eu
 
-find _posts -name '*.md' |
-  go run scripts/generate_markdown_links/main.go |
-  go run scripts/embed_links/main.go
+if ! command -v generate_markdown_links; then
+  (cd scripts/generate_markdown_links && go install)
+fi
+
+if ! command -v embed_links; then
+  (cd scripts/embed_links && go install)
+fi
+
+find _posts -name '*.md' | generate_markdown_links | embed_links
