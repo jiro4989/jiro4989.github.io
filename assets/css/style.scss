@@ -1,0 +1,15 @@
+---
+---
+@import "{{ site.theme  }}";
+
+/*
+
+Full-Width Styles
+
+*/
+.inner {
+  position: relative;
+  max-width: 60vw;
+  padding: 20px 10px;
+  margin: 0 auto;
+}
