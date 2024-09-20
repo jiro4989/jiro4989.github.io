@@ -58,6 +58,14 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
         {{ content }}
+
+{% if page.date %}
+<p>
+{% if page.previous %}<a href="{{ page.previous.url }}">前</a>{% else %}前{% endif %}
+|
+{% if page.next %}<a href="{{ page.next.url }}">次</a>{% else %}次{% endif %}
+</p>
+{% endif %}
       </section>
     </div>
 
