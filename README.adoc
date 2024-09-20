@@ -41,3 +41,5 @@ https://jiro4989.github.io/
 
 * https://docs.github.com/ja/pages/setting-up-a-github-pages-site-with-jekyll/adding-content-to-your-github-pages-site-using-jekyll[Jekyll を使用して GitHub Pages サイトにコンテンツを追加する - GitHub Pages]
 * https://docs.github.com/ja/pages/getting-started-with-github-pages/creating-a-github-pages-site[GitHub Pages サイトを作成する - GitHub Docs]
+* https://jekyllrb-ja.github.io/docs/variables/[変数 - Jekyll]
+* https://github.com/pages-themes/slate/tree/master[pages-themes/slate - GitHub]
