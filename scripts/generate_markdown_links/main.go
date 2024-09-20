@@ -76,7 +76,7 @@ func main() {
 {{- $fa := .FileAttrs -}}
 {{- range $year := .LoopKeys -}}
 {{- $attrs := index $fa $year -}}
-### {{ $year }} 年 ({{ $attrs | len }})
+### {{ $year }} 年
 
 {{ range $attr := $attrs -}}
 {{ $attr.ToMarkdown }}
