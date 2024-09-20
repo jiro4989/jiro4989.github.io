@@ -7,8 +7,6 @@ categories: daily
 
 # Twitter やめたけれど特に困っていない
 
-過去ブログの記事を移行してきたもの。
-
 イーロン・マスクが Twitter を買収して、Twitter の環境は変わった。
 
 一番僕に影響あったのは Tweetdeck を無料で使えなくなったこと。
