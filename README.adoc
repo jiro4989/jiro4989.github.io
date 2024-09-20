@@ -20,6 +20,12 @@
 . `gh-pages` ブランチにマージする
 .. `gh-pages` ブランチの更新時だけ反映される
 
+== 禁止事項
+
+Pull Request を使って記事を追加しないこと。
+
+Pull Request を使うと `force push` とかでコミットを消しても、Pull Request 上に記事の内容が残ってしまうため。
+
 == 記述ルール
 
 . lint がパスすること
