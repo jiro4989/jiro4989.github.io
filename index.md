@@ -30,6 +30,6 @@
 * 2023/11/05 技術 [Rubyワンライナーの基本とユースケース](/tech/2023/11/05/ruby-oneliner.html)
 * 2023/10/28 ゲーム [エルデンリングの自作Lv150ビルドと感想](/game/2023/10/28/eldenring-build.html)
 * 2023/10/15 映画 [ホラー映画の感想](/movie/2023/10/15/movie.html)
-* 2023/10/15 雑記 [ブログの変遷](/daily/2023/10/15/blog-changelog.html)
+* 2023/10/15 雑記 [ブログ移転しました](/daily/2023/10/15/blog-changelog.html)
 
 <!-- END_POSTS -->
