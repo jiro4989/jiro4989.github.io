@@ -24,6 +24,7 @@
 
 ### 2023 年
 
+* 2023/12/06 技術 [Node プロジェクトで、ビルドプロセスでのみ必要なパッケージを dependencies で管理するのは誤り](/tech/2023/12/06/node-dependencies-ci.html)
 * 2023/12/03 技術 [Bloodborne のビルドシミュレータを Next.js で作った](/tech/2023/12/03/bloodborne-build-simulator-next-js.html)
 * 2023/11/19 技術 [メモを書く環境](/tech/2023/11/19/memo-environment.html)
 * 2023/11/05 技術 [Rubyワンライナーの基本とユースケース](/tech/2023/11/05/ruby-oneliner.html)
