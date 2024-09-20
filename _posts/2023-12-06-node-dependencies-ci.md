@@ -56,7 +56,7 @@ TypeScript でコードを書いていても、それをそのまま本番環境
 
 * [【package.json】dependencies, devDependencies の使い分けを考える](https://qiita.com/karur4n/items/3d9d28f6f21c3533020d)
 * [/shokai/dependenciesにbabelを入れる](https://scrapbox.io/shokai/dependencies%E3%81%ABbabel%E3%82%92%E5%85%A5%E3%82%8C%E3%82%8B)
- []
+
 しかし、いずれも情報ソースが明記されていなかった。
 僕も同様の考えを持っていたが、同じく考えを裏付ける根拠を持っていなかった。
 
