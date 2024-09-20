@@ -14,7 +14,7 @@ https://jiro4989.github.io/
 . `master` ブランチで作業しても作業ブランチで作業してもいい
 . `scripts/new_post.sh` を実行して Markdown ファイルを追加する
 . 内容を書く
-. CI の lint がパスすることを確認する
+. `npm run lint` を実行してパスすることを確認する
 . `scripts/set_date.sh <path>` で当該記事の日付を更新する
 . `scripts/set_pagelink.sh` でリンクを index.md に埋め込む
 . `gh-pages` ブランチにマージする
