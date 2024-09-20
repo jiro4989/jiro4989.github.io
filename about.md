@@ -27,6 +27,7 @@ UIやデザインについては公式が提供してるものをそのまま使
 | 運用してるサイト | [websh](https://websh.jiro4989.com/), [Ojosama web converter](https://ojosama.jiro4989.com/) |
 
 ![16 personalitiesの結果 提唱者](https://i.gyazo.com/thumb_dpr/1000/433823b539d886bddcadc84f7a4076c8-png.png)
+
 図1 16 personalitiesの結果 提唱者。
 
 ## 職務経歴
