@@ -20,6 +20,7 @@
 * 2024/07/30 ゲーム [モンスターハンターライズ サンブレイクをクリアした](/game/2024/07/30/monster-hunter-rise.html)
 * 2024/07/05 技術 [setup-nim-action を v2 にバージョンアップした](/tech/2024/07/05/setup-nim-action-v2.html)
 * 2024/04/21 技術 [大量の IP が特定の CIDR に含まれているか調べるツールを作った](/tech/2024/04/21/check-ip-cidr.html)
+* 2024/01/06 雑記 [Twitter やめたけれど特に困っていない](/daily/2024/01/06/no-twitter.html)
 
 ### 2023 年
 
