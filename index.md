@@ -38,6 +38,10 @@
 * 2022/02/05 技術 [ドキドキ文芸部プラス！のシークレット 10 を取得するための VBScript を書いた](/tech/2022/02/05/dokidoki-literature-club-vbscript.html)
 * 2022/02/01 雑記 [親知らずの抜歯と抜歯後の経過](/daily/2022/02/01/oyashirazu.html)
 
+### 2021 年
+
+* 2021/12/14 技術 [色彩検定 2 級に合格した](/tech/2021/12/14/shikisai-kentei-2-kyu.html)
+
 ### 2020 年
 
 * 2020/07/14 技術 [rpm パッケージを作成する GitHub Actions を作った](/tech/2020/07/14/github-actions-rpm-package.html)
