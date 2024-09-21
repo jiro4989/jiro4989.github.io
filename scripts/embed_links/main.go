@@ -2,13 +2,17 @@ package main
 
 import (
 	"bufio"
+	"io"
 	"os"
 	"strings"
 )
 
 func main() {
 	file := "index.md"
-	postLinks := readStdin()
+	postLinks, err := readStdin(os.Stdin)
+	if err != nil {
+		panic(err)
+	}
 
 	contents, err := embedLinks(file, postLinks)
 	if err != nil {
@@ -21,17 +25,17 @@ func main() {
 }
 
 // readStdin は標準入力を文字列の配列として返す。
-func readStdin() []string {
+func readStdin(r io.Reader) ([]string, error) {
 	ret := make([]string, 0)
-	sc := bufio.NewScanner(os.Stdin)
+	sc := bufio.NewScanner(r)
 	for sc.Scan() {
 		line := strings.TrimSpace(sc.Text())
 		ret = append(ret, line)
 	}
 	if err := sc.Err(); err != nil {
-		panic(err)
+		return nil, err
 	}
-	return ret
+	return ret, nil
 }
 
 func embedLinks(path string, postLinks []string) ([]string, error) {

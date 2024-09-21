@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"io"
 	"os"
 	"path/filepath"
 	"sort"
@@ -35,7 +36,10 @@ type inventory struct {
 }
 
 func main() {
-	paths := readStdin()
+	paths, err := readStdin(os.Stdin)
+	if err != nil {
+		panic(err)
+	}
 
 	// ファイルを読み込んで属性を取得する
 	fas := make([]*fileAttr, 0)
@@ -93,18 +97,17 @@ func main() {
 }
 
 // readStdin は標準入力を文字列の配列として返す。
-func readStdin() []string {
+func readStdin(r io.Reader) ([]string, error) {
 	ret := make([]string, 0)
-	sc := bufio.NewScanner(os.Stdin)
+	sc := bufio.NewScanner(r)
 	for sc.Scan() {
-		line := sc.Text()
-		line = strings.TrimSpace(line)
+		line := strings.TrimSpace(sc.Text())
 		ret = append(ret, line)
 	}
 	if err := sc.Err(); err != nil {
-		panic(err)
+		return nil, err
 	}
-	return ret
+	return ret, nil
 }
 
 // readAttrLine は Jekyll の Front Matter から attr にマッチにマッチする行を取得して、属性名を削除して返却する。
