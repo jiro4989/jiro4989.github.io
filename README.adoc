@@ -20,10 +20,11 @@
 
 以下のコマンドを実行する。
 
-```bash
+[source,bash]
+----
 npm ci
 npm run lint
-```
+----
 
 == 記事の作成フロー
 
