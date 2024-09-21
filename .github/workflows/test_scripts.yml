@@ -1,12 +1,12 @@
 ---
 
-name: test
+name: test_scripts
 
 on:
   push:
-    paths-ignore:
-      - 'LICENSE'
-      - '*.md'
+    paths:
+      - 'scripts/**'
+      - '.github/**'
 
 jobs:
   test:
@@ -28,15 +28,3 @@ jobs:
         run: |
           cd scripts/${{ matrix.script-name }}
           go test -cover ./...
-
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '20'
-      - name: Install dependencies
-        run: npm ci
-      - name: Lint
-        run: npm run lint

@@ -1,0 +1,24 @@
+---
+
+name: test_posts
+
+on:
+  push:
+    paths:
+      - '**.md'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/**'
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+      - name: Install dependencies
+        run: npm ci
+      - name: Lint
+        run: npm run lint
