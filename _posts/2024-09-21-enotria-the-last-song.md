@@ -10,6 +10,9 @@ categories: game
 Enotria The Last Song クリアしたので感想を書く。
 20 時間で本編 1 周した。
 
+* Table of contents
+{:toc}
+
 ## どういうゲーム
 
 イタリアの伝承に基づいた世界を舞台にしたソウルライクゲーム。
