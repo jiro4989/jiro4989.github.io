@@ -181,7 +181,7 @@ func readFileAttr(path string) (*fileAttr, error) {
 //
 // text/template 内から関数呼び出しでアクセスするためパブリック関数として定義している。
 func (fa *fileAttr) ToMarkdown() string {
-	return fmt.Sprintf("* %s/%s/%s %s [%s](/%s/%s/%s/%s/%s.html)",
+	return fmt.Sprintf("* %s-%s-%s %s [%s](/%s/%s/%s/%s/%s.html)",
 		fa.year, fa.month, fa.day, categoriesMap[fa.category], fa.title, fa.category, fa.year, fa.month, fa.day, fa.fileName,
 	)
 }
