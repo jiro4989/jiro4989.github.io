@@ -1,12 +1,14 @@
 ---
 
-name: test
+name: test_posts
 
 on:
   push:
-    paths-ignore:
-      - 'LICENSE'
-      - '*.md'
+    paths:
+      - '**.md'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/**'
 
 jobs:
   lint:
