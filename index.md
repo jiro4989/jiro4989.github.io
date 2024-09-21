@@ -33,4 +33,8 @@
 * 2023/10/15 映画 [ホラー映画の感想](/movie/2023/10/15/movie.html)
 * 2023/10/15 雑記 [ブログ移転しました](/daily/2023/10/15/blog-changelog.html)
 
+### 2020 年
+
+* 2020/07/10 技術 [debian パッケージを作成する GitHub Actions を作った](/tech/2020/07/10/github-actions-debian-package.html)
+
 <!-- END_POSTS -->
