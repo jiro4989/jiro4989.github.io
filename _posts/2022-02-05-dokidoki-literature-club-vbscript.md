@@ -120,7 +120,7 @@ Ampu-Tea は正直に言うとクソゲーなので、500 回も遊ぶ価値は�
 
 当該スクリプトがリポジトリに残っていたので、これを参考に今回のスクリプトを作成した。
 
-* <https://github.com/jiro4989/sandbox/blob/a999bceb1979c5178747ff24a13143a91ecbd0a3/vbs/start_amptea.vbs>
+* [start_amptea.vbs](https://github.com/jiro4989/sandbox/blob/a999bceb1979c5178747ff24a13143a91ecbd0a3/vbs/start_amptea.vbs)
 
 このスクリプト単体だと、1 回ゲームを起動して終了しかしてない気がするので、この処理だけだと 500 回の実績を達成できないはず。
 たぶん PowerShell 側でループ実行して 500 回繰り返したんだと思う。
