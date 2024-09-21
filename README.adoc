@@ -23,7 +23,14 @@
 [source,bash]
 ----
 npm ci
-npm run lint
+./scripts/install_scripts.sh
+----
+
+Go 製のツールを改修した後は以下のコマンドを実行する。
+
+[source,bash]
+----
+./scripts/install_scripts.sh
 ----
 
 == 記事の作成フロー
