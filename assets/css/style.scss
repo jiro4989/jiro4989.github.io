@@ -5,6 +5,8 @@
 /* Theme Styles */
 body {
   font-size: 19px;
+  /* 長い URL とかでレイアウトが崩れるのを防ぐ */
+  word-break: break-all;
 }
 
 /* Full-Width Styles */
