@@ -9,6 +9,26 @@ on:
       - '*.md'
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        go-version:
+          - '1.22'
+          - '1.x'
+        script-name:
+          - 'embed_links'
+          - 'generate_markdown_links'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: ${{ matrix.go-version }}
+      - name: Unit test
+        run: |
+          cd scripts/${{ matrix.script-name }}
+          go test -cover ./...
+
   lint:
     runs-on: ubuntu-latest
     steps:
