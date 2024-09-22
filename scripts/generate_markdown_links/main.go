@@ -6,6 +6,7 @@ import (
 	"io"
 	"os"
 	"path/filepath"
+	"regexp"
 	"sort"
 	"strings"
 	"text/template"
@@ -76,22 +77,7 @@ func main() {
 		LoopKeys:  loopKeys,
 		FileAttrs: yearFa,
 	}
-	const tmpl = `
-{{- $fa := .FileAttrs -}}
-{{- range $year := .LoopKeys -}}
-{{- $attrs := index $fa $year -}}
-### {{ $year }} 年
-
-{{ range $attr := $attrs -}}
-{{ $attr.ToMarkdown }}
-{{ end }}
-{{ end -}}
-`
-	t, err := template.New("posts").Parse(tmpl)
-	if err != nil {
-		panic(err)
-	}
-	if err := t.Execute(os.Stdout, inv); err != nil {
+	if err := generateLinks(inv, os.Stdout); err != nil {
 		panic(err)
 	}
 }
@@ -134,7 +120,7 @@ func readAttrLine(path, attr string) (string, error) {
 		return strings.TrimSpace(line[len(attr):]), nil
 	}
 	if err := sc.Err(); err != nil {
-		panic(err)
+		return "", err
 	}
 	return "", fmt.Errorf("%s doesn't exist: file = %s", attr, path)
 }
@@ -152,11 +138,13 @@ func readFileAttr(path string) (*fileAttr, error) {
 		return nil, err
 	}
 	dateParts := strings.Split(dateLine, " ")
+
 	ymd := dateParts[0]
 	ymdParts := strings.Split(ymd, "-")
 	year := ymdParts[0]
 	month := ymdParts[1]
 	day := ymdParts[2]
+
 	hmd := dateParts[1]
 	tz := dateParts[2]
 	sortKey := fmt.Sprintf("%s %s %s", ymd, hmd, tz)
@@ -166,16 +154,23 @@ func readFileAttr(path string) (*fileAttr, error) {
 		return nil, err
 	}
 
+	// ファイル名先頭の日付部分を削除
+	re := regexp.MustCompile(`^[0-9]{4}-[0-9]{2}-[0-9]{2}-`)
+	base := re.ReplaceAllString(filepath.Base(path), "")
+
+	// 拡張子を削除
+	fileName := strings.TrimSuffix(base, ".md")
+
 	fa := fileAttr{
 		title:    title,
 		year:     year,
 		month:    month,
 		day:      day,
-		hmd:      ymd,
+		hmd:      hmd,
 		tz:       tz,
 		sortKey:  sortKey,
 		category: cat,
-		fileName: strings.TrimSuffix(filepath.Base(path)[11:], ".md"),
+		fileName: fileName,
 	}
 	return &fa, nil
 }
@@ -187,4 +182,27 @@ func (fa *fileAttr) ToMarkdown() string {
 	return fmt.Sprintf("* %s-%s-%s %s [%s](/%s/%s/%s/%s/%s.html)",
 		fa.year, fa.month, fa.day, categoriesMap[fa.category], fa.title, fa.category, fa.year, fa.month, fa.day, fa.fileName,
 	)
+}
+
+// generateLinks は見出しと箇条書きを生成する。
+func generateLinks(i inventory, w io.Writer) error {
+	const tmpl = `
+{{- $fa := .FileAttrs -}}
+{{- range $year := .LoopKeys -}}
+{{- $attrs := index $fa $year -}}
+### {{ $year }} 年
+
+{{ range $attr := $attrs -}}
+{{ $attr.ToMarkdown }}
+{{ end }}
+{{ end -}}
+`
+	t, err := template.New("posts").Parse(tmpl)
+	if err != nil {
+		return err
+	}
+	if err := t.Execute(w, i); err != nil {
+		return err
+	}
+	return nil
 }
