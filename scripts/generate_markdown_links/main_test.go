@@ -9,6 +9,48 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+func TestMainFunc(t *testing.T) {
+	tests := []struct {
+		desc    string
+		input   string
+		want    string
+		wantErr bool
+	}{
+		{
+			desc:  "正常系: 読み取れる",
+			input: "testdata/2022-02-03-sample1.md\ntestdata/2023-02-03-sample2.md",
+			want: `### 2023 年
+
+* 2023-02-03 技術 [Sample 2](/tech/2023/02/03/sample2.html)
+
+### 2022 年
+
+* 2022-02-03 技術 [Sample 1](/tech/2022/02/03/sample1.html)
+
+`,
+			wantErr: false,
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.desc, func(t *testing.T) {
+			a := assert.New(t)
+
+			r := strings.NewReader(tt.input)
+			w := &bytes.Buffer{}
+			err := Main(r, w)
+			if tt.wantErr {
+				a.Error(err)
+				return
+			}
+
+			got := w.String()
+			a.Equal(tt.want, got)
+			a.NoError(err)
+		})
+	}
+}
+
 func TestReadStdin(t *testing.T) {
 	tests := []struct {
 		desc    string

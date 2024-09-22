@@ -37,9 +37,15 @@ type inventory struct {
 }
 
 func main() {
-	paths, err := readStdin(os.Stdin)
-	if err != nil {
+	if err := Main(os.Stdin, os.Stdout); err != nil {
 		panic(err)
+	}
+}
+
+func Main(r io.Reader, w io.Writer) error {
+	paths, err := readStdin(r)
+	if err != nil {
+		return err
 	}
 
 	// ファイルを読み込んで属性を取得する
@@ -47,7 +53,7 @@ func main() {
 	for _, path := range paths {
 		fa, err := readFileAttr(path)
 		if err != nil {
-			panic(err)
+			return err
 		}
 		fas = append(fas, fa)
 	}
@@ -77,9 +83,11 @@ func main() {
 		LoopKeys:  loopKeys,
 		FileAttrs: yearFa,
 	}
-	if err := generateLinks(inv, os.Stdout); err != nil {
-		panic(err)
+	if err := generateLinks(inv, w); err != nil {
+		return err
 	}
+
+	return nil
 }
 
 // readStdin は標準入力を文字列の配列として返す。
