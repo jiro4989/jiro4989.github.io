@@ -68,7 +68,7 @@ categories: daily
    修飾キーと組み合わせて入力するのがどうしても最初慣れなかったんだけれど、慣れてくると結構早くなる。
    e-typing で Comet レベルまで戻った。
 
-![e-typing の結果](https://gyazo.com/dd184915cb085efe65a6ac6ccf9f12b1)
+![e-typing の結果](https://i.gyazo.com/dd184915cb085efe65a6ac6ccf9f12b1.png)
 
 ### 良くないところ
 
