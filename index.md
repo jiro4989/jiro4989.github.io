@@ -37,6 +37,7 @@
 
 ### 2022 年
 
+* 2022-10-20 雑記 [Kinesis Advantage 360 を買った](/daily/2022/10/20/kinesis-advantage-360.html)
 * 2022-08-06 技術 [AWS ソリューションアーキテクトアソシエイト試験に合格した](/tech/2022/08/06/aws-saa.html)
 * 2022-06-19 技術 [テキストを壱百満天原サロメお嬢様文体に変換するコマンドを書いた](/tech/2022/06/19/ojosama.html)
 * 2022-02-05 技術 [ドキドキ文芸部プラス！のシークレット 10 を取得するための VBScript を書いた](/tech/2022/02/05/dokidoki-literature-club-vbscript.html)
