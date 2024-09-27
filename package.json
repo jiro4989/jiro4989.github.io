@@ -9,7 +9,7 @@
   "author": "jiro4989",
   "license": "MIT",
   "devDependencies": {
-    "textlint": "^12.2.2",
+    "textlint": "^14.2.0",
     "textlint-filter-rule-whitelist": "^2.0.0",
     "textlint-rule-preset-ja-technical-writing": "^7.0.0"
   }
