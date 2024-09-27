@@ -52,4 +52,8 @@
 * 2020-07-14 技術 [rpm パッケージを作成する GitHub Actions を作った](/tech/2020/07/14/github-actions-rpm-package.html)
 * 2020-07-10 技術 [debian パッケージを作成する GitHub Actions を作った](/tech/2020/07/10/github-actions-debian-package.html)
 
+### 2019 年
+
+* 2019-04-01 雑記 [新卒入社してから 2 年勤めた SIer を退職した](/daily/2019/04/01/taishoku-entry-shinsotsu.html)
+
 <!-- END_POSTS -->
