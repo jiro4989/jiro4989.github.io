@@ -10,15 +10,28 @@ on:
       - 'package-lock.json'
       - '.github/**'
 
+env:
+  NODE_VERSION: 20
+
 jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v3
         with:
-          node-version: '20'
+          node-version: ${{ env.NODE_VERSION }}
+
+      - uses: actions/cache@v4
+        with:
+          path: 'node_modules'
+          key: ${{ runner.os }}-${{ env.NODE_VERSION }}-${{ hashFiles('package-lock.json') }}
+        id: cache
+
       - name: Install dependencies
         run: npm ci
+        if: steps.cache.outputs.cache-hit != 'true'
+
       - name: Lint
         run: npm run lint
