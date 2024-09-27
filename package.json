@@ -4,7 +4,7 @@
   "description": "次郎の技術ブログ",
   "main": "index.js",
   "scripts": {
-    "lint": "textlint --preset ja-technical-writing *.md _posts/*.md"
+    "lint": "textlint *.md _posts/*.md"
   },
   "author": "jiro4989",
   "license": "MIT",
