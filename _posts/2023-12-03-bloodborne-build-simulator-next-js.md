@@ -132,7 +132,7 @@ NEXT_PUBLIC_BASE_URL=http://localhost:1323
 ```
 
 これらがそのまま環境変数として使用可能になるが、
-クライアントサイドで使用する環境変数には `NEXT_PUBLIC_` というプレフィックスが必須である。
+クライアントサイドで使用する環境変数には `NEXT_PUBLIC_` というプレフィックスが必須です。
 
 参考: [Bundling Environment Variables for the Browser](https://nextjs.org/docs/pages/building-your-application/configuring/environment-variables#bundling-environment-variables-for-the-browser)
 
@@ -207,8 +207,8 @@ const nextConfig = {
 module.exports = nextConfig
 ```
 
-前述の `NEXT_PUBLIC_BASE_URL` と違って、 `ASSET_PREFIX` はサーバサイドで使う環境変数である。
-したがって `NEXT_PUBLIC_` プレフィックスは不要である。
+前述の `NEXT_PUBLIC_BASE_URL` と違って、 `ASSET_PREFIX` はサーバサイドで使う環境変数です。
+したがって `NEXT_PUBLIC_` プレフィックスは不要です。
 
 ### GitHub Pages へのデプロイで権限不足
 
