@@ -25,6 +25,7 @@
 <!-- START_POSTS -->
 ### 2024 年
 
+* 2024-09-29 技術 [本ブログを支える技術](/tech/2024/09/29/my-blog-tech.html)
 * 2024-09-21 ゲーム [Enotria The Last Song をクリアした感想](/game/2024/09/21/enotria-the-last-song.html)
 * 2024-07-30 ゲーム [モンスターハンターライズ サンブレイクをクリアした](/game/2024/07/30/monster-hunter-rise.html)
 * 2024-07-05 技術 [setup-nim-action を v2 にバージョンアップした](/tech/2024/07/05/setup-nim-action-v2.html)
