@@ -64,4 +64,8 @@
 
 * 2019-04-01 雑記 [新卒入社してから 2 年勤めた SIer を退職した](/daily/2019/04/01/taishoku-entry-shinsotsu.html)
 
+### 2018 年
+
+* 2018-12-29 雑記 [2018 年振り返り](/daily/2018/12/29/furikaeri-2018.html)
+
 <!-- END_POSTS -->
