@@ -57,6 +57,7 @@
 
 ### 2020 年
 
+* 2020-12-31 雑記 [2020 年振り返り](/daily/2020/12/31/furikaeri-2020.html)
 * 2020-07-14 技術 [rpm パッケージを作成する GitHub Actions を作った](/tech/2020/07/14/github-actions-rpm-package.html)
 * 2020-07-10 技術 [debian パッケージを作成する GitHub Actions を作った](/tech/2020/07/10/github-actions-debian-package.html)
 
