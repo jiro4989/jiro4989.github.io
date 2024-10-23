@@ -13,10 +13,11 @@ import (
 )
 
 var categoriesMap = map[string]string{
-	"tech":  "技術",
-	"movie": "映画",
-	"game":  "ゲーム",
-	"daily": "雑記",
+	"tech":   "技術",
+	"movie":  "映画",
+	"game":   "ゲーム",
+	"daily":  "雑記",
+	"illust": "イラスト",
 }
 
 type fileAttr struct {

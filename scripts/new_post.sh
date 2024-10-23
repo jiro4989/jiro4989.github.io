@@ -41,14 +41,14 @@ if ! [[ "$dt" =~ ^2[0-9]{3}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$ ]]; then
 fi
 
 if [[ "$category" = "" ]]; then
-  read -r -p "カテゴリーを入力してください(game, tech, daily, movie): " category
+  read -r -p "カテゴリーを入力してください(game, tech, daily, movie, illust): " category
 fi
 case $category in
-  game | tech | daily | movie)
+  game | tech | daily | movie | illust)
     # 正常系なのでなにもしない
     ;;
   *)
-    err "カテゴリーは game, tech, daily, movie のみ指定可能です: category = $category"
+    err "カテゴリーは game, tech, daily, movie, illust のみ指定可能です: category = $category"
     exit 1
     ;;
 esac
