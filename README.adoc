@@ -5,7 +5,7 @@
 次郎の個人ブログ。
 名前は適当に「次郎の貝塚」にした。
 
-[GitHub Pages](https://pages.github.com/) を使用して以下の URL で公開している。
+https://pages.github.com/[GitHub Pages]を使用して以下の URL で公開している。
 
 * https://jiro4989.github.io/
 
