@@ -48,8 +48,8 @@
 
 ### 2022 年
 
+* 2022-12-16 雑記 [2022 年振り返り](/daily/2022/12/16/furikaeri-2022.html)
 * 2022-10-20 雑記 [Kinesis Advantage 360 を買った](/daily/2022/10/20/kinesis-advantage-360.html)
-* 2022-10-16 雑記 [2022 年振り返り](/daily/2022/10/16/furikaeri-2022.html)
 * 2022-08-06 技術 [AWS ソリューションアーキテクトアソシエイト試験に合格した](/tech/2022/08/06/aws-saa.html)
 * 2022-07-19 イラスト [壱百満天原サロメお嬢様描いた](/illust/2022/07/19/illust-100mantenbara-salome.html)
 * 2022-06-28 イラスト [グリザイユ画法で絵を描いてみた](/illust/2022/06/28/illust-grisaille.html)
