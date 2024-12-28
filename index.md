@@ -26,6 +26,7 @@
 <!-- START_POSTS -->
 ### 2024 年
 
+* 2024-12-28 雑記 [2024年振り返り](/daily/2024/12/28/furikaeri-2024.html)
 * 2024-11-30 ゲーム [ドラゴンクエスト3リメイククリアした](/game/2024/11/30/dq3-remake.html)
 * 2024-09-29 技術 [本ブログを支える技術](/tech/2024/09/29/my-blog-tech.html)
 * 2024-09-21 ゲーム [Enotria The Last Song をクリアした感想](/game/2024/09/21/enotria-the-last-song.html)
