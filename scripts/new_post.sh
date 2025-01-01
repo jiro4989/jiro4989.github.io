@@ -32,8 +32,9 @@ if ! [[ "$filename" =~ ^[-a-z0-9]+$ ]]; then
   exit 1
 fi
 
+read -r -p "日付を入力してください。省略した場合は今日の日付が設定されます(yyyy-mm-dd): " dt
 if [[ "$dt" = "" ]]; then
-  read -r -p "日付を入力してください(yyyy-mm-dd): " dt
+  dt="$(date +%Y-%m-%d)"
 fi
 if ! [[ "$dt" =~ ^2[0-9]{3}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$ ]]; then
   err "日付は yyyy-mm-dd です: dt = $dt"
