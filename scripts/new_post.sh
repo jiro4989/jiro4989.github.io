@@ -54,7 +54,9 @@ case $category in
     ;;
 esac
 
-post_file="_posts/${dt}-${filename}.md"
+year="${dt:0:4}"
+mkdir -p "_posts/${year}"
+post_file="_posts/${year}/${dt}-${filename}.md"
 
 cat << EOS > "${post_file}"
 ---
