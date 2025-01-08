@@ -7,7 +7,6 @@ timezone: Asia/Tokyo
 plugins:
   - jekyll-remote-theme
   - jekyll-sitemap
-  - jekyll-last-modified-at
   - jekyll-feed
 
 defaults:
