@@ -26,6 +26,7 @@
 <!-- START_POSTS -->
 ### 2025 年
 
+* 2025-01-09 技術 [Google Search Console にサイトマップが登録されないけれど気にせず放置している](/tech/2025/01/09/search-console-sitemap.html)
 * 2025-01-01 技術 [Web アクセシビリティの視点で自分の Web アプリを見つめ直す](/tech/2025/01/01/wcag-my-app.html)
 
 ### 2024 年
