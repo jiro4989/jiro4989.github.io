@@ -8,3 +8,22 @@ plugins:
   - jekyll-remote-theme
   - jekyll-sitemap
   - jekyll-feed
+
+defaults:
+  -
+    scope:
+      path: "scripts/**/*"
+    values:
+      sitemap: false
+
+  -
+    scope:
+      path: "about.html"
+    values:
+      sitemap: false
+
+  -
+    scope:
+      path: "google*.html"
+    values:
+      sitemap: false
