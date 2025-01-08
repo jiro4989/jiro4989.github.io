@@ -7,18 +7,13 @@ timezone: Asia/Tokyo
 plugins:
   - jekyll-remote-theme
   - jekyll-sitemap
+  - jekyll-last-modified-at
   - jekyll-feed
 
 defaults:
   -
     scope:
       path: "scripts/**/*"
-    values:
-      sitemap: false
-
-  -
-    scope:
-      path: "about.html"
     values:
       sitemap: false
 
