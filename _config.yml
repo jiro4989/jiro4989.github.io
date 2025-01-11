@@ -2,7 +2,7 @@ lang: ja-JP
 title: '次郎の貝塚'
 description: '技術ブログのような何か'
 author: jiro4989
-remote_theme: pages-themes/slate@v0.2.0
+remote_theme: pages-themes/minimal@v0.2.0
 timezone: Asia/Tokyo
 plugins:
   - jekyll-remote-theme
