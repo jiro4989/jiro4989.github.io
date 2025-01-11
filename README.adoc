@@ -23,14 +23,6 @@ https://pages.github.com/[GitHub Pages]を使用して以下の URL で公開し
 [source,bash]
 ----
 npm ci
-./scripts/install_scripts.sh
-----
-
-Go 製のツールを改修した後は以下のコマンドを実行する。
-
-[source,bash]
-----
-./scripts/install_scripts.sh
 ----
 
 == 記事の作成フロー
@@ -40,7 +32,6 @@ Go 製のツールを改修した後は以下のコマンドを実行する。
 . 内容を書く
 . `npm run lint` を実行してパスすることを確認する
 . `scripts/set_date.sh <path>` で当該記事の日付を更新する
-. `scripts/set_pagelink.sh` でリンクを index.md に埋め込む
 . `gh-pages` ブランチにマージする
 .. `gh-pages` ブランチの更新時だけ反映される
 
