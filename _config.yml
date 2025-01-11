@@ -9,6 +9,10 @@ plugins:
   - jekyll-sitemap
   - jekyll-feed
 
+toc:
+  enabled: true
+  h_min: 2
+
 defaults:
   -
     scope:
