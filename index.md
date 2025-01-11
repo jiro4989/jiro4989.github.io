@@ -30,5 +30,5 @@
 
 ### {{ year }} 年
 {% endif %}{% assign before_year = post.date | date: "%Y" %}
-* {{ post.date | date: "%Y-%m-%d" }} {{ post.categories[0] }} [{{ post.title }}]({{ post.url }}){% endfor %}
+* {{ post.date | date: "%Y-%m-%d" }} {{ post.categoriesJP[0] }} [{{ post.title }}]({{ post.url }}){% endfor %}
 <!-- textlint-enable -->
