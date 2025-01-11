@@ -5,10 +5,10 @@
 <a href="/feed.xml" target="_blank">RSS</a>
 </p>
 
-{% include next-prev-link.html %}
-
 {% if page.date %}
 <p id="metadata">
 投稿日時 {{ page.date }} | カテゴリー {{ page.categoriesJP }}
 </p>
 {% endif %}
+
+{% include next-prev-link.html %}
