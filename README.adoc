@@ -69,5 +69,5 @@ Pull Request を使うと `force push` とかでコミットを消しても、Pu
 ** 利用上の制限をよく見る
 * https://jekyllrb-ja.github.io/docs/variables/[変数 - Jekyll]
 ** 組み込み変数を使って layout を調整したいときに見る
-* https://github.com/pages-themes/slate[pages-themes/slate - GitHub]
+* https://github.com/pages-themes/minimal[pages-themes/minimal - GitHub]
 ** SCSS の調整をするときに見る
