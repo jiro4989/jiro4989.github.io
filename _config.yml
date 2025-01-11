@@ -8,10 +8,6 @@ plugins:
   - jekyll-remote-theme
   - jekyll-sitemap
   - jekyll-feed
-  - jekyll-toc
-
-toc:
-  min_level: 2
 
 defaults:
   -
@@ -25,9 +21,3 @@ defaults:
       path: "google*.html"
     values:
       sitemap: false
-
-  -
-    scope:
-      path: ""
-    values:
-      toc: true
