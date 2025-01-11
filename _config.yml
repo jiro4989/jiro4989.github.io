@@ -9,6 +9,9 @@ plugins:
   - jekyll-sitemap
   - jekyll-feed
 
+kramdown:
+  toc_levels: 2..6
+
 defaults:
   -
     scope:
