@@ -1,0 +1,10 @@
+---
+---
+
+@import "jekyll-theme-minimal";
+
+a:hover, a:focus {
+  color:#069;
+  /* bold になったせいでテキストが動いてウザいので無効化 */
+  /* font-weight: bold; */
+}
