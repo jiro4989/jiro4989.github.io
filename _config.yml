@@ -8,6 +8,10 @@ plugins:
   - jekyll-remote-theme
   - jekyll-sitemap
   - jekyll-feed
+  - jekyll-toc
+
+toc:
+  min_level: 2
 
 defaults:
   -
