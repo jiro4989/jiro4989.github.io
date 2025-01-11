@@ -24,15 +24,14 @@
 1. イラスト: 絵に関連する話。描いた絵の話が主
 1. 雑記: 上記のいずれでもない話
 
+<!-- textlint-disable -->
 {% assign before_year = "" %}
 {% for post in site.posts %}
-{% assign year = post.date | date: "%Y" %}
-{% if year != before_year %}
-### {{ year }} 年
-
+{% assign year = post.date | date: "%Y" %}{% if year != before_year %}### {{ year }} 年
 {% endif %}{% assign before_year = post.date | date: "%Y" %}
 * {{ post.date | date: "%Y-%m-%d" }} {{ post.categories[0] }} [{{ post.title }}]({{ post.url }})
 {% endfor %}
+<!-- textlint-enable -->
 
 一旦句切れ目。
 
