@@ -52,6 +52,8 @@ ANSI エスケープシーケンスを解析して、それを色コードに変
 
 ### ojosama
 
+<https://github.com/jiro4989/ojosama>
+
 上の方に書いた ojosama web converter のロジック部分＋CLI ツール。
 壱百満天原サロメお嬢様が初登場した直後くらいに実装した。
 最初はこのライブラリ＋CLI だけ実装していたが、その後 Web アプリ版も実装して公開した。
