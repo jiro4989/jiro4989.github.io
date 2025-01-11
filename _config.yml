@@ -25,3 +25,9 @@ defaults:
       path: "google*.html"
     values:
       sitemap: false
+
+  -
+    scope:
+      path: ""
+    values:
+      toc: true
