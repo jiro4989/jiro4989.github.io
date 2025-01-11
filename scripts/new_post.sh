@@ -58,12 +58,22 @@ year="${dt:0:4}"
 mkdir -p "_posts/${year}"
 post_file="_posts/${year}/${dt}-${filename}.md"
 
+declare -A cat_map=(
+  ["tech"]="技術"
+  ["game"]="ゲーム"
+  ["movie"]="映画"
+  ["illust"]="イラスト"
+  ["daily"]="雑記"
+)
+category_jp=${cat_map[$category]}
+
 cat << EOS > "${post_file}"
 ---
 layout: default
 title: "${title}"
 date: ${dt} 09:00:00 +0900
 categories: ${category}
+categoriesJP: ${category_jp}
 ---
 
 # ${title}
