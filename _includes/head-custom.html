@@ -1,2 +1,26 @@
 <!-- RSS Feed -->
 <link rel="alternate" type="application/atom+xml" title="次郎の貝塚" href="/feed.xml">
+
+{% if page.date %}
+<script>
+window.onload = function() {
+  // 記事タイトルの次にメタ情報を後付する
+  const h = document.getElementById("metadata")
+  const p = document.createElement("p")
+  const categoriesMap = {
+    "tech": "技術",
+    "movie": "映画",
+    "game": "ゲーム",
+    "daily": "雑記",
+    "illust": "イラスト",
+  }
+  const catEn = "{{ page.categories[0] }}"
+  let cat = "その他"
+  if (catEn in categoriesMap) {
+    cat = categoriesMap[catEn]
+  }
+  p.textContent = `投稿日時 {{ page.date }} | カテゴリー ${cat}`
+  h.after(p)
+}
+</script>
+{% endif %}
