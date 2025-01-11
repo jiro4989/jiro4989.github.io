@@ -271,33 +271,7 @@ Go にしたのは僕が使い慣れているからというだけで、別に R
 ### テンプレートエンジン
 
 前述の Jekyll のテンプレートコードもそうだが、Go のツールでもテンプレート([text/template](https://pkg.go.dev/text/template))を使っている。
-以下のコードを書いた。
-
-```go
-func generateLinks(i inventory, w io.Writer) error {
-    const tmpl = `
-{{- $fa := .FileAttrs -}}
-{{- range $year := .LoopKeys -}}
-{{- $attrs := index $fa $year -}}
-### {{ $year }} 年
-
-{{ range $attr := $attrs -}}
-{{ $attr.ToMarkdown }}
-{{ end }}
-{{ end -}}
-`
-    t, err := template.New("posts").Parse(tmpl)
-    if err != nil {
-        return err
-    }
-    if err := t.Execute(w, i); err != nil {
-        return err
-    }
-    return nil
-}
-```
-
-これは Markdown の投稿記事リンクを生成する処理です。
+やっている処理は、Markdown の投稿記事リンクの生成。
 index.md の投稿記事セクションに埋め込む用途で使っている。
 以下のようなリンクを生成する。
 
