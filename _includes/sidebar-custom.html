@@ -5,10 +5,4 @@
 
 <p id="metadata"></p>
 
-{% if page.date %}
-<p>
-{% if page.previous %}<a href="{{ page.previous.url }}">前の記事 {{ page.previous.title }}</a>{% else %}前の記事{% endif %}
-|
-{% if page.next %}<a href="{{ page.next.url }}">次の記事 {{ page.next.title }}</a>{% else %}次の記事{% endif %}
-</p>
-{% endif %}
+{% include next-prev-link.html %}
