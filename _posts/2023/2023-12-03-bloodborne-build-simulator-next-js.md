@@ -3,6 +3,7 @@ layout: default
 title: "Bloodborne のビルドシミュレータを Next.js で作った"
 date: 2023-12-03 20:48:20 +0900
 categories: tech
+categoriesJP: 技術
 ---
 
 # Bloodborne のビルドシミュレータを Next.js で作った

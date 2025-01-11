@@ -3,6 +3,7 @@ layout: default
 title: "Google Search Console にサイトマップが登録されないけれど気にせず放置している"
 date: 2025-01-09 00:28:25 +0900
 categories: tech
+categoriesJP: 技術
 ---
 
 # Google Search Console にサイトマップが登録されないけれど気にせず放置している

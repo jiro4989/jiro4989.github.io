@@ -3,6 +3,7 @@ layout: default
 title: "winget でパッケージを管理する"
 date: 2024-01-12 09:00:00 +0900
 categories: tech
+categoriesJP: 技術
 ---
 
 # winget でパッケージを管理する

@@ -3,6 +3,7 @@ layout: default
 title: "Node プロジェクトで、ビルドプロセスでのみ必要なパッケージを dependencies で管理するのは誤り"
 date: 2023-12-06 09:00:00 +0900
 categories: tech
+categoriesJP: 技術
 ---
 
 # Node プロジェクトで、ビルドプロセスでのみ必要なパッケージを dependencies で管理するのは誤り

@@ -3,6 +3,7 @@ layout: default
 title: "Enotria The Last Song をクリアした感想"
 date: 2024-09-21 23:28:39 +0900
 categories: game
+categoriesJP: ゲーム
 ---
 
 # Enotria The Last Song をクリアした感想

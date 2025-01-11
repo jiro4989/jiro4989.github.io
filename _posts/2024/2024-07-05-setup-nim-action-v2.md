@@ -3,6 +3,7 @@ layout: default
 title: "setup-nim-action を v2 にバージョンアップした"
 date: 2024-07-05 09:00:00 +0900
 categories: tech
+categoriesJP: 技術
 ---
 
 # setup-nim-action を v2 にバージョンアップした

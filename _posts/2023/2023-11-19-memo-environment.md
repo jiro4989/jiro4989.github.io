@@ -3,6 +3,7 @@ layout: default
 title: "メモを書く環境"
 date: 2023-11-19 20:47:25 +0900
 categories: tech
+categoriesJP: 技術
 ---
 
 # メモを書く環境

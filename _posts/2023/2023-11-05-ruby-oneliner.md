@@ -3,6 +3,7 @@ layout: default
 title: "Rubyワンライナーの基本とユースケース"
 date: 2023-11-05 20:47:25 +0900
 categories: tech
+categoriesJP: 技術
 ---
 
 # Rubyワンライナーの基本とユースケース

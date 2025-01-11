@@ -3,6 +3,7 @@ layout: default
 title: "ドキドキ文芸部プラス！のシークレット 10 を取得するための VBScript を書いた"
 date: 2022-02-05 09:00:00 +0900
 categories: tech
+categoriesJP: 技術
 ---
 
 # ドキドキ文芸部プラス！のシークレット 10 を取得するための VBScript を書いた

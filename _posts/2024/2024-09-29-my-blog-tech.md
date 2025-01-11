@@ -3,6 +3,7 @@ layout: default
 title: "本ブログを支える技術"
 date: 2024-09-29 14:58:24 +0900
 categories: tech
+categoriesJP: 技術
 ---
 
 # 本ブログを支える技術

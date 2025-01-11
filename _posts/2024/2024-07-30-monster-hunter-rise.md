@@ -3,6 +3,7 @@ layout: default
 title: "モンスターハンターライズ サンブレイクをクリアした"
 date: 2024-07-30 09:00:00 +0900
 categories: game
+categoriesJP: ゲーム
 ---
 
 # モンスターハンターライズ サンブレイクをクリアした

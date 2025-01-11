@@ -3,6 +3,7 @@ layout: default
 title: "グリザイユ画法で絵を描いてみた"
 date: 2022-06-28 09:00:00 +0900
 categories: illust
+categoriesJP: イラスト
 ---
 
 # グリザイユ画法で絵を描いてみた

@@ -3,6 +3,7 @@ layout: default
 title: "ブログ移転しました"
 date: 2023-10-15 20:22:00 +0900
 categories: daily
+categoriesJP: 雑記
 ---
 
 # ブログ移転しました

@@ -3,6 +3,7 @@ layout: default
 title: "Twitter やめたけれど特に困っていない"
 date: 2024-01-06 09:00:00 +0900
 categories: daily
+categoriesJP: 雑記
 ---
 
 # Twitter やめたけれど特に困っていない

@@ -3,6 +3,7 @@ layout: default
 title: "親知らずの抜歯と抜歯後の経過"
 date: 2022-02-01 09:00:00 +0900
 categories: daily
+categoriesJP: 雑記
 ---
 
 # 親知らずの抜歯と抜歯後の経過

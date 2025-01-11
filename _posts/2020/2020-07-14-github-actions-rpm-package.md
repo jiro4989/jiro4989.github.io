@@ -3,6 +3,7 @@ layout: default
 title: "rpm パッケージを作成する GitHub Actions を作った"
 date: 2020-07-14 09:00:00 +0900
 categories: tech
+categoriesJP: 技術
 ---
 
 # rpm パッケージを作成する GitHub Actions を作った

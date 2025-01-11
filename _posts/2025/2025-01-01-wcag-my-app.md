@@ -3,6 +3,7 @@ layout: default
 title: "Web アクセシビリティの視点で自分の Web アプリを見つめ直す"
 date: 2025-01-01 21:43:41 +0900
 categories: tech
+categoriesJP: 技術
 ---
 
 # Web アクセシビリティの視点で自分の Web アプリを見つめ直す

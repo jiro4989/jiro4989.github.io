@@ -3,6 +3,7 @@ layout: default
 title: "新卒入社してから 2 年勤めた SIer を退職した"
 date: 2019-04-01 09:00:00 +0900
 categories: daily
+categoriesJP: 雑記
 ---
 
 # 新卒入社してから 2 年勤めた SIer を退職した

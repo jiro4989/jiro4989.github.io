@@ -3,6 +3,7 @@ layout: default
 title: "Kinesis Advantage 360 を買った"
 date: 2022-10-20 09:00:00 +0900
 categories: daily
+categoriesJP: 雑記
 ---
 
 # Kinesis Advantage 360 を買った

@@ -3,6 +3,7 @@ layout: default
 title: "debian パッケージを作成する GitHub Actions を作った"
 date: 2020-07-10 09:00:00 +0900
 categories: tech
+categoriesJP: 技術
 ---
 
 # debian パッケージを作成する GitHub Actions を作った

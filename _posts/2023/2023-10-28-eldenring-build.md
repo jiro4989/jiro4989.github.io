@@ -3,6 +3,7 @@ layout: default
 title: "エルデンリングの自作Lv150ビルドと感想"
 date: 2023-10-28 02:10:35 +0900
 categories: game
+categoriesJP: ゲーム
 ---
 
 # エルデンリングの自作Lv150ビルドと感想

@@ -3,6 +3,7 @@ layout: default
 title: "壱百満天原サロメお嬢様描いた"
 date: 2022-07-19 09:00:00 +0900
 categories: illust
+categoriesJP: イラスト
 ---
 
 # 壱百満天原サロメお嬢様描いた

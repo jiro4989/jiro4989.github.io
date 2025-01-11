@@ -3,6 +3,7 @@ layout: default
 title: "大量の IP が特定の CIDR に含まれているか調べるツールを作った"
 date: 2024-04-21 09:00:00 +0900
 categories: tech
+categoriesJP: 技術
 ---
 
 # 大量の IP が特定の CIDR に含まれているか調べるツールを作った
