@@ -3,6 +3,7 @@
 
 @import "{{ site.theme }}";
 
+/* フォントサイズだけ拡大 */
 body {
   background-color: #fff;
   padding:50px;
@@ -31,8 +32,11 @@ section {
   padding-bottom:50px;
 }
 
-/* 元の定義 */
+/* 元の定義をコピーしてきてフォントサイズだけ調整 */
 @media print, screen and (max-width: 960px) {
+  body {
+    font-size:14px;
+  }
 
   div.wrapper {
     width:auto;
@@ -70,6 +74,7 @@ section {
 @media print, screen and (max-width: 720px) {
   body {
     word-wrap:break-word;
+    font-size:14px;
   }
 
   header {
@@ -88,6 +93,7 @@ section {
 @media print, screen and (max-width: 480px) {
   body {
     padding:15px;
+    font-size:14px;
   }
 
   .downloads {
