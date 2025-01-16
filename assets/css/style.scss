@@ -1,10 +1,24 @@
 ---
 ---
 
-@import "jekyll-theme-minimal";
+@import "{{ site.theme }}";
 
 a:hover, a:focus {
   color:#069;
   /* bold になったせいでテキストが動いてウザいので無効化 */
   font-weight: normal;
+}
+
+.wrapper {
+  width:1200px;
+  // left side is 270
+  // 1200-270 = 930
+  // 30px free room
+  margin:0 auto;
+}
+
+section {
+  width:900px;
+  float:right;
+  padding-bottom:50px;
 }
