@@ -10,9 +10,6 @@
 このサイトの運営方針は [About](/about) に記載しています。
 次郎（管理人）のことは [Profile](/profile) に記載しています。
 
-PC から見たとき文字が小さく感じるかもしれませんが、
-ブラウザの拡大機能で 150 % くらいにするとちょうど良くなります。
-
 ## 投稿記事
 
 記事の内容での検索は[検索フォーム](https://github.com/search?q=repo%3Ajiro4989%2Fjiro4989.github.io+path%3A%2F%5E_posts%5C%2F%2F+&type=code)からどうぞ。
