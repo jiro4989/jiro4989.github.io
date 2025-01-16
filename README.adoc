@@ -33,6 +33,7 @@ npm ci
 . `scripts/set_date.sh <path>` で当該記事の日付を更新する
 . `gh-pages` ブランチにマージする
 .. `gh-pages` ブランチの更新時だけ反映される
+.. `master` ブランチで `scripts/push_ghpages.sh` を実行すると `gh-pages` に反映される
 
 tag と releases の作成タイミングは適当。
 ある程度変更がまとまったときに、変更内容をメモする用途でのみ使っている。
