@@ -8,18 +8,3 @@ a:hover, a:focus {
   /* bold になったせいでテキストが動いてウザいので無効化 */
   font-weight: normal;
 }
-
-/* フォントサイズを 16px に変更 */
-body {
-  font: 16px/1.5 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-/* フォントサイズ拡大に合わせて元のサイズから +100 px */
-section {
-  width:500px;
-}
-
-/* フォントサイズ拡大に合わせて元のサイズから +100 px */
-.wrapper {
-  width: 960px;
-}
