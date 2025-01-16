@@ -3,6 +3,11 @@
 
 @import "{{ site.theme }}";
 
+/* スクロールバーが表示されない画面で画面がずれるのを防ぐ */
+html {
+  scrollbar-gutter: stable;
+}
+
 /* フォントサイズだけ拡大 */
 body {
   background-color: #fff;
