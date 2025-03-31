@@ -12,7 +12,7 @@ Rise of the Ronin をクリアして、実績も全解除したのでレビュ�
 倒幕派としてストーリーを進めて、マップ回収率 95 % くらいで、70 時間ちょいでクリア。
 実績全解除の時点では 100 時間ほどだった。
 
-![Image](https://github.com/user-attachments/assets/469cf2fd-4bea-43ae-babd-99a266e066f6)
+![Image](https://github.com/user-attachments/assets/f286ab0f-0dc8-49bd-b680-938f73c8ca17)
 
 * Table of contents
 {:toc}
