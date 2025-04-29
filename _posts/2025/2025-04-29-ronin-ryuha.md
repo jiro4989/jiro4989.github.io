@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Rise of the Ronin の各流派の雑感"
-date: 2025-04-19 09:00:00 +0900
+date: 2025-04-29 20:07:50 +0900
 categories: game
 categoriesJP: ゲーム
 ---
