@@ -4,8 +4,8 @@
   "description": "次郎の技術ブログ",
   "main": "index.js",
   "scripts": {
-    "lint": "textlint *.md _posts/*/*.md",
-    "fix": "textlint --fix *.md _posts/*/*.md"
+    "lint": "textlint *.md others/*.md _posts/*/*.md",
+    "fix": "textlint --fix *.md others/*.md _posts/*/*.md"
   },
   "author": "jiro4989",
   "license": "MIT",
