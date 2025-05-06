@@ -1,11 +1,3 @@
----
-layout: default
-title: "ホラー映画の感想"
-date: 2023-10-15 22:57:00 +0900
-categories: movie
-categoriesJP: 映画
----
-
 # ホラー映画の感想
 
 ホラー映画が好きでNetflixとかで定期的にホラー映画を見る。
