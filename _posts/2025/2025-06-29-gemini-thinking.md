@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Gemini と思考実験"
-date: 2025-06-25 09:00:00 +0900
+date: 2025-06-29 17:16:57 +0900
 categories: daily
 categoriesJP: 雑記
 ---
