@@ -17,7 +17,7 @@ Fallout シリーズでプレイしたことがあるのは New Vegas, 76、そ�
 マルチメインのゲームが肌に合わなかったと記憶している。
 今回は New Vegas と 76 の間に発売された 4 をちゃんとエンディングまで到達できた。
 
-![V.A.T.S で攻撃する様子](https://github.com/user-attachments/assets/4f57bccc-10a2-41a8-8855-0543674d9f40)
+<img src="https://github.com/user-attachments/assets/4f57bccc-10a2-41a8-8855-0543674d9f40" alt="V.A.T.S で攻撃する様子" />
 
 * Table of contents
 {:toc}
@@ -265,7 +265,7 @@ DLC ヌカワールドをプレイしたいのだが、キャラクターのロ�
 
 インスティチュートは絶対に許さん。夫の仇だ。
 
-![ファーザーに銃を突きつける様子](https://github.com/user-attachments/assets/ac879230-f92a-40d2-86e4-a6abbf9446b7)
+<img src="https://github.com/user-attachments/assets/ac879230-f92a-40d2-86e4-a6abbf9446b7" alt="ファーザーに銃を突きつける様子" />
 
 B.O.S は今のところそんなに好きではないので、そもそもやらない可能性がある。
 自分の中でどういうロールプレイだと B.O.S に協力するのが自然な状態か見えていない。
