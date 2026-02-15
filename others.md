@@ -7,3 +7,4 @@
 ## リンク
 
 * [ホラー映画の感想](/others/review-horror-movie)
+* [ゲームの感想](/others/review-game)
