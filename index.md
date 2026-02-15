@@ -18,3 +18,4 @@
 
 * [ホラー映画](/others/horror-movie)
 * [ゲーム](/others/game)
+* [着物](/others/kimono)
