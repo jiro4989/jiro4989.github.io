@@ -5,7 +5,7 @@
 
 ## はじめに
 
-次郎が管理しているブログです。
+次郎が管理しているホームページです。
 
 このサイトの運営方針は [About](/about) に記載しています。
 次郎（管理人）のことは [Profile](/profile) に記載しています。
@@ -27,6 +27,8 @@
 {% for post in site.posts %}{% assign year = post.date | date: "%Y" %}{% if year != before_year %}
 
 ### {{ year }} 年
+
 {% endif %}{% assign before_year = post.date | date: "%Y" %}
+
 * {{ post.date | date: "%Y-%m-%d" }} {{ post.categoriesJP }} [{{ post.title }}]({{ post.url }}){% endfor %}
 <!-- textlint-enable -->
