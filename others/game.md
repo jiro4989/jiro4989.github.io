@@ -46,6 +46,10 @@ DLCもプレイ済み。
 
 DLCハルモニアとかクソじゃね？って思ってたけれど、今では深き夜深度5でも守護者でキャリーできるようになった。
 
+その他、深き夜の遺物周りは以下記事にまとめた。
+
+* [ELDEN RING NIGHTREIGN の深き夜ビルド](/others/game/eldenring_nightreign.html)
+
 ## DARK SOUL 3
 
 ELDEN RINGの前作。エルデンリングプレイ後に遊んだ。

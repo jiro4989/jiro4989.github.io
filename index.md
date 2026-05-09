@@ -18,4 +18,5 @@
 
 * [ホラー映画](/others/horror-movie)
 * [ゲーム](/others/game)
+  * [ELDEN RING NIGHTREIGN の深き夜ビルド](/others/game/eldenring_nightreign.html)
 * [着物](/others/kimono)
