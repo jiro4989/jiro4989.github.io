@@ -12,6 +12,9 @@ categoriesJP: 技術
 使ってみるとこれが結構快適で、もうしばらく使い続けると思います。
 ということで、Emacs の話をします。
 
+* Table of contents
+{:toc}
+
 ## なぜ今更 Emacs？
 
 僕はもう10年くらいは Vim を使いつづけています。
