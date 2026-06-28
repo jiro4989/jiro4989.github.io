@@ -20,3 +20,4 @@
 * [Milk outside a bag of milk outside a bag of milk](/others/game/milk_outside.html)
 * [Fallout 4](/others/game/fallout4.html)
 * [Skyrim](/others/game/skyrim.html)
+* [Loads of the Fallen](/others/game/loads_of_the_fallen.html)
