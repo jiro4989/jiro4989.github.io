@@ -21,3 +21,4 @@
 * [Fallout 4](/others/game/fallout4.html)
 * [Skyrim](/others/game/skyrim.html)
 * [Loads of the Fallen](/others/game/loads_of_the_fallen.html)
+* [Dead Space Remake](/others/game/dead_space.html)
