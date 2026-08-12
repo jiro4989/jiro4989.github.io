@@ -22,3 +22,4 @@
 * [Skyrim](/others/game/skyrim.html)
 * [Loads of the Fallen](/others/game/loads_of_the_fallen.html)
 * [Dead Space Remake](/others/game/dead_space.html)
+* [紅の砂漠](/others/game/crimson_desert.html)
