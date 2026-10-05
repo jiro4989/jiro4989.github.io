@@ -8,7 +8,8 @@
 
 * [ELDEN RING](/others/game/eldenring.html)
 * [ELDEN RING NIGHTREIGN](/others/game/eldenring_nightreign.html)
-* [DARK SOUL 3](/others/game/darksoul3.html)
+* [DARK SOULS 2](/others/game/darksouls2.html)
+* [DARK SOULS 3](/others/game/darksouls3.html)
 * [Bloodborne](/others/game/bloodborne.html)
 * [SEKIRO](/others/game/sekiro.html)
 * [仁王2](/others/game/nioh2.html)
