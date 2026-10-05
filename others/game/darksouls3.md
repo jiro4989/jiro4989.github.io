@@ -1,4 +1,4 @@
-# DARK SOUL 3
+# DARK SOULS 3
 
 ELDEN RINGの前作。エルデンリングプレイ後に遊んだ。
 実績全解除まではしていない。
