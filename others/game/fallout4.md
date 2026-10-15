@@ -21,6 +21,24 @@ MODのコンパニオンを含めるとヘザーも好き。
 
 ### V.A.T.S ピストル
 
+* Perk
+  * Perception
+    * Penetrator
+    * Concentrated Fire
+  * Intelligence
+    * Gun Nut
+  * Agility
+    * Gunslinger
+    * Ninja
+  * Luck
+    * Bloody Mess
+    * Mysterious Stranger
+    * Idiot Savant
+    * Better Criticals
+    * Critical Banker
+    * Grim Reaper's Sprint
+    * Four Leaf Clover
+
 本作の最強ビルド。
 Perception、Agility、Luck に極振りして V.A.T.S で撃ちまくる。
 攻撃を連続するほど命中率が上昇し、壁越しでも命中する。
@@ -39,6 +57,23 @@ Perception、Agility、Luck に極振りして V.A.T.S で撃ちまくる。
 
 ### V.A.T.S 近接
 
+* Perk
+  * Strength
+    * Big Leagues
+    * Blacksmith
+    * Rooted
+  * Agility
+    * Ninja
+    * Blitz
+  * Luck
+    * Bloody Mess
+    * Mysterious Stranger
+    * Idiot Savant
+    * Better Criticals
+    * Critical Banker
+    * Grim Reaper's Sprint
+    * Four Leaf Clover
+
 近接火力に特化した V.A.T.S ビルド。
 ダイアモンドシティで購入できるロックビルスラッガーのみをメイン武器とする。
 ロックビルスラッガーには伝説効果がついており、V.A.T.S 中の AP コストが減少する。
@@ -52,6 +87,22 @@ Rooted と Blitz の噛み合わせが良すぎる。
 ### 重火器 + 爆発
 
 ![テスラキャノン](/assets/img/fallout4/tesla_cannon.jpg)
+
+* Perk
+  * Strength
+    * Heavy Gunner
+    * Strong Back
+  * Perception
+    * Demolition Expert
+  * Intelligence
+    * Gun Nut
+    * Science
+    * Nuclear Physicist
+  * Agility
+    * Ninja
+    * Quick Hands
+  * Luck
+    * Bloody Mess
 
 重火器と爆発威力を上昇する Perk を取得してド派手に戦うビルド。
 使用する武器は 3 つ。
